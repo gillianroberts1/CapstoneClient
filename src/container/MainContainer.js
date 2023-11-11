@@ -93,7 +93,7 @@ const MainContainer = () => {
           }
         />
         <Route
-          path="/memberCard"
+          path="/members/:id"
           element={
             <ProtectedRoute>
               <MemberCard />

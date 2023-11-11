@@ -1,13 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Member = ({ user }) => {
   return (
     <div>
-      <Link to="/memberCard">
-        <p>{user.firstName}</p>
-      </Link>
-      <p>{user.lastName}</p>
+      <img src={user.photoURL} alt="user" height={30}/>
+      <p>{user.firstName}{" "}{user.lastName}</p>
+      <p></p>
     </div>
   );
 };
