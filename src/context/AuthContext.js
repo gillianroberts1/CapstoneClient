@@ -17,7 +17,8 @@ export const AuthContextProvider = ({ children }) => {
       console.log(user);
       request.get(`/api/users/uid/${user.uid}`)
         .then((user) => {
-          console.log(user);
+          setCurrentUser(user);
+          
         })
     });
 

@@ -10,10 +10,10 @@ const Home = () => {
 
   return (
     <div>
-      <p>Welcome to Wiggle Waggle Waddles {currentUser && currentUser.email}</p>
-      <button className='enter'>
+    <p>Welcome to Wiggle Waggle Waddles, {currentUser && `${currentUser.firstName} ${currentUser.lastName}`}</p>      
+    <button className='enter'>
         <Link to="/login">Get Started</Link>
-      </button>
+    </button>
       
     </div>
   )
