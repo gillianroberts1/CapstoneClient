@@ -1,26 +1,26 @@
 import React from "react";
 import Member from "./Member";
 import { Link } from "react-router-dom";
+import './css/MembersList.css'
 
 const MembersList = ({ users }) => {
   const usersNodes = users.map((user, id) => {
     return (
-      <>
-        <Link to={`/members/${user.id}`}>
-          <li key={id} className="members-list">
-            <Member user={user} />
-          </li>
-        </Link>
-      </>
+      
+      <Link
+        key={user.id}
+        to={{ pathname: `/members/${user.id}`, state: { user } }}
+      >
+          <Member user={user} />
+      </Link>
     );
   });
   return (
-    <div>
-      <h2>Members List</h2>
-      <ul>
+    <>
+    <div className="members-list-container">
         {usersNodes}
-      </ul>
-    </div>
+        </div>
+        </>
   );
 };
 

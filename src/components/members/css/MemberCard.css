@@ -1,0 +1,30 @@
+.member-card-container {
+  height: 95vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.member-card-wrapper {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 3%;
+  height: 60%;
+  width: 50%;
+}
+
+img{
+    height: 30%;
+}
+
+.name{
+    font-weight: bold;
+}
+button{
+    width: 30%;
+    margin: 2%;
+    padding: 2px;
+
+}

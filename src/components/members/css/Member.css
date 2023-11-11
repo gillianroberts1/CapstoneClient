@@ -1,0 +1,12 @@
+.member-wrapper{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    justify-items: center;
+    text-decoration: none;
+    border: 1px solid black;
+    padding: 10px;
+}
+img{
+    height: 80px;
+}
