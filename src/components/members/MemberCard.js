@@ -19,11 +19,11 @@ const MemberCard = ({ users }) => {
             {selectedUser.firstName} {selectedUser.lastName}
           </p>
           <div className="details">
-            {selectedUser.age}
+            Age: {selectedUser.age}
             <br />
-            {selectedUser.gender}
+            Gender: {selectedUser.gender}
             <br />
-            {selectedUser.area}
+            Area: {selectedUser.area}
             <br />
             Distance walked: {selectedUser.distance} miles
             <br />

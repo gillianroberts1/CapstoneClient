@@ -5,7 +5,7 @@ const Member = ({ user }) => {
   return (
       <div className="member-wrapper">
         <div>
-      <img src={user.photoURL} alt="user" height={20} />
+      <img src={user.photoURL} alt="user" className="member-image" />
       <p>
         {user.firstName} {user.lastName}
       </p>

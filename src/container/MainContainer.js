@@ -109,10 +109,10 @@ const MainContainer = () => {
           }
         />
         <Route
-          path="/groupCard"
+          path="/groups/:id"
           element={
             <ProtectedRoute>
-              <GroupCard />
+              <GroupCard groupWalkies={groupWalkies} users={users}/>
             </ProtectedRoute>
           }
         />
