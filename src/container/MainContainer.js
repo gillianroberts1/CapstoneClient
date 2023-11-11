@@ -14,6 +14,8 @@ import GroupList from "../components/groupWalkies/GroupList";
 import { AuthContext } from "../context/AuthContext";
 import DogForm from "../components/profile/dogs/DogForm";
 import DogDetail from "../components/profile/dogs/DogDetail";
+import UserDetail from "../components/profile/UserDetail";
+import DogCard from "../components/profile/dogs/DogCard";
 
 const MainContainer = () => {
   const [users, setUsers] = useState([]);
@@ -42,8 +44,6 @@ const MainContainer = () => {
     });
   }, []);
 
-
-
   const handlePost = (user) => {
     console.log("Posting user:", user); // Log the user data
     const request = new Request();
@@ -63,25 +63,42 @@ const MainContainer = () => {
   };
 
   return (
-    
     <BrowserRouter>
-      
       <Routes>
-
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register onCreate={handlePost} />} />
         <Route path="/login" element={<Login />} />
+
+        <Route
+          path="/members"
+          element={
+            <ProtectedRoute>
+              <MembersList users={users} />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/walkies" element={<WalkieForm />} />
+        <Route path="/memberCard" element={<MemberCard />} />
+        <Route path="/notifications" element={<Notification />} />
+        <Route path="/groupCard" element={<GroupCard />} />
+        <Route
+          path="/groups"
+          element={<GroupList groupWalkies={groupWalkies} users={users} />}
+        />
+        <Route path="/newDog" element={<DogForm />} />
+        <Route path="/dog/:id" element={<DogCard />} />
+        <Route path="/user" element={<UserDetail />} />
         
-        <Route path="/members" element={<ProtectedRoute><MembersList users={users} /></ProtectedRoute>} />
-        
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/walkies" element={<WalkieForm/>}/>
-        <Route path="/memberCard" element={<MemberCard/>}/>
-        <Route path="/notifications" element={<Notification/>}/>
-        <Route path="/groupCard" element={<GroupCard/>}/>
-        <Route path="/groups" element={<GroupList groupWalkies={groupWalkies} users={users}/>}/>
-        <Route path="/newDog" element={<DogForm/>}/>
-        <Route path="/dogs" element={<DogDetail/>}/>
+
         {/* <MembersList users={users}/> */}
       </Routes>
     </BrowserRouter>
