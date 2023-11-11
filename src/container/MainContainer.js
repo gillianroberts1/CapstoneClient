@@ -24,6 +24,13 @@ const MainContainer = () => {
   useEffect(() => {
     const request = new Request();
 
+    // if (currentUser) {
+    //   request.get(`/api/users/uid/${currentUser.uid}`)
+    //     .then((user) => {
+    //       console.log(user);
+    //     });
+    // }
+
     const userPromise = request.get("/api/users");
     const dogPromise = request.get("/api/dogs");
     const walkiesPromise = request.get("/api/walkies");
@@ -40,7 +47,12 @@ const MainContainer = () => {
       setWalkies(data[2]);
       setGroupWalkies(data[3]);
     });
+
+    
+    
   }, []);
+
+  
 
 
 
@@ -53,7 +65,6 @@ const MainContainer = () => {
   };
 
   const { currentUser } = useContext(AuthContext);
-
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
       return <Navigate to="/login" />;
@@ -65,15 +76,11 @@ const MainContainer = () => {
   return (
     
     <BrowserRouter>
-      
       <Routes>
-
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register onCreate={handlePost} />} />
         <Route path="/login" element={<Login />} />
-        
         <Route path="/members" element={<ProtectedRoute><MembersList users={users} /></ProtectedRoute>} />
-        
         <Route path="/profile" element={<Profile />} />
         <Route path="/walkies" element={<WalkieForm/>}/>
         <Route path="/memberCard" element={<MemberCard/>}/>

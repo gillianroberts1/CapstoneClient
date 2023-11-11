@@ -5,28 +5,15 @@ import { AuthContext } from '../context/AuthContext'
 
 
 const Home = () => {
-  const { user, setUser } = useContext(UserContext)
-  const { uid } = useContext(AuthContext)
 
-  useEffect(() => {
-    fetch(`http://localhost:8080/api/users/uid/${uid}`)
-      .then(response => response.json())
-      .then(data => setUser(data))
-      .catch(error => console.error('Error:', error));
-  }, [uid]);
-
-  const logout = () => {
-    setUser(null); // Clear the user context
-  }
+  const { currentUser } = useContext(AuthContext);
 
   return (
     <div>
-      <p>Welcome to Wiggle Waggle Waddles, {user ? user.firstName : 'User'}</p>
+      <p>Welcome to Wiggle Waggle Waddles {currentUser && currentUser.email}</p>
       <button className='enter'>
         <Link to="/login">Get Started</Link>
       </button>
-      {user && <button onClick={logout}>Logout</button>}
-
       
     </div>
   )
