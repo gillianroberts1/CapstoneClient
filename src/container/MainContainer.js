@@ -11,11 +11,12 @@ import WalkieForm from "../components/walkies/WalkieForm";
 import Notification from "../components/profile/Notification";
 import GroupCard from "../components/groupWalkies/GroupCard";
 import GroupList from "../components/groupWalkies/GroupList";
-import { AuthContext } from "../context/AuthContext";
 import DogForm from "../components/profile/dogs/DogForm";
 import DogDetail from "../components/profile/dogs/DogDetail";
 import UserDetail from "../components/profile/UserDetail";
 import DogCard from "../components/profile/dogs/DogCard";
+import WalkieTalkie from "../firebase/WalkieTalkie";
+import { AuthContext } from "../firebase/context/AuthContext";
 
 const MainContainer = () => {
   const [users, setUsers] = useState([]);
@@ -146,6 +147,14 @@ const MainContainer = () => {
           element={
             <ProtectedRoute>
               <DogDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/walkietalkie"
+          element={
+            <ProtectedRoute>
+              <WalkieTalkie />
             </ProtectedRoute>
           }
         />

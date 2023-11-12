@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import DogDetail from "./dogs/DogDetail";
 import UserDetail from "./UserDetail";
 import Request from "../../Helpers/Request";
-import { AuthContext } from "../../context/AuthContext";
 
 const Detail = ({ selectedOption }) => {
   //   const { currentUser } = useContext(AuthContext); currentUser.uid
