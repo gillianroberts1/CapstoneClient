@@ -14,6 +14,8 @@ import GroupList from "../components/groupWalkies/GroupList";
 import { AuthContext } from "../context/AuthContext";
 import DogForm from "../components/profile/dogs/DogForm";
 import DogDetail from "../components/profile/dogs/DogDetail";
+import UserDetail from "../components/profile/UserDetail";
+import DogCard from "../components/profile/dogs/DogCard";
 
 const MainContainer = () => {
   const [users, setUsers] = useState([]);
@@ -41,8 +43,6 @@ const MainContainer = () => {
       setGroupWalkies(data[3]);
     });
 
-    
-    
   }, []);
 
   const handlePost = (user) => {
@@ -68,7 +68,13 @@ const MainContainer = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register onCreate={handlePost} />} />
         <Route path="/login" element={<Login />} />
+
         
+      
+        <Route path="/dog/:id" element={<DogCard />} />
+       
+        
+
 
         <Route
           path="/members"

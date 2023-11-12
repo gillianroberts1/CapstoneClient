@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Dog = () => {
+const Dog = ({ dog }) => {
   return (
-    <div>Dog</div>
-  )
-}
+    <div>
+      <Link to={`/dog/${dog.id}`} state={{dog:dog}}>{dog.name}</Link>
+    </div>
+  );
+};
 
-export default Dog
+export default Dog;
