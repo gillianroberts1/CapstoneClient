@@ -1,42 +1,65 @@
 .home-container {
   display: flex;
   justify-content: center;
-  display: flex;
   align-items: center;
+  background: fixed;
+  background-color: rgb(205, 218, 205);
+  padding-top: 20px;
 }
 
 .home-wrapper {
   padding-top: 80px;
-padding-bottom: 40px;
+  padding-bottom: 20px;
   justify-content: center;
   display: flex;
   flex-direction: row;
   gap: 10px;
   align-items: center;
+  background-color: rgb(205, 218, 205);
 }
 
 .details {
   flex: 1;
   font-size: 40px;
   text-align: start !important;
+  color: green;
+  font-variant: small-caps;
 }
 
 .home-image {
   flex: 2 right;
 }
-
-.button{
-    text-align: center;
-
+.dogs {
+  background: transparent;
 }
 
-.enter{
-    height: 60px;
-    width:250px;
-    font-size: 30px;
-    border-radius: 30px;
+.button {
+  text-align: center;
+  background-color: rgb(205, 218, 205);
+  height: 100vh;
 }
-p{
-    text-decoration: none;
 
+.enter {
+  height: 60px;
+  width: 250px;
+  font-size: 30px;
+  border-radius: 30px;
+  background-color: white;
+  border: none;
+}
+.enter:hover {
+  background-color: green;
+  color: white;
+  border: 1px solid lightgrey;
+}
+.login {
+  color: green;
+  text-decoration: none;
+  font-variant: small-caps;
+}
+.login:hover {
+  color: white;
+}
+p {
+  text-decoration: none;
 }
