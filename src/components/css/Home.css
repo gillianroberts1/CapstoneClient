@@ -1,0 +1,42 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.home-wrapper {
+  padding-top: 80px;
+padding-bottom: 40px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+
+.details {
+  flex: 1;
+  font-size: 40px;
+  text-align: start !important;
+}
+
+.home-image {
+  flex: 2 right;
+}
+
+.button{
+    text-align: center;
+
+}
+
+.enter{
+    height: 60px;
+    width:250px;
+    font-size: 30px;
+    border-radius: 30px;
+}
+p{
+    text-decoration: none;
+
+}
