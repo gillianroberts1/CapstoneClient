@@ -6,8 +6,9 @@ import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 
 const Register = ( {onCreate} ) => {
-
   const [err, setErr] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const [stateUser, setStateUser] = useState({
     firstName: "",
     lastName: "",
@@ -21,8 +22,8 @@ const Register = ( {onCreate} ) => {
     setStateUser(copiedUser)
   };
 
-  const navigate = useNavigate();
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     
     const firstName = e.target[0].value;
@@ -39,14 +40,11 @@ const Register = ( {onCreate} ) => {
         uid: res.user.uid
       };
       
-      const storageRef = ref(storage, firstName, lastName);
-      const uploadTask = uploadBytesResumable(storageRef, file);
-      uploadTask.on(
-        (error) => {
-          setErr(true);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+      const date = new Date().getTime();
+      const storageRef = ref(storage, `${firstName + date}`);
+
+      await uploadBytesResumable(storageRef, file).then(() => {
+        getDownloadURL(storageRef).then(async (downloadURL) => {
             try {
               await updateProfile(res.user, {
                 firstName,
@@ -71,12 +69,14 @@ const Register = ( {onCreate} ) => {
             } catch (err) {
               console.log(err);
               setErr(true);
+              setLoading(false);
             }
           });
         }
       );
     } catch (err) {
       setErr(true);
+      setLoading(false);
     }
   };
   

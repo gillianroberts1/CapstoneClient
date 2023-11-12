@@ -40,6 +40,9 @@ const MainContainer = () => {
       setWalkies(data[2]);
       setGroupWalkies(data[3]);
     });
+
+    
+    
   }, []);
 
   const handlePost = (user) => {
@@ -51,7 +54,6 @@ const MainContainer = () => {
   };
 
   const { currentUser } = useContext(AuthContext);
-
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
       return <Navigate to="/login" />;
@@ -66,6 +68,7 @@ const MainContainer = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register onCreate={handlePost} />} />
         <Route path="/login" element={<Login />} />
+        
 
         <Route
           path="/members"
