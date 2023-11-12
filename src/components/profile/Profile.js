@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Dashboard from "./Dashboard";
 import Sidebar from "./Sidebar";
 import Detail from "./Detail";
-import Notification from "./Notification";
 import { Link } from "react-router-dom";
 import "./css/Profile.css";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
+
 
 const Profile = () => {
   const [selectedOption, setSelectedOption] = useState("user")
@@ -26,6 +28,7 @@ const Profile = () => {
           <Dashboard />
         </div>
       </div>
+      <button onClick={()=>signOut(auth)}>Logout</button>
     </>
   );
 };

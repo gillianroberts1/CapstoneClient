@@ -1,0 +1,20 @@
+.group-list-container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    justify-content: center;
+    padding: 50px 100px;
+    list-style: none;
+}
+
+h2{
+    margin: 4px;
+}
+
+.list{
+    text-decoration: none;
+}
+.group-link {
+    text-decoration: none;
+    color: black;
+  }

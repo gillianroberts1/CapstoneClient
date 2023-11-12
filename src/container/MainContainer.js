@@ -42,6 +42,7 @@ const MainContainer = () => {
       setWalkies(data[2]);
       setGroupWalkies(data[3]);
     });
+
   }, []);
 
   const handlePost = (user) => {
@@ -53,7 +54,6 @@ const MainContainer = () => {
   };
 
   const { currentUser } = useContext(AuthContext);
-
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
       return <Navigate to="/login" />;
@@ -68,6 +68,13 @@ const MainContainer = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register onCreate={handlePost} />} />
         <Route path="/login" element={<Login />} />
+
+        
+      
+        <Route path="/dog/:id" element={<DogCard />} />
+       
+        
+
 
         <Route
           path="/members"
@@ -86,19 +93,62 @@ const MainContainer = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/walkies" element={<WalkieForm />} />
-        <Route path="/memberCard" element={<MemberCard />} />
-        <Route path="/notifications" element={<Notification />} />
-        <Route path="/groupCard" element={<GroupCard />} />
+        <Route
+          path="/walkies"
+          element={
+            <ProtectedRoute>
+              <WalkieForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/members/:id"
+          element={
+            <ProtectedRoute>
+              <MemberCard users={users}/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/notifications"
+          element={
+            <ProtectedRoute>
+              <Notification />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/groups/:id"
+          element={
+            <ProtectedRoute>
+              <GroupCard groupWalkies={groupWalkies} users={users}/>
+            </ProtectedRoute>
+          }
+        />
         <Route
           path="/groups"
-          element={<GroupList groupWalkies={groupWalkies} users={users} />}
+          element={
+            <ProtectedRoute>
+              <GroupList groupWalkies={groupWalkies} users={users} />
+            </ProtectedRoute>
+          }
         />
-        <Route path="/newDog" element={<DogForm />} />
-        <Route path="/dog/:id" element={<DogCard />} />
-        <Route path="/user" element={<UserDetail />} />
-        
-
+        <Route
+          path="/newDog"
+          element={
+            <ProtectedRoute>
+              <DogForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dogs"
+          element={
+            <ProtectedRoute>
+              <DogDetail />
+            </ProtectedRoute>
+          }
+        />
         {/* <MembersList users={users}/> */}
       </Routes>
     </BrowserRouter>
