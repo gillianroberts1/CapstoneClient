@@ -1,5 +1,4 @@
 
-import { Navigate } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import MainContainer from './container/MainContainer';
 import './style.scss'

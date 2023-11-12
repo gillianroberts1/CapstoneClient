@@ -1,13 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import './css/Member.css'
 
 const Member = ({ user }) => {
   return (
-    <div>
-      <Link to="/memberCard">
-        <p>{user.firstName}</p>
-      </Link>
-      <p>{user.lastName}</p>
+      <div className="member-wrapper">
+        <div>
+      <img src={user.photoURL} alt="user" className="member-image" />
+      <p>
+        {user.firstName} {user.lastName}
+      </p>
+    </div>
     </div>
   );
 };
