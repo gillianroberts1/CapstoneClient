@@ -6,10 +6,8 @@ import UserContext from "../context/UserContext";
 
 const Login = () => {
   const [err, setErr] = useState(false);
-  // const [uid, setUid] = useState(null); // New state for uid
   const navigate = useNavigate();
 
-  const { setUser } = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,15 +15,9 @@ const Login = () => {
     const password = e.target[1].value;
 
     try {
-      // await signInWithEmailAndPassword(auth, email, password);
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-
-      fetch(`http://localhost:8080/api/users/uid/${user.uid}`)
-        .then(response => response.json())
-        .then(data => {
-          setUser(data); // Set the user data in the UserContext
-      })
+      
       navigate("/")
     } catch (err) {
       setErr(true);

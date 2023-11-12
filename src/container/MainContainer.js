@@ -24,13 +24,6 @@ const MainContainer = () => {
   useEffect(() => {
     const request = new Request();
 
-    // if (currentUser) {
-    //   request.get(`/api/users/uid/${currentUser.uid}`)
-    //     .then((user) => {
-    //       console.log(user);
-    //     });
-    // }
-
     const userPromise = request.get("/api/users");
     const dogPromise = request.get("/api/dogs");
     const walkiesPromise = request.get("/api/walkies");
