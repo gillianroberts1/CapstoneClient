@@ -1,0 +1,33 @@
+.group-card-container {
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .group-card-wrapper {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 3%;
+    height: 40%;
+    width: 60%;
+  }
+
+  .group-card-details{
+    flex: 1;
+    width: 80%;
+  }
+
+  .attendees{
+    flex: 2 right; 
+    width: 20%;
+    text-align: start !important;
+    overflow: scroll;
+  }
+
+  button{
+    width: 80%;
+    margin-bottom: 10px;
+  }
