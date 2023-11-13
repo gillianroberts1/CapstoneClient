@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./css/GroupCard.css";
+import { AuthContext } from "../../firebase/context/AuthContext";
 
-const GroupCard = ({ groupWalkies }) => {
+const GroupCard = ({ groupWalkies, onAddUser, onRemoveUser }) => {
   const { id } = useParams();
-  const selectedWalk = groupWalkies.find(
-    (groupWalkie) => groupWalkie.id === parseInt(id)
-  );
+  const selectedWalk = groupWalkies.find((groupWalkie) => groupWalkie.id === parseInt(id));
+  const { currentUser } = useContext(AuthContext);
+  const isCurrentUserInGroup = selectedWalk && selectedWalk.users.some(user => user.id === currentUser.id);
+
+  const addCurrentUser = async () => {
+    onAddUser(selectedWalk.id, currentUser.id);
+  };
+
+  const removeCurrentUser = async () => {
+    onRemoveUser(selectedWalk.id, currentUser.id)
+  };
 
   if (!selectedWalk) {
     return <div>Walk not found</div>;
@@ -30,7 +39,11 @@ const GroupCard = ({ groupWalkies }) => {
         </div>
 
         <div className="attendees">
-          <button>Join</button>
+        {isCurrentUserInGroup ? (
+          <button onClick={removeCurrentUser}>Withdraw</button>
+        ) : (
+          <button onClick={addCurrentUser}>Join</button>
+          )}
           {selectedWalk.users.map((user) => (
             <li className="users" key={user.id}>
               <Link to={`/members/${user.id}`}>

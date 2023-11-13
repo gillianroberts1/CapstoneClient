@@ -61,11 +61,44 @@ const MainContainer = () => {
     });
   };
 
+  const handleDelete = (id) => {
+    const request = new Request();
+    request.delete(`/api/notifications/${id}`).then(() => {
+      window.location = '/notifications'
+    });
+  }
+
   const handleAddDog = (dog) => {
     console.log("Updating Dogs:", dog);
     const request = new Request();
     request.post("/api/dogs", dog).then(() => {});
   };
+
+  const handleAddUserToGroupWalkie = (walkieId, userId) => {
+    const request = new Request();
+    request.post(`/api/groupwalkies/${walkieId}/users/${userId}`, {})
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          window.location.reload();
+        } else {
+          console.log("User has not been added due to an error");
+        }
+      });
+  };
+
+  const handleRemoveUserFromGroupWalkie = (walkieId, userId) => {
+    const request = new Request();
+    request.delete(`/api/groupwalkies/${walkieId}/users/${userId}`, {})
+      .then(response => response.json())
+      .then(data => {
+        if (data) {
+          window.location.reload()
+        } else{
+          console.log("User has not been removed due to an error");
+        }
+      })
+  }
 
   const { currentUser } = useContext(AuthContext);
   const ProtectedRoute = ({ children }) => {
@@ -103,7 +136,7 @@ const MainContainer = () => {
           }
         />
         <Route
-          path="/walkies"
+          path="members/:id/walkiesForm"
           element={
             <ProtectedRoute>
               <WalkieForm />
@@ -122,20 +155,20 @@ const MainContainer = () => {
           path="/notifications"
           element={
             <ProtectedRoute>
-              <Notification />
+              <Notification onDelete={handleDelete}/>
             </ProtectedRoute>
           }
         />
         <Route
-          path="/groups/:id"
+          path="/groupwalkies/:id"
           element={
             <ProtectedRoute>
-              <GroupCard groupWalkies={groupWalkies} users={users} />
+              <GroupCard groupWalkies={groupWalkies} onAddUser={handleAddUserToGroupWalkie} onRemoveUser={handleRemoveUserFromGroupWalkie}/>
             </ProtectedRoute>
           }
         />
         <Route
-          path="/groups"
+          path="/groupwalkies"
           element={
             <ProtectedRoute>
               <GroupList groupWalkies={groupWalkies} users={users} />

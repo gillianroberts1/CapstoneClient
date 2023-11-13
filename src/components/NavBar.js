@@ -11,9 +11,7 @@ function NavBar() {
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/members">Members</Nav.Link>
-            <Nav.Link href="/walkies">Walkies</Nav.Link>
-
-            <Nav.Link href="/groups">Group Walks</Nav.Link>
+            <Nav.Link href="/groupwalkies">Group Walks</Nav.Link>
             <Nav.Link href="/profile">Profile</Nav.Link>
             <Nav.Link href="/walkietalkie">Walkie Talkie</Nav.Link>
 
