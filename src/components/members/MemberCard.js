@@ -22,7 +22,7 @@ const MemberCard = ({ users }) => {
           <p className="name">
             {selectedUser.firstName} {selectedUser.lastName}
           </p>
-          <div className="details">
+          <div className="card-details">
             Age: {selectedUser.age}
             <br />
             Gender: {selectedUser.gender}
