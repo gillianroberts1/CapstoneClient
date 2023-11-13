@@ -76,8 +76,9 @@
 .home {
   // background-color: #a7bcff;
   background-color: white;
+  // background-color: rgb(196, 222, 196);
 
-  height: 100vh;
+  height: 95vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,16 +93,18 @@
 
     .sidebar {
       flex: 1;
-      background-color: #3e3c61;
+      // background-color: #3e3c61;
+      background-color: rgb(136, 184, 136);
 
       .navbar {
         display: flex;
         align-items: center;
-        background-color: #2f2d52;
+        // background-color: #2f2d52;
+        background-color: rgb(103, 168, 103);
         height: 50px;
         padding: 10px;
         justify-content: space-between;
-        color: #ddddf7;
+        color: white;
 
         .logo {
           font-weight: bold;
@@ -109,12 +112,10 @@
 
         .user {
           display: flex;
-          gap: 10px;
+          gap: 3px;
 
           img {
             background-color: #ddddf7;
-        // background-color: white;
-
             height: 24px;
             width: 24px;
             border-radius: 50%;
@@ -122,16 +123,17 @@
           }
 
           button {
-            background-color: #5d5b8d;
-            color: #ddddf7;
+            background-color: white;
+            color: green;
             font-size: 10px;
             border: none;
+            margin-top: 4px;
             cursor: pointer;
           }
         }
       }
       .search {
-        border-bottom: 1px solid gray;
+        border-bottom: 1px solid rgb(212, 212, 212);
 
         .searchForm {
           padding: 10px;
@@ -143,7 +145,8 @@
             outline: none;
 
             &::placeholder {
-              color: lightgray;
+              color: rgb(212, 212, 212);
+
             }
           }
         }
@@ -157,7 +160,7 @@
         cursor: pointer;
 
         &:hover {
-          background-color: #2f2d52;
+          background-color:rgb(103, 168, 103);
         }
         img {
           width: 50px;
@@ -169,11 +172,11 @@
           span {
             font-size: 18px;
             font-weight: bold;
-            color: lightgrey;
+            color: white;
           }
           p {
             font-size: 14px;
-            color: lightgrey;
+            color: white;
           }
         }
       }
@@ -183,7 +186,9 @@
 
       .chatInfo {
         height: 50px;
-        background-color: #5d5b8d;
+        // background-color: #5d5b8d;
+      background-color: rgb(136, 184, 136);
+      // background-color: rgb(66, 142, 66);
         // background-color: white;
         // background-color: #FF655B;
 
@@ -259,7 +264,8 @@
               align-items: flex-end;
 
               p {
-                background-color: #8da4f1;
+                // background-color: #8da4f1;
+                background-color: rgb(147, 193, 147);
                 color: white;
                 border-radius: 10px 0px 10px 10px;
               }
@@ -288,11 +294,13 @@
           width: 100%;
           border: none;
           outline: none;
-          color: #2f2d52;
+          // color: #2f2d52;
+          color: rgb(66, 142, 66);
+          
           font-size: 18px;
 
           &::placeholder {
-            color: lightgray;
+            color: rgb(123, 139, 123);
           }
         }
 
@@ -306,7 +314,9 @@
           border: none;
           padding: 10px 15px;
           color: white;
-          background-color: #8da4f1;
+          // background-color: #8da4f1;
+          background-color: rgb(103, 168, 103);
+          cursor: pointer;
         }
       }
     }
