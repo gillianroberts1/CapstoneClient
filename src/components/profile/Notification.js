@@ -1,6 +1,8 @@
 import React, { useContext } from 'react'
 import WalkieCard from '../walkies/WalkieCard'
 import { AuthContext } from '../../context/AuthContext';
+import "./css/Notifications.css"
+
 
 const Notification = () => {
 
@@ -24,7 +26,6 @@ const Notification = () => {
     )}
     
     
-    {/* <WalkieCard/> */}
     </>
 
   )

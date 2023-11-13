@@ -1,0 +1,65 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: fixed;
+  background-color: rgb(205, 218, 205);
+  padding-top: 20px;
+}
+
+.home-wrapper {
+  padding-top: 80px;
+  padding-bottom: 20px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  background-color: rgb(205, 218, 205);
+}
+
+.details {
+  flex: 1;
+  font-size: 40px;
+  text-align: start !important;
+  color: green;
+  font-variant: small-caps;
+}
+
+.home-image {
+  flex: 2 right;
+}
+.dogs {
+  background: transparent;
+}
+
+.button {
+  text-align: center;
+  background-color: rgb(205, 218, 205);
+  height: 36vh;
+}
+
+.enter {
+  height: 60px;
+  width: 250px;
+  font-size: 30px;
+  border-radius: 30px;
+  background-color: white;
+  border: none;
+}
+.enter:hover {
+  background-color: green;
+  color: white;
+  border: 1px solid lightgrey;
+}
+.login {
+  color: green;
+  text-decoration: none;
+  font-variant: small-caps;
+}
+.login:hover {
+  color: white;
+}
+p {
+  text-decoration: none;
+}

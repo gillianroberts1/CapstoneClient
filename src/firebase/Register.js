@@ -9,8 +9,9 @@ const Register = ( {onCreate} ) => {
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   const [stateUser, setStateUser] = useState({
-    firstName: "",
+    displayName: "",
     lastName: "",
     email: ""
   })
@@ -26,7 +27,7 @@ const Register = ( {onCreate} ) => {
     setLoading(true);
     e.preventDefault();
     
-    const firstName = e.target[0].value;
+    const displayName = e.target[0].value;
     const lastName = e.target[1].value;
     const emailAddress = e.target[2].value;
     const password = e.target[3].value;
@@ -41,25 +42,25 @@ const Register = ( {onCreate} ) => {
       };
       
       const date = new Date().getTime();
-      const storageRef = ref(storage, `${firstName + date}`);
+      const storageRef = ref(storage, `${displayName + date}`);
 
       await uploadBytesResumable(storageRef, file).then(() => {
         getDownloadURL(storageRef).then(async (downloadURL) => {
             try {
               await updateProfile(res.user, {
-                firstName,
+                displayName,
                 lastName,
                 photoURL: downloadURL,
               });
               await setDoc(doc(db, "users", res.user.uid), {
                 uid: res.user.uid,
-                firstName,
+                displayName,
                 lastName,
                 emailAddress,
                 photoURL: downloadURL,
               });
               await setDoc(doc(db, "userChats", res.user.uid), {});
-              navigate("/");
+              navigate("/walkietalkie");
 
               onCreate({
                 ...userWithUid,

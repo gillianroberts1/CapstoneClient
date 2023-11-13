@@ -1,11 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "./css/SideBar.css"
 
-const Sidebar = () => {
+const Sidebar = ({setSelectedOption}) => {
   return (
     <>    
-    <div>Sidebar</div>
-    <button><Link to="/dogs">Dogs</Link></button>
+    <div className='sidebar-container'>Sidebar
+    <button onClick={()=> setSelectedOption("user")}> My Info</button>
+
+    <button onClick={()=> setSelectedOption("dog")}> My Dogs</button>
+    </div>
     </>
   )
 }
