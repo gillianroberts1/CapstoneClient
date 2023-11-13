@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { AuthContext } from '../firebase/context/AuthContext';
 import dogs from "./images/assets/dogs.png";
 import "./css/Home.css";
 

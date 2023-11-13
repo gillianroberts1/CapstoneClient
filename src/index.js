@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { AuthContextProvider } from "./context/AuthContext";
+import { AuthContextProvider } from './firebase/context/AuthContext';
+import { ChatContextProvider } from './firebase/context/ChatContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AuthContextProvider>
+<AuthContextProvider>
+    <ChatContextProvider>
       <React.StrictMode>
         <App />
       </React.StrictMode>
+    </ChatContextProvider>
   </AuthContextProvider>
 );
 
