@@ -1,0 +1,64 @@
+.dashboard-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+  }
+
+
+  .dashboard-title{
+    font-weight: bold;
+    font-size: 18px;
+    padding:13px;
+    margin:0px;
+  }
+  
+  .dashboard-card {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width: 100%;
+    gap: 10px;
+    text-align: center;
+    box-sizing: border-box; 
+  }
+  
+  .distance,
+  .walkies,
+  .group-walkies,
+  .favourites {
+    /* margin-top: 20px; */
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 25%;
+    height: 110%;
+  }
+
+  .favourites{
+    overflow: auto;
+    object-fit: cover;
+
+  }
+
+  .title{
+    text-align: start !important;
+    font-size: 15px;
+    padding-left: 5px;
+  }
+  .data{
+    font-weight: bold;
+    font-size: 20px;
+    margin: 15px 0px 0px 0px;
+
+  }
+
+
+  
+  /* .favourites ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .favourites li {
+    margin-bottom: 10px;
+  } */
