@@ -6,17 +6,22 @@ const DogCard = () => {
   const {
     dog: { name, breed, gender, leash, neutered, rating, vaccinated },
   } = location.state;
+
+  const getSymbol = (value) => (value ? "✓" : "✗");
+  const capitalizedGender = gender.charAt(0).toUpperCase() + gender.slice(1).toLowerCase();
+
+  
+
   return (
     <div className="dog-card">
-      DogCard
+      Dog Details
       <p>Name: {name}</p>
       <p>Breed: {breed}</p>
-      <p>Gender: {gender}</p>
-      <p>Leash: {leash.toString()}</p>
-      <p>Neutered: {neutered.toString()}</p>
-      <p>Vaccinated: {vaccinated.toString()}</p>
-      {/* <p>Rating: {rating > 0 ? "⭐️".repeat(rating) : "not rated yet"}</p> */}
-      <p>Rating: {"⭐️".repeat(5)}</p>
+      <p>Gender: {capitalizedGender}</p>
+      <p>Need Leash: {getSymbol(leash)}</p>
+      <p>Neutered: {getSymbol(neutered)}</p>
+      <p>Vaccinated: {getSymbol(vaccinated)}</p>
+      <p>Playfulness Rating: {rating > 0 ? "🐶 ".repeat(rating) : "not rated yet"}</p>
     </div>
   );
 };
