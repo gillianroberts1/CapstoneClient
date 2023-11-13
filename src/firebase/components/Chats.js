@@ -4,6 +4,7 @@ import { db } from "../../firebase";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 
+
 const Chats = () => {
   const [chats, setChats] = useState([]);
 
@@ -20,10 +21,9 @@ const Chats = () => {
         unsub();
       };
     };
+
     currentUser.uid && getChats();
   }, [currentUser.uid]);
-
-  console.log(Object.entries.chats);
 
   const handleSelect = (u) => {
     dispatch({ type: "CHANGE_USER", payload: u });
