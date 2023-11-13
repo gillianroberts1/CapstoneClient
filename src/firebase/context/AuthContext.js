@@ -22,9 +22,18 @@ export const AuthContextProvider = ({ children }) => {
   //   });
 
   useEffect(() => {
+    const request = new Request();
     const unsub = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       console.log(user);
+      if (user) {
+        request.get(`/api/users/uid/${user.uid}`)
+          .then((user) => {
+            setCurrentUser(user);
+          })
+      }
+
+
     });
 
 

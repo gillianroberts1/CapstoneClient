@@ -9,6 +9,7 @@ const Home = () => {
   const { currentUser } = useContext(AuthContext);
 
   return (
+
     <>
       <div className="home-container">
         <div className="home-wrapper">

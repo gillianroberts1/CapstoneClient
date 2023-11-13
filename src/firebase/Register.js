@@ -93,6 +93,7 @@ const Register = ( {onCreate} ) => {
           <input type="password" placeholder="password" />
           <input type="file" id="file" />
           <button>Sign up</button>
+          {/* {loading && "Uploading and compressing the image please wait..."} */}
           {err && <span>Something went wrong..</span>}
         </form>
         <p>You have an account? <Link to="/login">Login</Link></p>
