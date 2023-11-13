@@ -116,7 +116,7 @@ const MainContainer = () => {
         <Route path="/register" element={<Register onCreate={handlePost} />} />
         <Route path="/login" element={<Login />} />
 
-        <Route path="/dog/:id" element={<DogCard />} />
+        <Route path="/dogs/:id" element={<DogCard />} />
 
         <Route
           path="/members"

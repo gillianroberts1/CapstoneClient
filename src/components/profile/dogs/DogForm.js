@@ -58,8 +58,8 @@ const DogForm = ({ onCreate }) => {
     const payload = { ...stateUserDog, user: currentUser };
     console.log(payload);
     onCreate(payload);
-    navigate("/profile");
-  };
+    window.location.href = "/profile";
+    };
 
   const handleBoolean = function (event) {
     const propertyName = event.target.name;
