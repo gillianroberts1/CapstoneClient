@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import UserContext from "../context/UserContext";
 
 const Login = () => {
   const [err, setErr] = useState(false);
