@@ -10,6 +10,12 @@ const MemberCard = ({ users }) => {
   const { id } = useParams();
   const selectedUser = users.find((user) => user.id === parseInt(id, 10));
 
+  useEffect(() => {
+    if (currentUser && currentUser.favourites) {
+      setFavourites(currentUser.favourites);
+    }
+  }, [currentUser]);
+
   if (!selectedUser) {
     return <div>User not found</div>;
   }
@@ -17,6 +23,10 @@ const MemberCard = ({ users }) => {
   // const toTitleCase = (str) => {
   //   return str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
   // };
+
+  const isUserInFavorites = () => {
+    return favourites.some((fav) => fav.id === selectedUser.id);
+  };
 
   const addToFavourites = () => {
     setFavourites((prevFavourites) => {
@@ -74,9 +84,11 @@ const MemberCard = ({ users }) => {
             <button className="invite">
               <Link to="/walkies">Send Invitation</Link>
             </button>
-            <button className="invite" onClick={addToFavourites}>
-              Add to Favourites
-            </button>
+            {!isUserInFavorites() && (
+              <button className="invite" onClick={addToFavourites}>
+                Add to Favourites
+              </button>
+            )}
           </div>
         </div>
         <div className="dog-details">
