@@ -1,5 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  redirect,
+} from "react-router-dom";
 import MembersList from "../components/members/MembersList";
 import Request from "../Helpers/Request";
 import Register from "../firebase/Register";
@@ -16,12 +22,14 @@ import DogForm from "../components/profile/dogs/DogForm";
 import DogDetail from "../components/profile/dogs/DogDetail";
 import UserDetail from "../components/profile/UserDetail";
 import DogCard from "../components/profile/dogs/DogCard";
+import CurrentUserDetail from "../components/profile/currentUser/CurrentUserDetail";
 
 const MainContainer = () => {
   const [users, setUsers] = useState([]);
   const [dogs, setDogs] = useState([]);
   const [walkies, setWalkies] = useState([]);
   const [groupWalkies, setGroupWalkies] = useState([]);
+  const [userDogs, setUserDogs] = useState([]);
 
   useEffect(() => {
     const request = new Request();
@@ -42,7 +50,6 @@ const MainContainer = () => {
       setWalkies(data[2]);
       setGroupWalkies(data[3]);
     });
-
   }, []);
 
   const handlePost = (user) => {
@@ -51,6 +58,12 @@ const MainContainer = () => {
     request.post("/api/users", user).then(() => {
       // window.location = '/'
     });
+  };
+
+  const handleAddDog = (dog) => {
+    console.log("Updating Dogs:", dog);
+    const request = new Request();
+    request.post("/api/dogs", dog).then(() => {});
   };
 
   const { currentUser } = useContext(AuthContext);
@@ -69,12 +82,7 @@ const MainContainer = () => {
         <Route path="/register" element={<Register onCreate={handlePost} />} />
         <Route path="/login" element={<Login />} />
 
-        
-      
         <Route path="/dog/:id" element={<DogCard />} />
-       
-        
-
 
         <Route
           path="/members"
@@ -105,7 +113,7 @@ const MainContainer = () => {
           path="/members/:id"
           element={
             <ProtectedRoute>
-              <MemberCard users={users}/>
+              <MemberCard users={users} />
             </ProtectedRoute>
           }
         />
@@ -121,7 +129,7 @@ const MainContainer = () => {
           path="/groups/:id"
           element={
             <ProtectedRoute>
-              <GroupCard groupWalkies={groupWalkies} users={users}/>
+              <GroupCard groupWalkies={groupWalkies} users={users} />
             </ProtectedRoute>
           }
         />
@@ -137,7 +145,7 @@ const MainContainer = () => {
           path="/newDog"
           element={
             <ProtectedRoute>
-              <DogForm />
+              <DogForm onCreate={handleAddDog} />
             </ProtectedRoute>
           }
         />
@@ -149,6 +157,15 @@ const MainContainer = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/user"
+          element={
+            <ProtectedRoute>
+              <CurrentUserDetail />
+            </ProtectedRoute>
+          }
+        />
+
         {/* <MembersList users={users}/> */}
       </Routes>
     </BrowserRouter>
