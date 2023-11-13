@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./css/MemberCard.css";
+import { AuthContext } from "../../firebase/context/AuthContext";
 
 const MemberCard = ({ users }) => {
+  const { currentUser } = useContext(AuthContext);
+  const [favourites, setFavourites] = useState([])
+
   const { id } = useParams();
   const selectedUser = users.find((user) => user.id === parseInt(id, 10));
 
@@ -13,6 +17,55 @@ const MemberCard = ({ users }) => {
   // const toTitleCase = (str) => {
   //   return str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
   // };
+
+  // const addToFavourites = ({currentUser}) => {
+  //   setFavourites((favourites) => {
+  //     if (!favourites.some((fav) => fav.id === selectedUser.id)) {
+  //       const updatedFavourites = [...favourites, selectedUser];
+  //       console.log("Favourites After:", updatedFavourites);
+  //       return updatedFavourites;
+  //     }
+  //     return favourites;
+  //   });
+  //   console.log(selectedUser);
+  // };
+
+  const addToFavourites = () => {
+    setFavourites((prevFavourites) => {
+      if (!prevFavourites.some((fav) => fav.id === selectedUser.id)) {
+        const updatedFavourites = [...prevFavourites, selectedUser];
+        console.log("Favourites After:", updatedFavourites);
+
+        if (currentUser && currentUser.id) {
+          const userId = currentUser.id;
+          fetch(`/api/users/${userId}/favourites/${selectedUser.id}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ favourites: updatedFavourites }),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Failed to update user data");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log("User data updated successfully:", data);
+              console.log("Favs after:", data.favourites);
+            })
+            .catch((error) => {
+              console.error("Error updating user data:", error);
+            });
+        }
+        return updatedFavourites;
+      }
+      return prevFavourites;
+    });
+    console.log(selectedUser);
+  };
+
 
   return (
     <div className="member-card-container">
@@ -34,11 +87,14 @@ const MemberCard = ({ users }) => {
             <button className="invite">
           <Link to="/walkies">Send Invitation</Link>
         </button>
+        <button className="invite" onClick={addToFavourites}>
+          Add to Favourites
+        </button>
           </div>
           </div>
           <div className="dog-details">
           {selectedUser.dogs.map((dog) => (
-            <div className="dog-container">
+            <div key={dog.id} className="dog-container">
             <li className="dogs" key={dog.id}>
               <Link to={`/dogs/${dog.id}`} className="dog-link">
                 <b>{dog.name}</b><br/>
