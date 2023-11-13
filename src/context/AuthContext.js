@@ -15,11 +15,12 @@ export const AuthContextProvider = ({ children }) => {
     const unsub = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       console.log(user);
-      request.get(`/api/users/uid/${user.uid}`)
-        .then((user) => {
-          setCurrentUser(user);
-          
-        })
+      if (user) {
+        request.get(`/api/users/uid/${user.uid}`)
+          .then((user) => {
+            setCurrentUser(user);
+          })
+      }
     });
 
     return () => {

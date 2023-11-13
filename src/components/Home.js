@@ -9,12 +9,11 @@ const Home = () => {
 
   return (
     <div>
-    <p>Welcome to Wiggle Waggle Waddles, {currentUser && `${currentUser.firstName} ${currentUser.lastName}`}</p>
-    {currentUser && <img src={currentUser.photoURL} alt='' style={{ height: '200px', width: '200px', objectFit: 'cover', borderRadius: '50%'}}/>}<br></br>
-    <button className='enter'>
-        <Link to="/login">Get Started</Link>
-    </button>
-      
+      <p>Welcome to Wiggle Waggle Waddles, {currentUser && `${currentUser.firstName} ${currentUser.lastName}`}</p>
+      {currentUser && <img src={currentUser.photoURL} alt='' style={{ height: '200px', width: '200px', objectFit: 'cover', borderRadius: '50%'}}/>}<br></br>
+      <button className='enter'>
+          <Link to={currentUser ? "/dashboard" : "/login"}>{currentUser ? "Go to Dashboard" : "Get Started"}</Link>
+      </button>
     </div>
   )
 }
