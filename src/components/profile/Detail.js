@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import DogDetail from "./dogs/DogDetail";
 import Request from "../../Helpers/Request";
-import { AuthContext } from "../../context/AuthContext";
 import CurrentUserDetail from "./currentUser/CurrentUserDetail";
+import { AuthContext } from "../../firebase/context/AuthContext"
 
 
 const Detail = ({ selectedOption }) => {
