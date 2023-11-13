@@ -166,6 +166,7 @@ const MainContainer = () => {
             </ProtectedRoute>
           }
         />
+        <Route
           path="/walkietalkie"
           element={
             <ProtectedRoute>
