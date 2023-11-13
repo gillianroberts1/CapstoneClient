@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
-const GroupWalkieForm = ({location, onCreate }) => {
-
+const GroupWalkieForm = ({ onCreate }) => {
     const [stateGroupWalkies, setStateGroupWalkies] = useState({
-        walkName: "",
+        name: "",
         date: "",
         location: "",
         distance: 0,
@@ -23,24 +23,15 @@ const GroupWalkieForm = ({location, onCreate }) => {
     const handleChange = (event) => {
         let propertyName = event.target.name;
         let copiedGroupWalkie = { ...stateGroupWalkies };
-    
-        if (event.target.type === 'datetime-local') {
-            copiedGroupWalkie[propertyName] = event.target.value;
-        } else {
-            copiedGroupWalkie[propertyName] = event.target.value;
-        }
-    
+        copiedGroupWalkie[propertyName] = event.target.value;
         setStateGroupWalkies(copiedGroupWalkie);
     };
-    
-    console.log(stateGroupWalkies);
+
 
     const handleSubmit =  (event) => {
         event.preventDefault()
-
-        const payload = {...stateGroupWalkies};
-        console.log(payload);
-        onCreate(payload);
+        onCreate(stateGroupWalkies);
+     
         
 
         // onCreate(stateGroupWalkies);
@@ -49,7 +40,8 @@ const GroupWalkieForm = ({location, onCreate }) => {
 
     const handleLocation = function (event) {
         // const index = parseInt(event.target.value)
-        const selectedLocation =location[parseInt(event.target.value)];
+        // const selectedLocation =location[parseInt(event.target.value)];
+        const selectedLocation = event.target.value
         let copiedLocation = { ...stateGroupWalkies };
         copiedLocation['location'] = selectedLocation
         setStateGroupWalkies(copiedLocation)
@@ -92,14 +84,14 @@ const GroupWalkieForm = ({location, onCreate }) => {
       ];
 
       const locationNodes = locations.map((location, index) => {
-
+        return(
         <option key={index} value={location}>
             {location}
         </option>
-
+        )
         // console.log(location)
         // console.log(index)
-
+        console.log(locationNodes);
       });
       
 
@@ -108,7 +100,7 @@ const GroupWalkieForm = ({location, onCreate }) => {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">Walk Name</label>
 
-                <input type="text" placeholder='Enter walk name...'  onChange={handleChange} />
+                <input type="text" name='name' placeholder='Enter walk name...'  onChange={handleChange} />
 
                 <label htmlFor="date">Select date and time</label>
                 <input type="datetime-local" name="date"  onChange={handleChange} />
