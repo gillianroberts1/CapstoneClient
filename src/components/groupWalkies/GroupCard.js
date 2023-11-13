@@ -30,7 +30,7 @@ const GroupCard = ({ groupWalkies }) => {
         </div>
 
         <div className="attendees">
-          <button>Join</button>
+          <button className="join-btn">Join</button>
           {selectedWalk.users.map((user) => (
             <li className="users" key={user.id}>
               <Link to={`/members/${user.id}`}>
