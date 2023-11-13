@@ -5,7 +5,7 @@ import { AuthContext } from "../../firebase/context/AuthContext";
 
 const MemberCard = ({ users }) => {
   const { currentUser } = useContext(AuthContext);
-  const [favourites, setFavourites] = useState([])
+  const [favourites, setFavourites] = useState([]);
 
   const { id } = useParams();
   const selectedUser = users.find((user) => user.id === parseInt(id, 10));
@@ -18,18 +18,6 @@ const MemberCard = ({ users }) => {
   //   return str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
   // };
 
-  // const addToFavourites = ({currentUser}) => {
-  //   setFavourites((favourites) => {
-  //     if (!favourites.some((fav) => fav.id === selectedUser.id)) {
-  //       const updatedFavourites = [...favourites, selectedUser];
-  //       console.log("Favourites After:", updatedFavourites);
-  //       return updatedFavourites;
-  //     }
-  //     return favourites;
-  //   });
-  //   console.log(selectedUser);
-  // };
-
   const addToFavourites = () => {
     setFavourites((prevFavourites) => {
       if (!prevFavourites.some((fav) => fav.id === selectedUser.id)) {
@@ -39,9 +27,9 @@ const MemberCard = ({ users }) => {
         if (currentUser && currentUser.id) {
           const userId = currentUser.id;
           fetch(`/api/users/${userId}/favourites/${selectedUser.id}`, {
-            method: 'POST',
+            method: "POST",
             headers: {
-              'Content-Type': 'application/json',
+              "Content-Type": "application/json",
             },
             body: JSON.stringify({ favourites: updatedFavourites }),
           })
@@ -66,7 +54,6 @@ const MemberCard = ({ users }) => {
     console.log(selectedUser);
   };
 
-
   return (
     <div className="member-card-container">
       <div className="member-card-wrapper">
@@ -85,49 +72,42 @@ const MemberCard = ({ users }) => {
             Distance walked: {selectedUser.distance} miles
             <br />
             <button className="invite">
-          <Link to="/walkies">Send Invitation</Link>
-        </button>
-        <button className="invite" onClick={addToFavourites}>
-          Add to Favourites
-        </button>
+              <Link to="/walkies">Send Invitation</Link>
+            </button>
+            <button className="invite" onClick={addToFavourites}>
+              Add to Favourites
+            </button>
           </div>
-          </div>
-          <div className="dog-details">
+        </div>
+        <div className="dog-details">
           {selectedUser.dogs.map((dog) => (
             <div key={dog.id} className="dog-container">
-            <li className="dogs" key={dog.id}>
-              <Link to={`/dogs/${dog.id}`} className="dog-link">
-                <b>{dog.name}</b><br/>
-                {dog.breed}<br/>
-                Need Leash:{" "}{dog.leash ? (
-              <span>&#10003;</span>
-            ) : (
-              <span>&#10008;</span>
-            )}<br/>
-
-                Neutered:{" "}{dog.neutered ? (
-              <span>&#10003;</span>
-            ) : (
-              <span>&#10008;</span>
-            )}<br/>
-            Vaccinated:{" "}{dog.vaccinated ? (
-              <span>&#10003;</span>
-            ) : (
-              <span>&#10008;</span>
-            )}<br/>
-
-
-
-              </Link>
-            </li>
+              <li className="dogs" key={dog.id}>
+                <Link to={`/dogs/${dog.id}`} className="dog-link">
+                  <b>{dog.name}</b>
+                  <br />
+                  {dog.breed}
+                  <br />
+                  Need Leash:{" "}
+                  {dog.leash ? <span>&#10003;</span> : <span>&#10008;</span>}
+                  <br />
+                  Neutered:{" "}
+                  {dog.neutered ? <span>&#10003;</span> : <span>&#10008;</span>}
+                  <br />
+                  Vaccinated:{" "}
+                  {dog.vaccinated ? (
+                    <span>&#10003;</span>
+                  ) : (
+                    <span>&#10008;</span>
+                  )}
+                  <br />
+                </Link>
+              </li>
             </div>
           ))}
-          </div>
-          
-        
-        
         </div>
       </div>
+    </div>
   );
 };
 
