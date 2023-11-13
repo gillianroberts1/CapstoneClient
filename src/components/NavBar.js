@@ -16,6 +16,8 @@ function NavBar() {
             <Nav.Link href="/groups">Group Walks</Nav.Link>
             <Nav.Link href="/profile">Profile</Nav.Link>
             <Nav.Link href="/walkietalkie">Walkie Talkie</Nav.Link>
+            <Nav.Link href="/creategroupwalk">Create Group Walks</Nav.Link>  {/* new here */}
+
 
             
 
