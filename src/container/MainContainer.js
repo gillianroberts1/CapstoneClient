@@ -1,5 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  redirect,
+} from "react-router-dom";
 import MembersList from "../components/members/MembersList";
 import Request from "../Helpers/Request";
 import Register from "../firebase/Register";
@@ -11,15 +17,20 @@ import WalkieForm from "../components/walkies/WalkieForm";
 import Notification from "../components/profile/Notification";
 import GroupCard from "../components/groupWalkies/GroupCard";
 import GroupList from "../components/groupWalkies/GroupList";
-import { AuthContext } from "../context/AuthContext";
 import DogForm from "../components/profile/dogs/DogForm";
 import DogDetail from "../components/profile/dogs/DogDetail";
+import UserDetail from "../components/profile/UserDetail";
+import DogCard from "../components/profile/dogs/DogCard";
+import CurrentUserDetail from "../components/profile/currentUser/CurrentUserDetail";
+import WalkieTalkie from "../firebase/WalkieTalkie";
+import { AuthContext } from "../firebase/context/AuthContext";
 
 const MainContainer = () => {
   const [users, setUsers] = useState([]);
   const [dogs, setDogs] = useState([]);
   const [walkies, setWalkies] = useState([]);
   const [groupWalkies, setGroupWalkies] = useState([]);
+  const [userDogs, setUserDogs] = useState([]);
 
   useEffect(() => {
     const request = new Request();
@@ -40,9 +51,6 @@ const MainContainer = () => {
       setWalkies(data[2]);
       setGroupWalkies(data[3]);
     });
-
-    
-    
   }, []);
 
   const handlePost = (user) => {
@@ -51,6 +59,12 @@ const MainContainer = () => {
     request.post("/api/users", user).then(() => {
       // window.location = '/'
     });
+  };
+
+  const handleAddDog = (dog) => {
+    console.log("Updating Dogs:", dog);
+    const request = new Request();
+    request.post("/api/dogs", dog).then(() => {});
   };
 
   const { currentUser } = useContext(AuthContext);
@@ -68,7 +82,8 @@ const MainContainer = () => {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register onCreate={handlePost} />} />
         <Route path="/login" element={<Login />} />
-        
+
+        <Route path="/dog/:id" element={<DogCard />} />
 
         <Route
           path="/members"
@@ -99,7 +114,7 @@ const MainContainer = () => {
           path="/members/:id"
           element={
             <ProtectedRoute>
-              <MemberCard users={users}/>
+              <MemberCard users={users} />
             </ProtectedRoute>
           }
         />
@@ -115,7 +130,7 @@ const MainContainer = () => {
           path="/groups/:id"
           element={
             <ProtectedRoute>
-              <GroupCard groupWalkies={groupWalkies} users={users}/>
+              <GroupCard groupWalkies={groupWalkies} users={users} />
             </ProtectedRoute>
           }
         />
@@ -131,7 +146,7 @@ const MainContainer = () => {
           path="/newDog"
           element={
             <ProtectedRoute>
-              <DogForm />
+              <DogForm onCreate={handleAddDog} />
             </ProtectedRoute>
           }
         />
@@ -140,6 +155,22 @@ const MainContainer = () => {
           element={
             <ProtectedRoute>
               <DogDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/user"
+          element={
+            <ProtectedRoute>
+              <CurrentUserDetail />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/walkietalkie"
+          element={
+            <ProtectedRoute>
+              <WalkieTalkie />
             </ProtectedRoute>
           }
         />

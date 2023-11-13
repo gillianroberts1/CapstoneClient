@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import "./css/UserDetail.css";
 
 const UserDetail = () => {
-  return (
-    <div>Detail</div>
-  )
-}
+  return <div>User Detail</div>;
+};
 
-export default UserDetail
+export default UserDetail;
