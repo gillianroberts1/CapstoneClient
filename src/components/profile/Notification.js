@@ -4,12 +4,18 @@ import { AuthContext } from "../../firebase/context/AuthContext"
 import "./css/Notifications.css"
 
 
-const Notification = ({users, onDelete}) => {
+const Notification = ({users, onDelete, onCreateWalkie}) => {
 
   const { currentUser } = useContext(AuthContext);
 
-  console.log(users)
-
+  const handleAccept = (notification) => {
+    onCreateWalkie({
+      location: notification.entries.Location,
+      date: notification.entries.Date,
+      users: [currentUser]
+    });
+  };
+  
   return (
 
     <div className='notifications-container'>
@@ -26,7 +32,7 @@ const Notification = ({users, onDelete}) => {
             <p>Location: {notification.entries.Location}</p>
             <p>Date: {notification.entries.Date}</p>
             <p>Message: {notification.entries.Message}</p>
-            <button>Accept</button>
+            <button onClick={() => handleAccept(notification)}>Accept</button>
             <button onClick={() => onDelete(notification.id)}>Reject</button>
           </div>
         )

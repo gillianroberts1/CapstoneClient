@@ -85,14 +85,6 @@ const MainContainer = () => {
     request.post("/api/dogs", dog).then(() => {});
   };
 
-  // const handleGroupWalk = (groupWalk)=>{
-  //   fetch("/api/groupwalkies", {
-  //     method: "POST",
-  //   headers: {"Content-Type": "application/json"},
-  //   body: JSON.stringify(groupWalk)
-  //   })
-  //   // window.location ='/group'
-
   const handleGroupWalk = (groupWalk) => {
     const request = new Request();
     request.post("/api/groupwalkies", groupWalk).then(() =>{})
@@ -129,8 +121,12 @@ const MainContainer = () => {
           console.log("User has not been removed due to an error");
         }
       })
-
   }
+
+  const handleCreateWalkie = (walkie) => {
+    const request = new Request();
+    request.post("/api/walkies", walkie).then(() => {});
+  };
 
   const { currentUser } = useContext(AuthContext);
   const ProtectedRoute = ({ children }) => {
@@ -189,7 +185,7 @@ const MainContainer = () => {
           path="/notifications"
           element={
             <ProtectedRoute>
-              <Notification users={users} onDelete={handleDeleteNotification}/>
+              <Notification users={users} onDelete={handleDeleteNotification} onCreateWalkie={handleCreateWalkie}/>
             </ProtectedRoute>
           }
         />

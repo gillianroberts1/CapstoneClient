@@ -121,6 +121,7 @@ const DogForm = ({ onCreate }) => {
 
   return (
     <div>
+      <br></br><br></br><br></br><br></br>
       Add New Dog
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label>
