@@ -27,6 +27,7 @@ import { AuthContext } from "../firebase/context/AuthContext";
 import GroupWalkieForm from "../components/groupWalkies/GroupWalkieForm";
 import Footer from "../components/Footer";
 import Faq from "../components/FAQ/Faq";
+import CurrentUserForm from "../components/profile/currentUser/CurrentUserForm";
 
 
 const MainContainer = () => {
@@ -35,8 +36,7 @@ const MainContainer = () => {
   const [walkies, setWalkies] = useState([]);
   const [groupWalkies, setGroupWalkies] = useState([]);
   const [userDogs, setUserDogs] = useState([]);
-  const [location, setLocation] = useState([])
-
+  const [location, setLocation] = useState([]);
 
   useEffect(() => {
     const request = new Request();
@@ -47,38 +47,29 @@ const MainContainer = () => {
     const groupWalkiesPromise = request.get("/api/groupwalkies");
     const locationPromise = request.get("/api/locations");
 
-
     Promise.all([
       userPromise,
       dogPromise,
       walkiesPromise,
       groupWalkiesPromise,
-      locationPromise
-
+      locationPromise,
     ]).then((data) => {
       setUsers(data[0]);
       setDogs(data[1]);
       setWalkies(data[2]);
       setGroupWalkies(data[3]);
       setLocation(data[4]);
-
     });
   }, []);
 
   const handlePost = (user) => {
-    console.log("Posting user:", user); // Log the user data
+    console.log("Posting user:", user);
     const request = new Request();
     request.post("/api/users", user).then(() => {
       // window.location = '/'
     });
   };
 
-  const handleDeleteNotification = (id) => {
-    const request = new Request();
-    request.delete(`/api/notifications/${id}`).then(() => {
-      window.location = '/notifications'
-    });
-  }
 
   const handleAddDog = (dog) => {
     console.log("Updating Dogs:", dog);
@@ -86,31 +77,46 @@ const MainContainer = () => {
     request.post("/api/dogs", dog).then(() => {});
   };
 
-  // const handleGroupWalk = (groupWalk)=>{
-  //   fetch("/api/groupwalkies", {
-  //     method: "POST",
-  //   headers: {"Content-Type": "application/json"},
-  //   body: JSON.stringify(groupWalk)
-  //   })
-  //   // window.location ='/group'
+
 
   const handleGroupWalk = (groupWalk) => {
     const request = new Request();
     request.post("/api/groupwalkies", groupWalk).then(() =>{})
   }
+  const handleUpdateUser = async (user) => {
+    try {
+      const response = await fetch(`/api/users/${user.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      });
+  
+      if (!response.ok) {
+        console.error('Failed to update user:', response.statusText);
+      }
+      console.log('User updated successfully');
+    } catch (error) {
+      console.error('Error updating user:', error.message);
+    }
+  };
+
+  
 
   const handleDeleteDog = (id) => {
     const request = new Request();
     request.delete(`/api/dogs/${id}`).then(() => {
-      window.location = '/profile'
-    })
-  }
+      window.location = "/profile";
+    });
+  };
 
   const handleAddUserToGroupWalkie = (walkieId, userId) => {
     const request = new Request();
-    request.post(`/api/groupwalkies/${walkieId}/users/${userId}`, {})
-      .then(response => response.json())
-      .then(data => {
+    request
+      .post(`/api/groupwalkies/${walkieId}/users/${userId}`, {})
+      .then((response) => response.json())
+      .then((data) => {
         if (data) {
           window.location.reload();
         } else {
@@ -121,25 +127,31 @@ const MainContainer = () => {
 
   const handleRemoveUserFromGroupWalkie = (walkieId, userId) => {
     const request = new Request();
-    request.delete(`/api/groupwalkies/${walkieId}/users/${userId}`, {})
-      .then(response => response.json())
-      .then(data => {
+    request
+      .delete(`/api/groupwalkies/${walkieId}/users/${userId}`, {})
+      .then((response) => response.json())
+      .then((data) => {
         if (data) {
-          window.location.reload()
-        } else{
+          window.location.reload();
+        } else {
           console.log("User has not been removed due to an error");
         }
-      })
 
-  }
+      });
+  };
+
+  
+
+  const handleCreateWalkie = (walkie) => {
+    const request = new Request();
+    request.post("/api/walkies", walkie).then(() => {});
+  };
 
   const { currentUser } = useContext(AuthContext);
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
       return <Navigate to="/login" />;
     }
-
-
 
     return children;
   };
@@ -151,7 +163,10 @@ const MainContainer = () => {
         <Route path="/register" element={<Register onCreate={handlePost} />} />
         <Route path="/login" element={<Login />} />
 
-        <Route path="/dogs/:id" element={<DogCard onDelete={handleDeleteDog} />} />
+        <Route
+          path="/dogs/:id"
+          element={<DogCard onDelete={handleDeleteDog} />}
+        />
 
         <Route
           path="/members"
@@ -171,6 +186,15 @@ const MainContainer = () => {
           }
         />
         <Route
+          path="/updateprofile"
+          element={
+            <ProtectedRoute>
+              <CurrentUserForm onUpdateUser={handleUpdateUser} />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="members/:id/walkiesForm"
           element={
             <ProtectedRoute>
@@ -187,18 +211,14 @@ const MainContainer = () => {
           }
         />
         <Route
-          path="/notifications"
-          element={
-            <ProtectedRoute>
-              <Notification onDelete={handleDeleteNotification}/>
-            </ProtectedRoute>
-          }
-        />
-        <Route
           path="/groupwalkies/:id"
           element={
             <ProtectedRoute>
-              <GroupCard groupWalkies={groupWalkies} onAddUser={handleAddUserToGroupWalkie} onRemoveUser={handleRemoveUserFromGroupWalkie}/>
+              <GroupCard
+                groupWalkies={groupWalkies}
+                onAddUser={handleAddUserToGroupWalkie}
+                onRemoveUser={handleRemoveUserFromGroupWalkie}
+              />
             </ProtectedRoute>
           }
         />
@@ -211,7 +231,7 @@ const MainContainer = () => {
           }
         />
         <Route
-          path="/newDog" 
+          path="/newDog"
           element={
             <ProtectedRoute>
               <DogForm onCreate={handleAddDog} />
@@ -243,12 +263,14 @@ const MainContainer = () => {
           }
         />
 
-
-      <Route
+        <Route
           path="/creategroupwalk"
           element={
             <ProtectedRoute>
-              <GroupWalkieForm groupWalkies={groupWalkies}  onCreate={handleGroupWalk}/>
+              <GroupWalkieForm
+                groupWalkies={groupWalkies}
+                onCreate={handleGroupWalk}
+              />
             </ProtectedRoute>
           }
         />

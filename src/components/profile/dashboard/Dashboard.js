@@ -5,54 +5,55 @@ import './css/Dashboard.css';
 
 const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (currentUser) {
-          const userId = currentUser.id;
-          const response = await fetch(`/api/users/${userId}`);
-          const data = await response.json();
-          setUser(data);
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       if (currentUser) {
+  //         const response = await fetch(`/api/users/${currentUser.id}`);
+  //         const data = await response.json();
+  //         setUser(data);
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching user data:', error);
+  //     }
+  //   };
 
-    fetchData();
-  }, [currentUser]);
+  //   fetchData();
+  // }, [currentUser]);
 
   return (
     <div className='dashboard-container'>
         <p className='dashboard-title'>Dashboard</p>
       <div className='dashboard-card'>
-        {user ? (
+        {currentUser ? (
           <>
             <div className='distance'>
               <p className='title'>Total distance walked</p>
-              <p className='data'>{user.totalDistance} miles</p>
+              <p className='data'>{currentUser.totalDistance} miles</p>
             </div>
             <div className='walkies'>
               <p className='title'>Total walkies attended</p>
-              <p className='data'>{user.walkies ? user.walkies.length : 0}</p>
+              <p className='data'>{currentUser.walkies ? currentUser.walkies.length : 0}</p>
             </div>
             <div className='group-walkies'>
               <p className='title'>Total group walkies attended</p>
-              <p className='data'>{user.groupWalkies ? user.groupWalkies.length : 0}</p>
+              <p className='data'>{currentUser.groupWalkies ? currentUser.groupWalkies.length : 0}</p>
             </div>
             <div className='favourites'>
               <p className='title'>Favourited members</p>
+
               {user.favourites && user.favourites.length > 0 ? (
-                <ul>
+                <ul className='fav-members'>
                   {user.favourites.map((favoriteUser) => (
-                    <li key={favoriteUser.id}><p className='data'>{favoriteUser.firstName}</p></li>
+                    <li key={favoriteUser.id}><p className='fav-members'><a href={`/members/${favoriteUser.id}`}><img src={favoriteUser.photoURL} alt="favourite-member" className='fav-image'/>{" "}{favoriteUser.firstName}</a></p></li>
+
                   ))}
                 </ul>
               ) : (
                 <p>
-                  <Link to='/members' className='data'>Add member</Link>
+                  <Link to='/members' className='add-fav'>Add member</Link>
                 </p>
               )}
             </div>

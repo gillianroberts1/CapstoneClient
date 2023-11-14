@@ -1,14 +1,13 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../firebase/context/AuthContext"
 
-import { useNavigate } from "react-router-dom";
 import { storage } from "../../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import "./css/DogForm.css"
 
 const DogForm = ({ onCreate }) => {
   const { currentUser } = useContext(AuthContext);
   const [file, setFile] = useState(null);
-  const navigate = useNavigate();
 
   const [stateUserDog, setStateUserDog] = useState({
     name: "",
@@ -120,7 +119,9 @@ const DogForm = ({ onCreate }) => {
   };
 
   return (
-    <div>
+
+    <div className="dog-form">
+
       Add New Dog
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label>
@@ -236,6 +237,7 @@ const DogForm = ({ onCreate }) => {
         <button type="submit">Save</button>
       </form>
     </div>
+  
   );
 };
 

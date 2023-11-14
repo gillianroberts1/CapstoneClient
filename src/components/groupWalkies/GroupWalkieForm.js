@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import "./css/GroupWalkieForm.css"
+import dog from "../images/assets/dog2.png"
 import { storage } from '../../firebase';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+
 
 const GroupWalkieForm = ({ onCreate }) => {
     const [file, setFile] = useState(null);
@@ -100,8 +103,9 @@ const GroupWalkieForm = ({ onCreate }) => {
       })
       
     return (
-        <div>
-            <br></br><br></br><br></br><br></br><br></br><br></br>
+        <div className="gw-form-container">
+      <div className="gw-form-card">
+
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">{" "}Walk Name
                 <input type="text" 
@@ -133,7 +137,7 @@ const GroupWalkieForm = ({ onCreate }) => {
            </select> 
                 </label>
                
-
+<br/>
                 <label htmlFor="difficulty">{" "} 
                 Difficulty
                 <select name="difficulty"
@@ -148,7 +152,7 @@ const GroupWalkieForm = ({ onCreate }) => {
            </select>
                 </label>
                
-
+<br/>
                 <label htmlFor="distance">{" "}Distance (miles)
                 <input type="number"
                  min="1" max="60" 
@@ -169,9 +173,14 @@ const GroupWalkieForm = ({ onCreate }) => {
 
                 <input type="submit" value="Create New Meet" />
             </form>
+            </div>
+            <div className='gw-image-card'>
+                <img src={dog} alt='dog' className='dog-image'/>
+            </div>
+        
         </div>
     );
 };
-// }
+
 
 export default GroupWalkieForm;
