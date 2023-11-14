@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AuthContext } from '../../firebase/context/AuthContext'
+import './css/WalkieForm.css'
+import dog from "../images/assets/dog4.png"
 
 const WalkieForm = () => {
   const { currentUser } = useContext(AuthContext)
@@ -44,10 +46,15 @@ const WalkieForm = () => {
   }
 
   return (
-    <>
-    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+
+    <div className='walkieform-container'>
+      <div className='dog1-card'>
+        <img src={dog} alt='dog' className='w-dog-image'/>
+      </div>
+      <div className='walkieform-card'>
     <form onSubmit={handleSubmit}>
       <label>
+        <h2>Invite on a walk:</h2>
         <input type='text' value={location} placeholder='location' onChange={e => setLocation(e.target.value)} />
       </label>
       <label>
@@ -59,7 +66,11 @@ const WalkieForm = () => {
       </label>
       <button type="submit">Send Notification</button>
     </form>
-    </>
+    </div>
+    <div className='dog2-card'>
+
+    </div>
+    </div>
   )
 }
 
