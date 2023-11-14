@@ -60,7 +60,7 @@ const Register = ( {onCreate} ) => {
                 photoURL: downloadURL,
               });
               await setDoc(doc(db, "userChats", res.user.uid), {});
-              navigate("/walkietalkie");
+              navigate("/");
 
               onCreate({
                 ...userWithUid,
