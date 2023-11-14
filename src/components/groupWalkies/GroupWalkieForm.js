@@ -182,7 +182,7 @@ const GroupWalkieForm = ({ onCreate }) => {
                  className='gw-input'/>
                 </label>
 
-                <input type='file' id='file' onChange={handleFileChange}></input>
+                <input type='file' id='file' onChange={handleFileChange} ></input>
 
                 <input type="submit" value="Create New Meet" className='gw-button'/>
             </form>

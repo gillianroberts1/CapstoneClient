@@ -52,3 +52,10 @@
     display: block;
   }
   
+  .gw-button{
+    background-color:rgba(123, 184, 177, 1);
+    color: white;
+    border: none;
+    padding: 6px;
+    border-radius: 3px;
+  }
