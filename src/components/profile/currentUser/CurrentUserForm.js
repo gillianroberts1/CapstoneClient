@@ -41,7 +41,7 @@ const CurrentUserForm = ({ onUpdateUser }) => {
         <img src={dog} alt="dog" className="dog-image" />
       </div>
       <div className="userform-card">
-        <h2>User Update Form</h2>
+        <h2>Update your details:</h2>
         <form onSubmit={handleSubmit}>
           <label className="label">
             First Name:{" "}
