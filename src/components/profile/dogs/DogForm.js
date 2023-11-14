@@ -40,9 +40,7 @@ const DogForm = ({ onCreate }) => {
   };
 
   const handleBreed = function (event) {
-    // const index = parseInt(event.target.value);
     const selectedBreed = event.target.value;
-    // copiedUserDog['breed'] = selectedBreed;
     setStateUserDog((prevState) => ({
       ...prevState,
       breed: selectedBreed,
@@ -112,7 +110,7 @@ const DogForm = ({ onCreate }) => {
             console.log('File available at', downloadURL);
             payload.photoURL = downloadURL;
             onCreate(payload);
-            navigate("/profile");
+            window.location="/profile"
           });
         }
       );

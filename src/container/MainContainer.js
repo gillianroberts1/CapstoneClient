@@ -85,13 +85,18 @@ const MainContainer = () => {
     request.post("/api/dogs", dog).then(() => {});
   };
 
-  const handleGroupWalk = (groupWalk)=>{
-    fetch("/api/groupwalkies", {
-      method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(groupWalk)
-    })
-    // window.location ='/group'
+  // const handleGroupWalk = (groupWalk)=>{
+  //   fetch("/api/groupwalkies", {
+  //     method: "POST",
+  //   headers: {"Content-Type": "application/json"},
+  //   body: JSON.stringify(groupWalk)
+  //   })
+  //   // window.location ='/group'
+
+  const handleGroupWalk = (groupWalk) => {
+    const request = new Request();
+    request.post("/api/groupwalkies", groupWalk).then(() =>{})
+  }
 
   const handleDeleteDog = (id) => {
     const request = new Request();
@@ -251,6 +256,7 @@ const MainContainer = () => {
       </Routes>
     </BrowserRouter>
   );
+        
 };
 
 export default MainContainer;
