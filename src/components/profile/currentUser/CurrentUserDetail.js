@@ -23,7 +23,6 @@ const CurrentUserDetail = () => {
           <p>Age: {currentUser.age}</p>
           <p>Login Details: {currentUser.email}</p>
           <p>Gender: {currentUser.gender}</p>
-          <p>Home Area: {currentUser.area}</p>
 
           <Link to="/updateprofile">
         <button>Update Profile</button>

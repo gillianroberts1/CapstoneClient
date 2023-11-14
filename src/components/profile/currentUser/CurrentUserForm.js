@@ -1,5 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../firebase/context/AuthContext";
+import "../css/CurrentUserForm.css"
+import dog from "../../images/assets/dog1.png"
 
 const CurrentUserForm = ({ onUpdateUser }) => {
   const { currentUser } = useContext(AuthContext);
@@ -9,7 +11,7 @@ const CurrentUserForm = ({ onUpdateUser }) => {
     lastName: currentUser.lastName || "",
     age: currentUser.age || null,
     gender: currentUser.gender || null,
-    area: currentUser.area || null,
+
   });
 
   const handleInputChange = (e) => {
@@ -27,11 +29,15 @@ const CurrentUserForm = ({ onUpdateUser }) => {
   };
 
   return (
-    <div>
+    <div className="userform-container">
+        <div className="dog-card">
+            <img src={dog} alt="dog" className="dog-image"/>
+         </div>
+        <div className="userform-card">
       <h2>User Update Form</h2>
       <form onSubmit={handleSubmit}>
-        <label>
-          First Name:
+        <label className="label">
+          First Name:{" "}
           <input
             type="text"
             name="firstName"
@@ -39,8 +45,9 @@ const CurrentUserForm = ({ onUpdateUser }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
-          Last Name:
+        <br/>
+        <label className="label">
+          Last Name:{" "}
           <input
             type="text"
             name="lastName"
@@ -48,8 +55,9 @@ const CurrentUserForm = ({ onUpdateUser }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
-          Age:
+        <br/>
+        <label className="label">
+          Age:{" "}
           <input
             type="number"
             name="age"
@@ -57,8 +65,9 @@ const CurrentUserForm = ({ onUpdateUser }) => {
             onChange={handleInputChange}
           />
         </label>
-        <label>
-          Gender:
+        <br/>
+        <label className="label">
+          Gender:{" "}
           <select
             name="gender"
             value={user.gender}
@@ -69,17 +78,11 @@ const CurrentUserForm = ({ onUpdateUser }) => {
             <option value="female">Female</option>
           </select>
         </label>
-        <label>
-          Area:
-          <input
-            type="text"
-            name="area"
-            value={user.area}
-            onChange={handleInputChange}
-          />
-        </label>
-        <button type="submit">Update User</button>
+        <br/>
+        <br/>
+        <button type="submit" className="userform-button">Update User</button>
       </form>
+    </div>
     </div>
   );
 };
