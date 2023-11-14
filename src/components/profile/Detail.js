@@ -7,9 +7,6 @@ import { AuthContext } from "../../firebase/context/AuthContext"
 
 const Detail = ({ selectedOption }) => {
   const { currentUser } = useContext(AuthContext);
-
-  //   const { currentUser } = useContext(AuthContext); currentUser.uid
-  // const userId = 12; //logged in user
   const [user, setUser] = useState();
 
 

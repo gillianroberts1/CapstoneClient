@@ -31,6 +31,7 @@ function NavBar() {
     <>
       <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
         <Container>
+
           <Navbar.Brand href="/">
             <div className="logo-container">
               <img src={logo} alt="Logo" className="logo" />

@@ -1,17 +1,21 @@
 import React, { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const WalkieForm = () => {
-  const [userId, setUserId] = useState('')
+  const { id } = useParams()
   const [message, setMessage] = useState('')
   const [date, setDate] = useState('')
   const [location, setLocation] = useState('')
+  const navigate = useNavigate();
+
+  
 
 
   const handleSubmit = async (event) => {
     event.preventDefault()
   
     try {
-      const response = await fetch(`/api/users/${userId}/notifications`, {
+      const response = await fetch(`/api/users/${id}/notifications`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,6 +35,8 @@ const WalkieForm = () => {
   
       const data = await response.json()
       console.log(data)
+
+      navigate('/members')
     } catch (error) {
       console.error(error)
     }
@@ -39,21 +45,18 @@ const WalkieForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        User ID:
-        <input type="text" value={userId} onChange={e => setUserId(e.target.value)} />
+        <input type='text' value={location} placeholder='location' onChange={e => setLocation(e.target.value)} />
+      </label>
+      <label>
+        <input type="datetime-local" value={date} onChange={e => setDate(e.target.value)} />
       </label>
       <label>
         Message:
-        <input type="text" value={message} onChange={e => setMessage(e.target.value)} />
-      </label>
-      <label>
-        <input type="date" value={date} onChange={e => setDate(e.target.value)} />
-      </label>
-      <label>
-        <input type='text' value={location} onChange={e => setLocation(e.target.value)} />
+        <input type="textarea" value={message} onChange={e => setMessage(e.target.value)} />
       </label>
       <button type="submit">Send Notification</button>
     </form>
+
   )
 }
 

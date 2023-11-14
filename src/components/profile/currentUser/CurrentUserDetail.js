@@ -5,11 +5,6 @@ import "../css/UserDetail.css";
 const CurrentUserDetail = () => {
   const { currentUser } = useContext(AuthContext);
 
-  //   const location = useLocation();
-  //   const {
-  //     user: { first_name, last_name },
-  //   } = location.state;
-
   return (
     <div className="current_user_container">
       <div className="user-header">Logged in as {currentUser.firstName}</div>
