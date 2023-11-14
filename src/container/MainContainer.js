@@ -61,7 +61,7 @@ const MainContainer = () => {
     });
   };
 
-  const handleDelete = (id) => {
+  const handleDeleteNotification = (id) => {
     const request = new Request();
     request.delete(`/api/notifications/${id}`).then(() => {
       window.location = '/notifications'
@@ -73,6 +73,13 @@ const MainContainer = () => {
     const request = new Request();
     request.post("/api/dogs", dog).then(() => {});
   };
+
+  const handleDeleteDog = (id) => {
+    const request = new Request();
+    request.delete(`/api/dogs/${id}`).then(() => {
+      window.location = '/profile'
+    })
+  }
 
   const handleAddUserToGroupWalkie = (walkieId, userId) => {
     const request = new Request();
@@ -116,7 +123,7 @@ const MainContainer = () => {
         <Route path="/register" element={<Register onCreate={handlePost} />} />
         <Route path="/login" element={<Login />} />
 
-        <Route path="/dogs/:id" element={<DogCard />} />
+        <Route path="/dogs/:id" element={<DogCard onDelete={handleDeleteDog} />} />
 
         <Route
           path="/members"
@@ -155,7 +162,7 @@ const MainContainer = () => {
           path="/notifications"
           element={
             <ProtectedRoute>
-              <Notification onDelete={handleDelete}/>
+              <Notification onDelete={handleDeleteNotification}/>
             </ProtectedRoute>
           }
         />

@@ -2,9 +2,12 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../firebase/context/AuthContext"
 
 import { useNavigate } from "react-router-dom";
+import { storage } from "../../../firebase";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const DogForm = ({ onCreate }) => {
   const { currentUser } = useContext(AuthContext);
+  const [file, setFile] = useState(null);
   const navigate = useNavigate();
 
   const [stateUserDog, setStateUserDog] = useState({
@@ -17,19 +20,15 @@ const DogForm = ({ onCreate }) => {
     rating: 0,
   });
 
-  // if (!breeds.length === 0 ) {
-  //   return <p>Loading...</p>
-  // }
+  const handleInputChange = (e) => {
+    let propertyName = e.target.name;
+    let copiedUserDog = {...stateUserDog}
+    copiedUserDog[propertyName] = e.target.value;
+    setStateUserDog(copiedUserDog)
+  };
 
-  const handleChange = function (event) {
-    const propertyName = event.target.name;
-    const value =
-      event.target.type === "file" ? event.target.files[0] : event.target.value;
-
-    setStateUserDog((prevState) => ({
-      ...prevState,
-      [propertyName]: value,
-    }));
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0])
   };
 
   const handleRating = function (event) {
@@ -38,8 +37,7 @@ const DogForm = ({ onCreate }) => {
       ...prevState,
       rating: parseInt(value),
     }));
-
-  }
+  };
 
   const handleBreed = function (event) {
     // const index = parseInt(event.target.value);
@@ -51,15 +49,6 @@ const DogForm = ({ onCreate }) => {
     }));
     console.log(stateUserDog);
   };
-
-  const handleSubmit = function (event) {
-    event.preventDefault();
-    
-    const payload = { ...stateUserDog, user: currentUser };
-    console.log(payload);
-    onCreate(payload);
-    window.location.href = "/profile";
-    };
 
   const handleBoolean = function (event) {
     const propertyName = event.target.name;
@@ -102,6 +91,36 @@ const DogForm = ({ onCreate }) => {
     </option>
   ));
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    const payload = { ...stateUserDog, user: currentUser };
+    console.log(payload);
+    try {
+      const storageRef = ref(storage, `dogs/${file.name}`);
+  
+      const uploadTask = uploadBytesResumable(storageRef, file);
+  
+      uploadTask.on('state_changed', 
+        (snapshot) => {
+        }, 
+        (error) => {
+          console.log(error);
+        }, 
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            console.log('File available at', downloadURL);
+            payload.photoURL = downloadURL;
+            onCreate(payload);
+            navigate("/profile");
+          });
+        }
+      );
+    } catch (err) {
+      console.log(err)
+    }
+  };
+
   return (
     <div>
       Add New Dog
@@ -113,7 +132,7 @@ const DogForm = ({ onCreate }) => {
             type="text"
             name="name"
             value={stateUserDog.name}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </label>
 
@@ -136,7 +155,7 @@ const DogForm = ({ onCreate }) => {
           Gender:
           <select
             name="gender"
-            onChange={handleChange}
+            onChange={handleInputChange}
             value={stateUserDog.gender}
             defaultValue="gender"
           >
@@ -211,12 +230,11 @@ const DogForm = ({ onCreate }) => {
             <option value="5">5</option>
           </select>
         </label>
-        {/* <input
+        <input
           type="file"
-          id="fileInput"
-          name="photo"
-          onChange={handleChange}
-        /> */}
+          id="file"
+          onChange={handleFileChange}
+        />
         <button type="submit">Save</button>
       </form>
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const DogCard = () => {
+const DogCard = ( {onDelete} ) => {
   const { id } = useParams();
   const [dog, setDog] = useState(null);
 
@@ -26,6 +26,7 @@ const DogCard = () => {
   return (
     <div className="dog-card">
       Dog Details
+      <img src={dog.photoURL} style={{height: '100px', width: '100px', borderRadius: '50%', objectFit: 'cover'}}></img>
       <p>Name: {name}</p>
       <p>Breed: {breed}</p>
       <p>Gender: {capitalizedGender}</p>
@@ -33,6 +34,7 @@ const DogCard = () => {
       <p>Neutered: {getSymbol(neutered)}</p>
       <p>Vaccinated: {getSymbol(vaccinated)}</p>
       <p>Playfulness Rating: {rating > 0 ? "🐶 ".repeat(rating) : "not rated yet"}</p>
+      <button onClick={() => onDelete(dog.id)}>Remove dog</button>
     </div>
   );
 };
