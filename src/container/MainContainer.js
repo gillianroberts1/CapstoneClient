@@ -82,6 +82,7 @@ const MainContainer = () => {
   };
 
 
+
   const handleGroupWalk = (groupWalk) => {
     const request = new Request();
     request.post("/api/groupwalkies", groupWalk).then(() =>{})
