@@ -10,39 +10,6 @@ const WalkieForm = () => {
   const [location, setLocation] = useState('')
   const navigate = useNavigate();
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault()
-  
-  //   try {
-  //     const response = await fetch(`/api/users/${id}/notifications`, {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({ 
-  //         sender: currentUser.id,
-  //         user: id,
-  //         entries: {
-  //           Message: message,
-  //           Date: date,
-  //           Location: location,
-  //         },
-  //       }),
-  //     })
-
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! status: ${response.status}`)
-  //     }
-  
-  //     const data = await response.json()
-  //     console.log(data)
-
-  //     navigate('/members')
-  //   } catch (error) {
-  //     console.error(error)
-  //   }
-  // }
-
   const handleSubmit = async (event) => {
     event.preventDefault()
   

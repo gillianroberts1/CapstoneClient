@@ -189,7 +189,7 @@ const MainContainer = () => {
           path="/notifications"
           element={
             <ProtectedRoute>
-              <Notification onDelete={handleDeleteNotification}/>
+              <Notification users={users} onDelete={handleDeleteNotification}/>
             </ProtectedRoute>
           }
         />
