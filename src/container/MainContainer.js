@@ -27,7 +27,6 @@ import { AuthContext } from "../firebase/context/AuthContext";
 import GroupWalkieForm from "../components/groupWalkies/GroupWalkieForm";
 
 
-
 const MainContainer = () => {
   const [users, setUsers] = useState([]);
   const [dogs, setDogs] = useState([]);
@@ -65,7 +64,7 @@ const MainContainer = () => {
   }, []);
 
   const handlePost = (user) => {
-    console.log("Posting user:", user); // Log the user data
+    console.log("Posting user:", user);
     const request = new Request();
     request.post("/api/users", user).then(() => {
       // window.location = '/'
@@ -133,8 +132,6 @@ const MainContainer = () => {
     if (!currentUser) {
       return <Navigate to="/login" />;
     }
-
-
 
     return children;
   };

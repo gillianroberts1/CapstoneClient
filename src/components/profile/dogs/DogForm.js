@@ -1,14 +1,12 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../firebase/context/AuthContext"
 
-import { useNavigate } from "react-router-dom";
 import { storage } from "../../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const DogForm = ({ onCreate }) => {
   const { currentUser } = useContext(AuthContext);
   const [file, setFile] = useState(null);
-  const navigate = useNavigate();
 
   const [stateUserDog, setStateUserDog] = useState({
     name: "",
