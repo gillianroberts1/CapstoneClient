@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import "./css/Dog.css";
+
 const Dog = ({ dog }) => {
   return (
-    <div className="dog-list">
-    <div className="dog-name">
-      <Link to={`/dogs/${dog.id}`} state={{dog:dog}}>{dog.name}</Link>
-    </div>
-    </div>
+    <Link to={`/dogs/${dog.id}`}>
+      <div className="dog">
+        <p>{dog.name}</p>
+        <img className="dog-img-sm" src={dog.photoURL} alt="image of dog"></img>
+      </div>
+    </Link>
   );
 };
 
