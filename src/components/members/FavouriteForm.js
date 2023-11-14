@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Favourite = () => {
+const FavouriteForm = () => {
   return (
     <div>Favourite</div>
   )
 }
 
-export default Favourite
+export default FavouriteForm
