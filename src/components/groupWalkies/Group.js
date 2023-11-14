@@ -8,7 +8,7 @@ const Group = ({ groupWalk }) => {
         <h2>{groupWalk.name}</h2>
         
           {groupWalk.date}{" "}&#9900;{" "}
-          {groupWalk.location.name}
+          {groupWalk.location}
         
       </div>
     </>
