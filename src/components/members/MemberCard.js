@@ -124,6 +124,7 @@ const MemberCard = ({ users }) => {
             <div className="button-container">
               <button className="mem-btn">
                 <Link to="walkiesForm">Send Invitation</Link>
+                </button>
             </div>
 
 
