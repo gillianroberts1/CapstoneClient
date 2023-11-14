@@ -25,8 +25,7 @@ const Notification = ({onDelete}) => {
   ) : (
     <p>No notifications available</p>
   )}
-  </>
-
+  </div>
   )
 }
 

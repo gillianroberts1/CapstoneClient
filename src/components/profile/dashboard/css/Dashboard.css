@@ -28,16 +28,25 @@
   .group-walkies,
   .favourites {
     /* margin-top: 20px; */
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 10px;
     width: 25%;
-    height: 110%;
+    border-radius: 10px;
+  background: #ffffff;
+  box-shadow:  -7px 7px 100px #e6e6e6,
+  7px -7px 100px #ffffff;  
+  }
+
+  .fav-members{
+    font-size: 15px;
+    list-style: auto;
+    padding-top: 5px;
   }
 
   .favourites{
-    overflow: auto;
+    overflow: scroll;
     object-fit: cover;
-
+    font-size: 13px;
   }
 
   .title{
