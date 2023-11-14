@@ -92,6 +92,9 @@ const CurrentUserForm = ({ onUpdateUser }) => {
           </button>
         </form>
       </div>
+      <div className="extra">
+        
+      </div>
     </div>
   );
 };
