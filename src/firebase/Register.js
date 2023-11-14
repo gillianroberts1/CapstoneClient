@@ -60,7 +60,8 @@ const Register = ( {onCreate} ) => {
                 photoURL: downloadURL,
               });
               await setDoc(doc(db, "userChats", res.user.uid), {});
-              navigate("/");
+              
+              window.location.href = "/profile"
 
               onCreate({
                 ...userWithUid,

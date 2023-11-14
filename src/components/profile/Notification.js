@@ -16,6 +16,7 @@ const Notification = ({onDelete}) => {
     {currentUser && currentUser.notifications && currentUser.notifications.length > 0 ? (
     currentUser.notifications.map((notification, index) => (
       <div key={index}>
+        <h4>From: {notification.sender.firstName} {notification.sender.lastName}</h4>
         <p>Location: {notification.entries.Location}</p>
         <p>Date: {notification.entries.Date}</p>
         <p>Message: {notification.entries.Message}</p>
