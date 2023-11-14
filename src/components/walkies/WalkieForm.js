@@ -8,9 +8,6 @@ const WalkieForm = () => {
   const [location, setLocation] = useState('')
   const navigate = useNavigate();
 
-  
-
-
   const handleSubmit = async (event) => {
     event.preventDefault()
   
@@ -43,6 +40,8 @@ const WalkieForm = () => {
   }
 
   return (
+    <>
+    <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
     <form onSubmit={handleSubmit}>
       <label>
         <input type='text' value={location} placeholder='location' onChange={e => setLocation(e.target.value)} />
@@ -56,7 +55,7 @@ const WalkieForm = () => {
       </label>
       <button type="submit">Send Notification</button>
     </form>
-
+    </>
   )
 }
 

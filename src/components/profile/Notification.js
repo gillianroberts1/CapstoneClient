@@ -9,6 +9,7 @@ const Notification = ({onDelete}) => {
   const { currentUser } = useContext(AuthContext);
 
   return (
+
     <div className='notifications-container'>
     <h2>Notification Centre</h2>
     
@@ -25,7 +26,7 @@ const Notification = ({onDelete}) => {
   ) : (
     <p>No notifications available</p>
   )}
-  </>
+  </div>
 
   )
 }
