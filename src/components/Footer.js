@@ -20,8 +20,8 @@ const Footer = () => {
 
 
 
-        <Paragraph>Wiggle Waggle Walks™ is a trademark of Wiggle Waggle Walks International Limited. 
-         ©2023 Wiggle Waggle Walks International Limited. All Rights Reserved.</Paragraph>
+        <Paragraph>Wiggle Waggy Walks™ is a trademark of Wiggle Waggy Walks International Limited. 
+         ©2023 Wiggle Waggy Walks International Limited. All Rights Reserved.</Paragraph>
      );
 }
  

@@ -107,6 +107,8 @@ const GroupWalkieForm = ({ onCreate }) => {
       <div className="gw-form-card">
 
             <form onSubmit={handleSubmit} className='gw-form'>
+                <h2>Create a new group walk:</h2>
+                <br/>
                 <label htmlFor="name">{" "}Walk Name
                 <br/>
                 <input type="text" 

@@ -128,7 +128,7 @@ const DogForm = ({ onCreate }) => {
       </div>
       <div className="dogform-card">
 
-      <h2>Add New Dog</h2>
+      <h2>Add your dog's details:</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label className="label">
           {" "}
