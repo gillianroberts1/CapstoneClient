@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 
-const Message = ({message}) => {
+const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
 
@@ -11,12 +11,6 @@ const Message = ({message}) => {
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
-
-  const formatTimestamp = (timestamp) => {
-    const date = new Date(timestamp.seconds * 1000); 
-    return date.toLocaleTimeString();
-  };
-
 
   return (
     <div
@@ -32,7 +26,7 @@ const Message = ({message}) => {
           }
           alt=""
         />
-        <p>{formatTimestamp(message.date)}</p>
+        <span>just now</span>
       </div>
       <div className="messageContent">
         <p>{message.text}</p>

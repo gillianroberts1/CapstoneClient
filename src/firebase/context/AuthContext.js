@@ -10,16 +10,6 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState({});
 
-  // useEffect(() => {
-  //   const request = new Request();
-  //   const unsub = onAuthStateChanged(auth, (user) => {
-  //     setCurrentUser(user);
-  //     request.get(`/api/users/uid/${user.uid}`)
-  //       .then((user) => {
-  //         setCurrentUser(user);
-          
-  //       })
-  //   });
 
   useEffect(() => {
     const request = new Request();
@@ -35,7 +25,12 @@ export const AuthContextProvider = ({ children }) => {
 
 
     });
-
+  
+  // useEffect(() => {
+  //   const unsub = onAuthStateChanged(auth, (user) => {
+  //     setCurrentUser(user);
+  //     console.log(user);
+  //   });
 
     return () => {
       unsub();
