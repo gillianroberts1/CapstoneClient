@@ -6,6 +6,7 @@ import './css/GroupList.css'
 const GroupList = ({ groupWalkies, users }) => {
   const groupNodes = groupWalkies.map((groupWalk, id) => {
     return (
+      <>
       <Link
         key={groupWalk.id}
         to={{ pathname: `/groups/${groupWalk.id}`, state: { groupWalk } }}
@@ -15,12 +16,14 @@ const GroupList = ({ groupWalkies, users }) => {
           <Group groupWalk={groupWalk} users={users} />
         </li>
       </Link>
+      </>
     );
   });
   return (
     <>
       <div className="group-list-container">
       {groupNodes}
+      <button><Link to={{pathname: "/creategroupwalk"}}>Create Group Walk</Link></button>
       </div>
     </>
   );
