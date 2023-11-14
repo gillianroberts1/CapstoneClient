@@ -9,11 +9,9 @@
     rgba(123, 184, 177, 1) 1%,
     rgba(247, 247, 239, 1) 100%
   );
-
 }
 
 .member-card-wrapper {
-  /* border: 1px solid black; */
   display: flex;
   flex-direction: row;
   margin: 0px;
@@ -23,13 +21,16 @@
   width: 600px;
   border-radius: 10px;
   box-shadow: -7px 7px 100px #e6e6e6, 7px -7px 100px #ffffff;
-
 }
 .member-card-details {
   flex: 1;
   padding-top: 10px;
 }
 
+.card-details {
+  padding-top: 10px;
+  font-size: 18px;
+}
 .image {
   height: 250px;
   width: auto;
@@ -38,11 +39,30 @@
 .name {
   font-weight: bold;
   padding-top: 10px;
+  font-size: 24px;
 }
-button {
-  width: 30%;
+
+.button-container{
+  display: flex;
+  align-items: normal;
+
+}
+.mem-btn {
+  width: 160px;
+  height: auto;
   margin: 2%;
   padding: 2px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #253649;
+
+  
+}
+
+.mem-btn a {
+  font-size: 16px;
+  color: #253649;
 }
 
 .dogs {
@@ -60,11 +80,13 @@ button {
 
 .dog-link {
   text-decoration: none;
-  color: black;
+  color: #253649
 }
 
 .dog-container {
   border: 1px solid black;
+  border-radius: 10px;
+  height: 150px;
   margin: 5px;
   margin-bottom: 10px;
   padding: 20px;

@@ -81,15 +81,16 @@ const MemberCard = ({ users }) => {
             <br />
             Distance walked: {selectedUser.distance} miles
             <br />
-            <button className="invite">
-              <Link to="walkiesForm">Send Invitation</Link>
-            </button>
-            {!isUserInFavorites() && (
-              <button className="invite" onClick={addToFavourites}>
-                Add to Favourites
+            <div className="button-container">
+              <button className="mem-btn">
+                <Link to="walkiesForm">Send Invitation</Link>
               </button>
-            )}
-
+              {!isUserInFavorites() && (
+                <button className="mem-btn" onClick={addToFavourites}>
+                  Add to Friends List
+                </button>
+              )}
+            </div>
           </div>
         </div>
         <div className="dog-details">
