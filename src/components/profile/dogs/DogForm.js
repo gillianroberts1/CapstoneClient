@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../firebase/context/AuthContext"
 
-import { useNavigate } from "react-router-dom";
 import { storage } from "../../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import "./css/DogForm.css"
@@ -9,7 +8,6 @@ import "./css/DogForm.css"
 const DogForm = ({ onCreate }) => {
   const { currentUser } = useContext(AuthContext);
   const [file, setFile] = useState(null);
-  const navigate = useNavigate();
 
   const [stateUserDog, setStateUserDog] = useState({
     name: "",
@@ -41,9 +39,7 @@ const DogForm = ({ onCreate }) => {
   };
 
   const handleBreed = function (event) {
-    // const index = parseInt(event.target.value);
     const selectedBreed = event.target.value;
-    // copiedUserDog['breed'] = selectedBreed;
     setStateUserDog((prevState) => ({
       ...prevState,
       breed: selectedBreed,
@@ -113,7 +109,7 @@ const DogForm = ({ onCreate }) => {
             console.log('File available at', downloadURL);
             payload.photoURL = downloadURL;
             onCreate(payload);
-            navigate("/profile");
+            window.location="/profile"
           });
         }
       );
@@ -123,7 +119,9 @@ const DogForm = ({ onCreate }) => {
   };
 
   return (
+
     <div className="dog-form">
+
       Add New Dog
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label>

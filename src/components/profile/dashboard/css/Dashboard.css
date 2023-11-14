@@ -6,38 +6,44 @@
   border-radius: 10px;
 }
 
-.dashboard-title {
-  font-weight: bold;
-  font-size: 18px;
-  padding: 13px;
-  margin: 0px;
-}
-
-.dashboard-card {
-  display: flex;
-  flex-direction: row;
-  margin: 10px;
-  width: 100%;
-  gap: 10px;
-  text-align: center;
-  box-sizing: border-box;
-  border-radius: 10px;
-  /* background: #e6e6e6; */
-  /* box-shadow: -7px 7px 100px #e6e6e6, 7px -7px 100px #ffffff; */
-}
-
-.distance,
-.walkies,
-.group-walkies,
-.favourites {
-  /* margin-top: 20px; */
-  /* border: 1px solid black; */
-  border-radius: 10px;
-  width: 25%;
-  height: 110%;
+  .dashboard-title{
+    font-weight: bold;
+    font-size: 18px;
+    padding:13px;
+    margin:0px;
+  }
+  
+  .dashboard-card {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    width: 100%;
+    gap: 10px;
+    text-align: center;
+    box-sizing: border-box; 
+    border-radius:10px;
+  }
+  
+  .distance,
+  .walkies,
+  .group-walkies,
+  .favourites {
+    border-radius: 10px;
+    width: 25%;
   background-color: none;
-  /* box-shadow: -7px 7px 100px #e6e6e6, 7px -7px 100px #ffffff; */
-}
+  }
+
+  .fav-members{
+    font-size: 15px;
+    list-style: auto;
+    padding-top: 5px;
+  }
+
+  .favourites{
+    overflow: scroll;
+    object-fit: cover;
+    font-size: 13px;
+  }
 
 .favourites {
   overflow: auto;
@@ -54,8 +60,11 @@
   font-size: 20px;
   margin: 15px 0px 0px 0px;
 }
-
-.add-fav{
+  .fav-image{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+  }
 
 }
 /* .favourites ul {

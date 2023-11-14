@@ -1,0 +1,46 @@
+.userform-container {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  /* text-align: center; */
+  justify-content: center;
+  padding: 30px 30px 30px 0px;
+  background: linear-gradient(
+    270deg,
+    rgba(123, 184, 177, 1) 1%,
+    rgba(247, 247, 239, 1) 100%
+  );
+}
+
+.dog-card {
+  flex: 1;
+}
+.dog-image {
+  height: 600px;
+}
+.userform-card {
+  flex: 2;
+  background-color: #fff;
+  padding: 20px 60px;
+  border-radius: 10px;
+  margin: 150px;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid black;
+  align-items: center;
+  box-shadow: -7px 7px 100px #e6e6e6, 7px -7px 100px #ffffff;
+}
+input {
+  padding: 5px;
+  width: 250px;
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+.label {
+  display: block;
+}
