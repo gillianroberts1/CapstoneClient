@@ -7,12 +7,11 @@
   padding: 10px;
   border-radius: 19px;
   background: #9ccac5;
-  box-shadow: inset 8px 8px 16px #828282, inset -8px -8px 16px #ffffff;
+  box-shadow: inset -11px 11px 22px #bababa, inset 11px -11px 22px #ffffff;
   color: #253649;
   font-weight: 700;
 }
 
-.group-wrapper h2{
-    color: #253649;
+.group-wrapper h2 {
+  color: #253649;
 }
-

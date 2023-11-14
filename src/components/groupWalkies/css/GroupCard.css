@@ -14,8 +14,8 @@
   width: 60%;
   border-radius: 19px;
   background: #9ccac5;
-  box-shadow: inset 8px 8px 16px #828282, inset -8px -8px 16px #ffffff;
-}
+  box-shadow: inset -11px 11px 22px #bababa,
+  inset 11px -11px 22px #ffffff;}
 
 .group-card-details {
   flex: 1;
