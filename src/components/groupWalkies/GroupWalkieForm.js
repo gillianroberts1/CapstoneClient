@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const GroupWalkieForm = ({ onCreate }) => {
     const [stateGroupWalkies, setStateGroupWalkies] = useState({
         name: "",
         date: "",
-        location: "",
         distance: 0,
         duration: 0,
+        location: "",
+        
+        difficulty: "",
     });
 
     // const handleChange = (event) => {
@@ -31,6 +33,8 @@ const GroupWalkieForm = ({ onCreate }) => {
     const handleSubmit =  (event) => {
         event.preventDefault()
         onCreate(stateGroupWalkies);
+        //  navigate("/group");
+
      
         
 
@@ -55,7 +59,7 @@ const GroupWalkieForm = ({ onCreate }) => {
     //         location: selectLocation,
     //     }))
 
-    //     // console.log(stateGroupWalkies);
+        console.log(stateGroupWalkies);
 
     // };
    
@@ -91,37 +95,87 @@ const GroupWalkieForm = ({ onCreate }) => {
         )
         // console.log(location)
         // console.log(index)
-        console.log(locationNodes);
+        // console.log(locationNodes);
       });
       
+      const difficulties = [
+        "Easy",
+        "Moderate",
+        "Hard"
+      ]
 
+      const difficultyNodes = difficulties.map((difficulty, index)=> {
+        return(
+            <option key={index} value={difficulty} > 
+            {difficulty}
+            </option>
+        )
+      })
+      
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Walk Name</label>
+                <label htmlFor="name">{" "}Walk Name
+                <input type="text" 
+                name='name' 
+                placeholder='Enter walk name...' 
+                 onChange={handleChange} 
+                 />
+                </label>
 
-                <input type="text" name='name' placeholder='Enter walk name...'  onChange={handleChange} />
 
-                <label htmlFor="date">Select date and time</label>
-                <input type="datetime-local" name="date"  onChange={handleChange} />
+                <label htmlFor="date">
+                {" "} Date and Time
+                <input type="datetime-local" 
+                    name="date" 
+                    onChange={handleChange} 
+                />
+                </label>
 
-                <label htmlFor="location">Location</label>
-                <select name="location" id="location" value={stateGroupWalkies.location}  onChange={handleLocation}>
+                <label htmlFor="location">{" "} Location
+                <select name="location"
+                 id="location" 
+                 value={stateGroupWalkies.location} 
+                  onChange={handleLocation}
+                  >
+                   <option value="select-location">
+                      Select a Location
+                   </option>
+                {locationNodes}    
+           </select> 
+                </label>
+               
+
+                <label htmlFor="difficulty">{" "} 
+                Difficulty
+                <select name="difficulty"
+                 id="difficulty" 
+                 value={stateGroupWalkies.difficulty}  
+                 onChange={handleChange}>
                    
-                        <option value="select-location">
-                           Select a Location
-                        </option>
-                    
-                    {locationNodes}
-                     
-                       
-                </select>
+                   <option value="select-difficulty">
+                      Select a Location
+                   </option>
+               {difficultyNodes}    
+           </select>
+                </label>
+               
 
-                <label htmlFor="distance">Distance (km)</label>
-                <input type="number" min="1" max="60" name="distance" value={stateGroupWalkies.distance} onChange={handleChange} />
+                <label htmlFor="distance">{" "}Distance (miles)
+                <input type="number"
+                 min="1" max="60" 
+                 name="distance" 
+                 value={stateGroupWalkies.distance} 
+                 onChange={handleChange} />
+                </label>
 
-                <label htmlFor="duration">Duration (mins)</label>
-                <input type="number" min="1" max="60" name="duration" value={stateGroupWalkies.duration} onChange={handleChange} />
+                <label htmlFor="duration">{" "}Duration (mins)
+                <input type="number" 
+                min="1" max="60" 
+                name="duration"
+                 value={stateGroupWalkies.duration} 
+                 onChange={handleChange} />
+                </label>
 
                 <input type="submit" value="Create New Meet" />
             </form>

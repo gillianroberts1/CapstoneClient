@@ -78,9 +78,18 @@ const MainContainer = () => {
     request.post("/api/dogs", dog).then(() => {});
   };
 
-  const handleGroupWalk = (groupWalkies)=> {
-    const request = new Request();
-    request.post("/api/groupwalkies", groupWalkies).then(() => {});
+  // const handleGroupWalk = (groupWalkies)=> {
+  //   const request = new Request();
+  //   request.post("/api/groupwalkies", groupWalkies).then(() => {});
+  // }
+
+  const handleGroupWalk = (groupWalk)=>{
+    fetch("/api/groupwalkies", {
+      method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(groupWalk)
+    })
+    // window.location ='/group'
   }
 
   const { currentUser } = useContext(AuthContext);
@@ -198,7 +207,7 @@ const MainContainer = () => {
           path="/creategroupwalk"
           element={
             <ProtectedRoute>
-              <GroupWalkieForm groupWalkies={groupWalkies} locations={location} onCreate={handleGroupWalk}/>
+              <GroupWalkieForm groupWalkies={groupWalkies}  onCreate={handleGroupWalk}/>
             </ProtectedRoute>
           }
         />
