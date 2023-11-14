@@ -1,18 +1,16 @@
 .current_user_container {
   border-radius: 10px;
   background: #ffffff;
-  box-shadow:  -7px 7px 100px #e6e6e6,
-  7px -7px 100px #ffffff;  
+  box-shadow: -7px 7px 100px #e6e6e6, 7px -7px 100px #ffffff;
   height: 234px;
-  
 }
 
-.user-header{
-    padding: 10px 0px 30px 10px;
-    font-style: italic;
+.user-header {
+  padding: 10px 0px 30px 10px;
+  font-style: italic;
 }
 .user-card {
-    display: flex;
+  display: flex;
   padding: 15px;
 }
 
@@ -21,7 +19,6 @@ img {
   border-radius: 10px;
 }
 
-.user-details{
-    padding-left: 10px;
-
+.user-details {
+  padding-left: 10px;
 }

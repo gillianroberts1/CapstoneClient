@@ -31,19 +31,19 @@ const Dashboard = () => {
         {user ? (
           <>
             <div className='distance'>
-              <p className='title'>Total distance walked</p>
+              <p className='title'>Distance Walked</p>
               <p className='data'>{user.totalDistance} miles</p>
             </div>
             <div className='walkies'>
-              <p className='title'>Total walkies attended</p>
+              <p className='title'>Walkies Attended</p>
               <p className='data'>{user.walkies ? user.walkies.length : 0}</p>
             </div>
             <div className='group-walkies'>
-              <p className='title'>Total group walkies attended</p>
+              <p className='title'>Group Walkies Attended</p>
               <p className='data'>{user.groupWalkies ? user.groupWalkies.length : 0}</p>
             </div>
             <div className='favourites'>
-              <p className='title'>Favourited members</p>
+              <p className='title'>Friends List</p>
               {user.favourites && user.favourites.length > 0 ? (
                 <ul>
                   {user.favourites.map((favoriteUser) => (
@@ -52,7 +52,7 @@ const Dashboard = () => {
                 </ul>
               ) : (
                 <p>
-                  <Link to='/members' className='data'>Add member</Link>
+                  <Link to='/members' className='add-fav'>Add member</Link>
                 </p>
               )}
             </div>

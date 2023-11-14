@@ -4,7 +4,7 @@
   border: 2px solid black;
   border-radius: 10px;
   display: grid;
-  grid-template-columns: 1fr 1.2fr 0.8fr;
+  grid-template-columns: 0.3fr 1.4fr 0.3fr;
   grid-template-rows: 0.8fr 1.2fr 1fr;
   gap: 18px 18px;
   grid-auto-flow: row;
@@ -35,10 +35,10 @@
   grid-area: dashboard;
 }
 
-.notifications {
-  border: 1px solid black;
-}
-
 .logout{
   padding-left: 465px;
+}
+
+.notifications a{
+  color: #253649;
 }
