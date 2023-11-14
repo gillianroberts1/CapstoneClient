@@ -27,6 +27,7 @@ import { AuthContext } from "../firebase/context/AuthContext";
 import GroupWalkieForm from "../components/groupWalkies/GroupWalkieForm";
 import CurrentUserForm from "../components/profile/currentUser/CurrentUserForm";
 
+
 const MainContainer = () => {
   const [users, setUsers] = useState([]);
   const [dogs, setDogs] = useState([]);
@@ -60,7 +61,7 @@ const MainContainer = () => {
   }, []);
 
   const handlePost = (user) => {
-    console.log("Posting user:", user); // Log the user data
+    console.log("Posting user:", user);
     const request = new Request();
     request.post("/api/users", user).then(() => {
       // window.location = '/'
@@ -80,6 +81,11 @@ const MainContainer = () => {
     request.post("/api/dogs", dog).then(() => {});
   };
 
+
+  const handleGroupWalk = (groupWalk) => {
+    const request = new Request();
+    request.post("/api/groupwalkies", groupWalk).then(() =>{})
+  }
   const handleUpdateUser = async (user) => {
     try {
       const response = await fetch(`/api/users/${user.id}`, {
@@ -99,14 +105,7 @@ const MainContainer = () => {
     }
   };
 
-  const handleGroupWalk = (groupWalk) => {
-    fetch("/api/groupwalkies", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(groupWalk),
-    });
-    // window.location ='/group'
-  };
+  
 
   const handleDeleteDog = (id) => {
     const request = new Request();
@@ -140,10 +139,16 @@ const MainContainer = () => {
         } else {
           console.log("User has not been removed due to an error");
         }
+
       });
   };
 
   
+
+  const handleCreateWalkie = (walkie) => {
+    const request = new Request();
+    request.post("/api/walkies", walkie).then(() => {});
+  };
 
   const { currentUser } = useContext(AuthContext);
   const ProtectedRoute = ({ children }) => {
@@ -212,7 +217,8 @@ const MainContainer = () => {
           path="/notifications"
           element={
             <ProtectedRoute>
-              <Notification onDelete={handleDeleteNotification} />
+              <Notification users={users} onDelete={handleDeleteNotification} onCreateWalkie={handleCreateWalkie}/>
+
             </ProtectedRoute>
           }
         />
@@ -285,6 +291,7 @@ const MainContainer = () => {
       </Routes>
     </BrowserRouter>
   );
+        
 };
 
 export default MainContainer;

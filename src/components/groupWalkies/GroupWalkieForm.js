@@ -1,27 +1,18 @@
 import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { storage } from '../../firebase';
+import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
 const GroupWalkieForm = ({ onCreate }) => {
+    const [file, setFile] = useState(null);
     const [stateGroupWalkies, setStateGroupWalkies] = useState({
         name: "",
         date: "",
         distance: 0,
         duration: 0,
         location: "",
-        
         difficulty: "",
     });
 
-    // const handleChange = (event) => {
-    //     let propertyName = event.target.name;
-    //     let copiedGroupWalkie = { ...stateGroupWalkies };
-    //     copiedGroupWalkie[propertyName] =
-    //      event.target.value === "datetime-local"
-    //      ? event.target.value : event.target.value;
-
-    //     setStateGroupWalkies(copiedGroupWalkie);
-    // };
-    
     const handleChange = (event) => {
         let propertyName = event.target.name;
         let copiedGroupWalkie = { ...stateGroupWalkies };
@@ -29,41 +20,40 @@ const GroupWalkieForm = ({ onCreate }) => {
         setStateGroupWalkies(copiedGroupWalkie);
     };
 
-
     const handleSubmit =  (event) => {
         event.preventDefault()
-        onCreate(stateGroupWalkies);
-        //  navigate("/group");
 
-     
-        
+        try {
+            const storageRef = ref(storage, `groupwalks/${file.name}`);
+            const uploadTask = uploadBytesResumable(storageRef, file)
 
-        // onCreate(stateGroupWalkies);
-        // handlePost();
+            uploadTask.on('state_changed',
+            (snapshot) => {},
+            (error) => {console.log(error)},
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    console.log('File available at', downloadURL);
+                    stateGroupWalkies.photoURL = downloadURL;
+                    onCreate(stateGroupWalkies);
+                    window.location="/groupwalkies"
+                })
+            }
+            )
+        } catch (error) {
+            console.log(error)
+        }
     };
 
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0])
+    }
     const handleLocation = function (event) {
-        // const index = parseInt(event.target.value)
-        // const selectedLocation =location[parseInt(event.target.value)];
         const selectedLocation = event.target.value
         let copiedLocation = { ...stateGroupWalkies };
         copiedLocation['location'] = selectedLocation
         setStateGroupWalkies(copiedLocation)
 
     }
-
-    // const handleLocation = function (event) {
-    //     const selectLocation = event.target.value;
-    //     setStateGroupWalkies((prevState) => ({
-    //         ...prevState,
-    //         location: selectLocation,
-    //     }))
-
-        console.log(stateGroupWalkies);
-
-    // };
-   
-
 
     const locations = [
         "Kelvingrove",
@@ -93,9 +83,6 @@ const GroupWalkieForm = ({ onCreate }) => {
             {location}
         </option>
         )
-        // console.log(location)
-        // console.log(index)
-        // console.log(locationNodes);
       });
       
       const difficulties = [
@@ -114,6 +101,7 @@ const GroupWalkieForm = ({ onCreate }) => {
       
     return (
         <div>
+            <br></br><br></br><br></br><br></br><br></br><br></br>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">{" "}Walk Name
                 <input type="text" 
@@ -176,6 +164,8 @@ const GroupWalkieForm = ({ onCreate }) => {
                  value={stateGroupWalkies.duration} 
                  onChange={handleChange} />
                 </label>
+
+                <input type='file' id='file' onChange={handleFileChange}></input>
 
                 <input type="submit" value="Create New Meet" />
             </form>
