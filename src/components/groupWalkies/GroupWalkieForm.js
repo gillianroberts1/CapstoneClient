@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
+import "./css/GroupWalkieForm.css"
+import dog from "../images/assets/dog2.png"
 
 const GroupWalkieForm = ({ onCreate }) => {
     const [stateGroupWalkies, setStateGroupWalkies] = useState({
@@ -113,7 +115,8 @@ const GroupWalkieForm = ({ onCreate }) => {
       })
       
     return (
-        <div>
+        <div className="gw-form-container">
+      <div className="gw-form-card">
             <form onSubmit={handleSubmit}>
                 <label htmlFor="name">{" "}Walk Name
                 <input type="text" 
@@ -145,7 +148,7 @@ const GroupWalkieForm = ({ onCreate }) => {
            </select> 
                 </label>
                
-
+<br/>
                 <label htmlFor="difficulty">{" "} 
                 Difficulty
                 <select name="difficulty"
@@ -160,7 +163,7 @@ const GroupWalkieForm = ({ onCreate }) => {
            </select>
                 </label>
                
-
+<br/>
                 <label htmlFor="distance">{" "}Distance (miles)
                 <input type="number"
                  min="1" max="60" 
@@ -179,9 +182,14 @@ const GroupWalkieForm = ({ onCreate }) => {
 
                 <input type="submit" value="Create New Meet" />
             </form>
+            </div>
+            <div className='gw-image-card'>
+                <img src={dog} alt='dog' className='dog-image'/>
+            </div>
+        
         </div>
     );
 };
-// }
+
 
 export default GroupWalkieForm;

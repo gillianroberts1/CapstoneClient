@@ -92,6 +92,7 @@ const MainContainer = () => {
     body: JSON.stringify(groupWalk)
     })
     // window.location ='/group'
+  }
 
   const handleDeleteDog = (id) => {
     const request = new Request();

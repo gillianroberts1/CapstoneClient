@@ -1,0 +1,56 @@
+.gw-form-container {
+    height: 90vh;
+    display: flex;
+    flex-direction: row 70% 30%;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: linear-gradient(
+      270deg,
+      rgba(123, 184, 177, 1) 1%,
+      rgba(247, 247, 239, 1) 100%
+    );
+  }
+  
+  /* .dog-card {
+    flex: 1;
+  } */
+  .dog-image {
+    height: 600px;
+
+    
+  }
+  .gw-form-card {
+    flex: 1;
+    flex: 0 0 50%;
+    background-color: #fff;
+    padding: 40px 60px;
+    border-radius: 10px;
+    margin: 30px 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 2px solid black;
+    align-items: center;
+    box-shadow: -7px 7px 100px #e6e6e6, 7px -7px 100px #ffffff;
+    justify-content: right;
+  }
+  .gw-image-card{
+    flex:2;
+    flex: 0 0 40%;
+    text-align: left;
+
+  }
+  input {
+    padding: 5px;
+    width: 250px;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  .label {
+    display: block;
+  }
+  
