@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 import "./css/Profile.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
-import Dashboard from "./dashboard/Dashboard.js"
-
+import Dashboard from "./dashboard/Dashboard.js";
 
 const Profile = () => {
   const [selectedOption, setSelectedOption] = useState("user");
@@ -18,8 +17,8 @@ const Profile = () => {
         </div>
 
         <div className="notifications">
-          <button>
-            <Link to="/notifications">Notifications</Link>
+          <button onClick={() => setSelectedOption("notifications")}>
+            Notifications
           </button>
         </div>
 

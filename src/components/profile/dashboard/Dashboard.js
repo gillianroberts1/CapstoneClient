@@ -53,7 +53,7 @@ const Dashboard = () => {
                 </ul>
               ) : (
                 <p>
-                  <Link to='/members' className='data'>Add member</Link>
+                  <Link to='/members' className='add-fav'>Add member</Link>
                 </p>
               )}
             </div>

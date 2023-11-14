@@ -120,9 +120,13 @@ const MemberCard = ({ users }) => {
             <br />
             Distance walked: {selectedUser.distance} miles
             <br />
-            <button className="invite">
-              <Link to="walkiesForm">Send Invitation</Link>
-            </button>
+
+            <div className="button-container">
+              <button className="mem-btn">
+                <Link to="walkiesForm">Send Invitation</Link>
+            </div>
+
+
           </div>
         </div>
         <div className="dog-details">

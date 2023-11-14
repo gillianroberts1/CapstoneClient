@@ -3,7 +3,6 @@ import WalkieCard from '../walkies/WalkieCard'
 import { AuthContext } from "../../firebase/context/AuthContext"
 import "./css/Notifications.css"
 
-
 const Notification = ({users, onDelete, onCreateWalkie}) => {
 
   const { currentUser } = useContext(AuthContext);
@@ -16,12 +15,20 @@ const Notification = ({users, onDelete, onCreateWalkie}) => {
     });
   };
   
+  const handleDeleteNotification = (id) => {
+    const request = new Request();
+    request.delete(`/api/notifications/${id}`).then(() => {
+      window.location = '/notifications'
+    });
+  }
+  
   return (
 
     <div className='notifications-container'>
     <h2>Notification Centre</h2>
     
     {currentUser && currentUser.notifications && currentUser.notifications.length > 0 ? (
+
     currentUser.notifications.map((notification, index) => {
       const foundUser = users.find(user => typeof notification.sender === 'object' ? user.id === notification.sender.id : user.id === notification.sender);
     
@@ -33,7 +40,7 @@ const Notification = ({users, onDelete, onCreateWalkie}) => {
             <p>Date: {notification.entries.Date}</p>
             <p>Message: {notification.entries.Message}</p>
             <button onClick={() => handleAccept(notification)}>Accept</button>
-            <button onClick={() => onDelete(notification.id)}>Reject</button>
+            <button onClick={() => handleDeleteNotification(notification.id)}>Reject</button>
           </div>
         )
       }

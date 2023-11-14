@@ -68,12 +68,6 @@ const MainContainer = () => {
     });
   };
 
-  const handleDeleteNotification = (id) => {
-    const request = new Request();
-    request.delete(`/api/notifications/${id}`).then(() => {
-      window.location = "/notifications";
-    });
-  };
 
   const handleAddDog = (dog) => {
     console.log("Updating Dogs:", dog);
@@ -211,15 +205,6 @@ const MainContainer = () => {
           element={
             <ProtectedRoute>
               <MemberCard users={users} />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/notifications"
-          element={
-            <ProtectedRoute>
-              <Notification users={users} onDelete={handleDeleteNotification} onCreateWalkie={handleCreateWalkie}/>
-
             </ProtectedRoute>
           }
         />
