@@ -97,6 +97,18 @@ function NavBar() {
               >
                 Profile
               </Nav.Link>
+
+              <Nav.Link
+                href="/faq"
+                className={
+                  activeLink === "profile"
+                    ? "active navbar-link"
+                    : "navbar-link"
+                }
+                onClick={() => onUpdateActiveLink("profile")}
+              >
+                FAQ
+              </Nav.Link>
               
             </Nav>
           </Navbar.Collapse>
