@@ -42,7 +42,6 @@ const Notification = ({users, onDelete, onCreateWalkie}) => {
     <p>No notifications available</p>
   )}
   </div>
-
   )
 }
 

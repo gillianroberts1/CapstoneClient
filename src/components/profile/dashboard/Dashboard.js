@@ -43,10 +43,12 @@ const Dashboard = () => {
             </div>
             <div className='favourites'>
               <p className='title'>Favourited members</p>
-              {currentUser.favourites && currentUser.favourites.length > 0 ? (
-                <ul>
-                  {currentUser.favourites.map((favoriteUser) => (
-                    <li key={favoriteUser.id}><p className='data'>{favoriteUser.firstName}</p></li>
+
+              {user.favourites && user.favourites.length > 0 ? (
+                <ul className='fav-members'>
+                  {user.favourites.map((favoriteUser) => (
+                    <li key={favoriteUser.id}><p className='fav-members'><a href={`/members/${favoriteUser.id}`}><img src={favoriteUser.photoURL} alt="favourite-member" className='fav-image'/>{" "}{favoriteUser.firstName}</a></p></li>
+
                   ))}
                 </ul>
               ) : (
