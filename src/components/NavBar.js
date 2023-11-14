@@ -99,7 +99,7 @@ function NavBar() {
               >
                 {currentUser && (
                   <div className="account-info">
-                    <span>My Profile</span>
+                    <span>{currentUser.firstName}'s profile</span>
 
                     <img src={currentUser.photoURL} alt="User" />
                   </div>

@@ -18,7 +18,7 @@
 }
 .navbar-nav {
   
-  padding:70px 0px 0px 100px
+  padding:70px 0px 0px 180px
 }
 
 nav.navbar {
@@ -39,7 +39,7 @@ nav.navbar.scrolled {
 nav.navbar a.navbar-brand {
   max-width: 8%;
   height: auto;
-  padding-top: 20px;
+  padding-top: 22px;
 }
 
 .logo-container {
@@ -48,7 +48,7 @@ nav.navbar a.navbar-brand {
 }
 
 .logo {
-  height: 100px;
+  height: 130px;
   width: auto;
   padding: 0px 50px;
 }
@@ -57,8 +57,8 @@ nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 700;
   color: #253649 !important;
   letter-spacing: 0.8px;
-  padding: 0 12px;
-  font-size: 14px;
+  padding: 0 30px;
+  font-size: 20px;
   opacity: 0.75;
 }
 
@@ -135,18 +135,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   right: 0;
   display: flex;
   align-items: center;
-  padding: 30px;
+  padding: 18px;
 }
 
 .navbar-link .account-info img {
-  width: 60px; 
-  height: 60px ;
+  width: 70px; 
+  height: 70px ;
   border-radius: 50%;
   margin-right: 10px; 
 }
 
 .navbar-link .account-info span {
-  font-size: 8px; 
+  font-size: 10px; 
   margin-right: 5px;
 }
 

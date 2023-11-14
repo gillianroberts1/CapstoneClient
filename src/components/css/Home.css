@@ -1,8 +1,10 @@
 .home-container {
+  margin-top: 100px;
+  padding-top: 250px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 40px;
+  /* padding-top: 40px; */
   background: fixed;
   background: rgb(123, 184, 177);
   background: linear-gradient(
@@ -32,8 +34,9 @@
 }
 .dogs {
   background: transparent;
-  height: 330px;
+  height: 500px;
   width: auto;
+  padding-bottom: 70px;
 }
 
 .button {
