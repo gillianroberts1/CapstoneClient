@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { AuthContext } from '../../firebase/context/AuthContext'
 
 const WalkieForm = () => {
+  const { currentUser } = useContext(AuthContext)
   const { id } = useParams()
   const [message, setMessage] = useState('')
   const [date, setDate] = useState('')
@@ -18,11 +20,13 @@ const WalkieForm = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ 
+          senderId: currentUser.id,
+          userId: id,
           entries: {
             Message: message,
             Date: date,
-            Location: location
-          } 
+            Location: location,
+          },
         }),
       })
   
@@ -32,7 +36,7 @@ const WalkieForm = () => {
   
       const data = await response.json()
       console.log(data)
-
+  
       navigate('/members')
     } catch (error) {
       console.error(error)

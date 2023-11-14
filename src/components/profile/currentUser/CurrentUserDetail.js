@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../firebase/context/AuthContext";
 import "../css/UserDetail.css";
+import { Link } from "react-router-dom";
+import CurrentUserForm from "./CurrentUserForm";
 
 const CurrentUserDetail = () => {
   const { currentUser } = useContext(AuthContext);
@@ -21,7 +23,10 @@ const CurrentUserDetail = () => {
           <p>Age: {currentUser.age}</p>
           <p>Login Details: {currentUser.email}</p>
           <p>Gender: {currentUser.gender}</p>
-          <p>Home Area: {currentUser.area}</p>
+
+          <Link to="/updateprofile">
+        <button>Update Profile</button>
+      </Link>
         </div>
       </div>
     </div>

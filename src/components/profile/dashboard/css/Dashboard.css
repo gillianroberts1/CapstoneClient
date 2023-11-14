@@ -61,6 +61,12 @@
 
   }
 
+  .fav-image{
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+  }
+
 
   
   /* .favourites ul {
