@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
+import { Nav } from "react-bootstrap";
 import Navbar from "react-bootstrap/Navbar";
 import "./css/NavBar.css";
 import logo from "./images/assets/doglogo.png";
+import { AuthContext } from "../firebase/context/AuthContext";
 
 function NavBar() {
+  const { currentUser } = useContext(AuthContext);
+
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
 
@@ -31,7 +34,6 @@ function NavBar() {
     <>
       <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
         <Container>
-
           <Navbar.Brand href="/">
             <div className="logo-container">
               <img src={logo} alt="Logo" className="logo" />
@@ -95,9 +97,14 @@ function NavBar() {
                 }
                 onClick={() => onUpdateActiveLink("profile")}
               >
-                Profile
+                {currentUser && (
+                  <div className="account-info">
+                    <span>My Profile</span>
+
+                    <img src={currentUser.photoURL} alt="User" />
+                  </div>
+                )}
               </Nav.Link>
-              
             </Nav>
           </Navbar.Collapse>
         </Container>

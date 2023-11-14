@@ -17,8 +17,7 @@
   width: 100%;
 }
 .navbar-nav {
-  /* padding-top: 70px;
-  padding-left: 100px; */
+  
   padding:70px 0px 0px 100px
 }
 
@@ -130,6 +129,27 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: max-content;
 }
 
+.navbar-link .account-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+}
+
+.navbar-link .account-info img {
+  width: 50px; /* Thumbnail size */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 10px; /* Space between image and text */
+  padding-left: 5px;
+}
+
+.navbar-link .account-info span {
+  font-size: 8px; /* Adjust as needed */
+  /* Additional styling as needed */
+}
+
 @media (min-width: 992px) {
   .navbar-expand-lg .navbar-collapse {
     display: flex !important;
@@ -150,3 +170,5 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     max-width: 960px;
   }
 }
+
+
