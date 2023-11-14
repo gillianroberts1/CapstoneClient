@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Dog from './Dog'
+import "./css/DogDetail.css"
 
 const DogDetail = ({dogs}) => {
   const dogNodes = dogs.map((dog) => {
