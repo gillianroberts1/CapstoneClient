@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./css/MemberCard.css";
 import { AuthContext } from "../../firebase/context/AuthContext";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+
 
 const MemberCard = ({ users }) => {
   const { currentUser } = useContext(AuthContext);
@@ -24,50 +26,87 @@ const MemberCard = ({ users }) => {
   //   return str.toLowerCase().replace(/\b\w/g, (char) => char.toUpperCase());
   // };
 
-  const isUserInFavorites = () => {
+  const isUserInFavourites = () => {
     return favourites.some((fav) => fav.id === selectedUser.id);
   };
 
-  const addToFavourites = () => {
-    setFavourites((prevFavourites) => {
-      if (!prevFavourites.some((fav) => fav.id === selectedUser.id)) {
-        const updatedFavourites = [...prevFavourites, selectedUser];
-        console.log("Favourites After:", updatedFavourites);
+  const handleButtonClick = () => {
+    if (isUserInFavourites()) {
+      removeFromFavourites();
+    } else {
+      addToFavourites();
+    }
+  };
 
-        if (currentUser && currentUser.id) {
-          const userId = currentUser.id;
-          fetch(`/api/users/${userId}/favourites/${selectedUser.id}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ favourites: updatedFavourites }),
-          })
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error("Failed to update user data");
-              }
-              return response.json();
-            })
-            .then((data) => {
-              console.log("User data updated successfully:", data);
-              console.log("Favs after:", data.favourites);
-            })
-            .catch((error) => {
-              console.error("Error updating user data:", error);
-            });
-        }
-        return updatedFavourites;
-      }
-      return prevFavourites;
-    });
-    console.log(selectedUser);
+  const addToFavourites = () => {
+    if (currentUser && currentUser.id) {
+      const userId = currentUser.id;
+      const updatedFavourites = [...favourites, selectedUser];
+  
+      fetch(`/api/users/${userId}/favourites/${selectedUser.id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          favourites: updatedFavourites.map((user) => user.id),
+        }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to update user data");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("User data updated successfully:", data);
+          setFavourites(updatedFavourites);
+        })
+        .catch((error) => {
+          console.error("Error updating user data:", error);
+        });
+    }
+  };
+
+  const removeFromFavourites = () => {
+    if (currentUser && currentUser.id) {
+      const userId = currentUser.id;
+      const updatedFavourites = favourites.filter(
+        (fav) => fav.id !== selectedUser.id
+      );
+  
+      fetch(`/api/users/${userId}/favourites/${selectedUser.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          favourites: updatedFavourites.map((user) => user.id),
+        }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to update user data");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("User data updated successfully:", data);
+          setFavourites(updatedFavourites);
+        })
+        .catch((error) => {
+          console.error("Error updating user data:", error);
+        });
+    }
   };
 
   return (
     <div className="member-card-container">
       <div className="member-card-wrapper">
         <div className="member-card-details">
+        <button onClick={handleButtonClick}>
+            {isUserInFavourites() ? <FaHeart /> : <FaRegHeart />}
+          </button>
           <img src={selectedUser.photoURL} alt="user" className="image" />
           <p className="name">
             {selectedUser.firstName} {selectedUser.lastName}
@@ -84,12 +123,6 @@ const MemberCard = ({ users }) => {
             <button className="invite">
               <Link to="walkiesForm">Send Invitation</Link>
             </button>
-            {!isUserInFavorites() && (
-              <button className="invite" onClick={addToFavourites}>
-                Add to Favourites
-              </button>
-            )}
-
           </div>
         </div>
         <div className="dog-details">
