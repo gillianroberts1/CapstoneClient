@@ -1,44 +1,56 @@
 .member-card-container {
+  margin-top: 30px;
   height: 95vh;
-  display: flex ;
+  display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(
+    270deg,
+    rgba(123, 184, 177, 1) 1%,
+    rgba(247, 247, 239, 1) 100%
+  );
+
 }
 
 .member-card-wrapper {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: row;
-margin: 0px;
+  margin: 0px;
   text-align: center;
   padding: 3%;
-  height: 60%;
-  width: 50%;
+  height: 80%;
+  width: 600px;
+  border-radius: 10px;
+  box-shadow: -7px 7px 100px #e6e6e6, 7px -7px 100px #ffffff;
+
 }
-.member-card-details{
+.member-card-details {
   flex: 1;
+  padding-top: 10px;
 }
 
-.image{
-    height: 30%;
+.image {
+  height: 250px;
+  width: auto;
 }
 
-.name{
-    font-weight: bold;
+.name {
+  font-weight: bold;
+  padding-top: 10px;
 }
-button{
-    width: 30%;
-    margin: 2%;
-    padding: 2px;
-
+button {
+  width: 30%;
+  margin: 2%;
+  padding: 2px;
 }
 
-.dogs{
+.dogs {
   text-decoration: none;
   list-style: none;
 }
 
-.dog-details{
+.dog-details {
   flex: 2 right;
   text-align: start !important;
   text-decoration: none;
@@ -46,16 +58,15 @@ button{
   justify-content: center;
 }
 
-.dog-link{
+.dog-link {
   text-decoration: none;
   color: black;
 }
 
-.dog-container{
+.dog-container {
   border: 1px solid black;
   margin: 5px;
   margin-bottom: 10px;
   padding: 20px;
   justify-content: center;
-
 }

@@ -33,6 +33,7 @@
 .dogs {
   background: transparent;
   height: 330px;
+  width: auto;
 }
 
 .button {

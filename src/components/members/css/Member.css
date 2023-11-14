@@ -6,8 +6,21 @@
     text-decoration: none;
     border: 1px solid black;
     padding: 10px;
+    height: 200px;
+    width: auto;
+    border-radius: 10px;
+    background: linear-gradient(
+    270deg,
+    rgba(123, 184, 177, 1) 1%,
+    rgba(247, 247, 239, 1) 100%
+  );
 }
 .member-image{
     height: 100px;
+    width: auto;
 
+}
+.member-wrapper p {
+    padding-top: 10px;
+    color: #253649;
 }
