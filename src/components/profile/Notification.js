@@ -4,9 +4,16 @@ import { AuthContext } from "../../firebase/context/AuthContext"
 import "./css/Notifications.css"
 
 
-const Notification = ({onDelete}) => {
+const Notification = () => {
 
   const { currentUser } = useContext(AuthContext);
+
+  const handleDeleteNotification = (id) => {
+    const request = new Request();
+    request.delete(`/api/notifications/${id}`).then(() => {
+      window.location = '/notifications'
+    });
+  }
 
   return (
 
@@ -20,7 +27,7 @@ const Notification = ({onDelete}) => {
         <p>Date: {notification.entries.Date}</p>
         <p>Message: {notification.entries.Message}</p>
         <button>Accept</button>
-        <button onClick={() => onDelete(notification.id)}>Reject</button>
+        <button onClick={() => handleDeleteNotification(notification.id)}>Reject</button>
       </div>
     ))
   ) : (
