@@ -5,10 +5,10 @@ import "./css/SideBar.css"
 const Sidebar = ({setSelectedOption}) => {
   return (
     <>    
-    <div className='sidebar-container'>Sidebar
-    <button onClick={()=> setSelectedOption("user")}> My Info</button>
+    <div className='sidebar-container'>
+    <button className="side-button" onClick={()=> setSelectedOption("user")}> My Info</button>
 
-    <button onClick={()=> setSelectedOption("dog")}> My Dogs</button>
+    <button className="side-button" onClick={()=> setSelectedOption("dog")}> My Dogs</button>
     </div>
     </>
   )

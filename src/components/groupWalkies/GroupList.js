@@ -9,7 +9,7 @@ const GroupList = ({ groupWalkies, users }) => {
       <>
       <Link
         key={groupWalk.id}
-        to={{ pathname: `/groups/${groupWalk.id}`, state: { groupWalk } }}
+        to={{ pathname: `/groupwalkies/${groupWalk.id}`, state: { groupWalk } }}
         className="group-link"
       >
         <li key={id} className="list">
