@@ -25,6 +25,7 @@ import CurrentUserDetail from "../components/profile/currentUser/CurrentUserDeta
 import WalkieTalkie from "../firebase/WalkieTalkie";
 import { AuthContext } from "../firebase/context/AuthContext";
 import GroupWalkieForm from "../components/groupWalkies/GroupWalkieForm";
+import Footer from "../components/Footer";
 
 
 
@@ -254,6 +255,7 @@ const MainContainer = () => {
 
         {/* <MembersList users={users}/> */}
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
         
