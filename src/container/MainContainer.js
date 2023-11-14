@@ -25,6 +25,8 @@ import CurrentUserDetail from "../components/profile/currentUser/CurrentUserDeta
 import WalkieTalkie from "../firebase/WalkieTalkie";
 import { AuthContext } from "../firebase/context/AuthContext";
 import GroupWalkieForm from "../components/groupWalkies/GroupWalkieForm";
+import Footer from "../components/Footer";
+import Faq from "../components/FAQ/Faq";
 import CurrentUserForm from "../components/profile/currentUser/CurrentUserForm";
 
 
@@ -273,8 +275,19 @@ const MainContainer = () => {
           }
         />
 
+<Route
+          path="/faq"
+          element={
+            <ProtectedRoute>
+              <Faq/>
+            </ProtectedRoute>
+          }
+        />
+      
+
         {/* <MembersList users={users}/> */}
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
         
