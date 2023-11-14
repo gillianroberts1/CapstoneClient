@@ -31,7 +31,7 @@ function NavBar() {
     <>
       <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
             <div className="logo-container">
               <img src={logo} alt="Logo" className="logo" />
             </div>
@@ -63,18 +63,6 @@ function NavBar() {
               </Nav.Link>
 
               <Nav.Link
-                href="/walkies"
-                className={
-                  activeLink === "walkies"
-                    ? "active navbar-link"
-                    : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("walkies")}
-              >
-                Walkies
-              </Nav.Link>
-
-              <Nav.Link
                 href="/groups"
                 className={
                   activeLink === "group-walkies"
@@ -84,6 +72,17 @@ function NavBar() {
                 onClick={() => onUpdateActiveLink("group-walkies")}
               >
                 Group Walks
+              </Nav.Link>
+              <Nav.Link
+                href="/walkietalkie"
+                className={
+                  activeLink === "walkietalkie"
+                    ? "active navbar-link"
+                    : "navbar-link"
+                }
+                onClick={() => onUpdateActiveLink("walkietalkie")}
+              >
+                Walkie Talkie
               </Nav.Link>
 
               <Nav.Link
@@ -97,17 +96,7 @@ function NavBar() {
               >
                 Profile
               </Nav.Link>
-              <Nav.Link
-                href="/walkietalkie"
-                className={
-                  activeLink === "walkietalkie"
-                    ? "active navbar-link"
-                    : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("walkietalkie")}
-              >
-                Walkie Talkie
-              </Nav.Link>
+              
             </Nav>
           </Navbar.Collapse>
         </Container>
