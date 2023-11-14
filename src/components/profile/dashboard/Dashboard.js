@@ -47,7 +47,7 @@ const Dashboard = () => {
               {user.favourites && user.favourites.length > 0 ? (
                 <ul className='fav-members'>
                   {user.favourites.map((favoriteUser) => (
-                    <li key={favoriteUser.id}><p className='fav-members'>{favoriteUser.firstName}</p></li>
+                    <li key={favoriteUser.id}><p className='fav-members'><a href={`/members/${favoriteUser.id}`}><img src={favoriteUser.photoURL} alt="favourite-member" className='fav-image'/>{" "}{favoriteUser.firstName}</a></p></li>
                   ))}
                 </ul>
               ) : (
