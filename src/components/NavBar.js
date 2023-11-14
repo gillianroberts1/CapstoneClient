@@ -64,7 +64,7 @@ function NavBar() {
               </Nav.Link>
 
               <Nav.Link
-                href="/groups"
+                href="/groupwalkies"
                 className={
                   activeLink === "group-walkies"
                     ? "active navbar-link"

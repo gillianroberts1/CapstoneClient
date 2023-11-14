@@ -24,6 +24,9 @@ import DogCard from "../components/profile/dogs/DogCard";
 import CurrentUserDetail from "../components/profile/currentUser/CurrentUserDetail";
 import WalkieTalkie from "../firebase/WalkieTalkie";
 import { AuthContext } from "../firebase/context/AuthContext";
+import GroupWalkieForm from "../components/groupWalkies/GroupWalkieForm";
+
+
 
 const MainContainer = () => {
   const [users, setUsers] = useState([]);
@@ -31,6 +34,8 @@ const MainContainer = () => {
   const [walkies, setWalkies] = useState([]);
   const [groupWalkies, setGroupWalkies] = useState([]);
   const [userDogs, setUserDogs] = useState([]);
+  const [location, setLocation] = useState([])
+
 
   useEffect(() => {
     const request = new Request();
@@ -39,17 +44,23 @@ const MainContainer = () => {
     const dogPromise = request.get("/api/dogs");
     const walkiesPromise = request.get("/api/walkies");
     const groupWalkiesPromise = request.get("/api/groupwalkies");
+    const locationPromise = request.get("/api/locations");
+
 
     Promise.all([
       userPromise,
       dogPromise,
       walkiesPromise,
       groupWalkiesPromise,
+      locationPromise
+
     ]).then((data) => {
       setUsers(data[0]);
       setDogs(data[1]);
       setWalkies(data[2]);
       setGroupWalkies(data[3]);
+      setLocation(data[4]);
+
     });
   }, []);
 
@@ -73,6 +84,14 @@ const MainContainer = () => {
     const request = new Request();
     request.post("/api/dogs", dog).then(() => {});
   };
+
+  const handleGroupWalk = (groupWalk)=>{
+    fetch("/api/groupwalkies", {
+      method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(groupWalk)
+    })
+    // window.location ='/group'
 
   const handleDeleteDog = (id) => {
     const request = new Request();
@@ -105,6 +124,7 @@ const MainContainer = () => {
           console.log("User has not been removed due to an error");
         }
       })
+
   }
 
   const { currentUser } = useContext(AuthContext);
@@ -112,6 +132,8 @@ const MainContainer = () => {
     if (!currentUser) {
       return <Navigate to="/login" />;
     }
+
+
 
     return children;
   };
@@ -183,7 +205,7 @@ const MainContainer = () => {
           }
         />
         <Route
-          path="/newDog"
+          path="/newDog" 
           element={
             <ProtectedRoute>
               <DogForm onCreate={handleAddDog} />
@@ -214,6 +236,17 @@ const MainContainer = () => {
             </ProtectedRoute>
           }
         />
+
+
+      <Route
+          path="/creategroupwalk"
+          element={
+            <ProtectedRoute>
+              <GroupWalkieForm groupWalkies={groupWalkies}  onCreate={handleGroupWalk}/>
+            </ProtectedRoute>
+          }
+        />
+
         {/* <MembersList users={users}/> */}
       </Routes>
     </BrowserRouter>
