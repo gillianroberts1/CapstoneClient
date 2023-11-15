@@ -17,9 +17,6 @@ font-size: small;
 
 const Footer = () => {
     return ( 
-
-
-
         <Paragraph>Wiggle Waggle Walks™ is a trademark of Wiggle Waggle Walks International Limited. 
          ©2023 Wiggle Waggle Walks International Limited. All Rights Reserved.</Paragraph>
      );
