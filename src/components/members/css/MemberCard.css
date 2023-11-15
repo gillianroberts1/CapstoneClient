@@ -53,7 +53,8 @@
   width: 150px;
   padding: 10px;
   border-radius: 20px;
-  box-shadow: -5px 5px 30px #ffffff, 5px -5px 100px #9ccac5
+  box-shadow: -5px 5px 30px #ffffff, 5px -5px 100px #9ccac5;
+  cursor: pointer;
 }
 
 .mc-button:hover{

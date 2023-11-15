@@ -24,8 +24,8 @@ const Profile = () => {
 
         <div className="detail">
           <Detail selectedOption={selectedOption} />
-          <button className="logout" onClick={() => signOut(auth)}>
-            Logout
+          <button className="logout-button" onClick={() => signOut(auth)}>
+            <p className="logout-button-info">Logout</p>
           </button>
         </div>
         <div className="dashboard">
