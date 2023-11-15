@@ -119,7 +119,7 @@ const MemberCard = ({ users }) => {
             <br />
             Area: {selectedUser.area}
             <br />
-            Distance walked: {selectedUser.distance} miles
+            {/* Distance walked: {selectedUser.distance} miles */}
             <br />
 
               <button className="mc-button">

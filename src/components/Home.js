@@ -25,11 +25,14 @@ const Home = () => {
         </div>
       </div>
       <div className="button">
+        {!currentUser && (
         <button className="enter">
           <Link to="/login" className="login">
             Get Started
           </Link>
         </button>
+        )}
+
       </div>
     </>
   );
