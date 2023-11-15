@@ -15,14 +15,16 @@ const Dashboard = () => {
             <div className="distance">
               <p className="title">Total distance walked</p>
               <p className="data">
+
                 {/* {currentUser.totalDistance}  */}
                 12.3 miles
               </p>
+
             </div>
             <div className="walkies">
               <p className="title">Total walkies attended</p>
               <p className="data">
-                {/* {currentUser.walkies ? currentUser.walkies.length : 0} */}2
+
               </p>
             </div>
             <div className="group-walkies">
