@@ -87,6 +87,15 @@ function NavBar() {
               >
                 Walkie Talkie
               </Nav.Link>
+              <Nav.Link
+                href="/faq"
+                className={
+                  activeLink === "faq" ? "active navbar-link" : "navbar-link"
+                }
+                onClick={() => onUpdateActiveLink("faq")}
+              >
+                FAQ
+              </Nav.Link>
 
               <Nav.Link
                 href="/profile"
@@ -104,19 +113,6 @@ function NavBar() {
                   </div>
                 )}
               </Nav.Link>
-
-              <Nav.Link
-                href="/faq"
-                className={
-                  activeLink === "faq"
-                    ? "active navbar-link"
-                    : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("faq")}
-              >
-                FAQ
-              </Nav.Link>
-
             </Nav>
           </Navbar.Collapse>
         </Container>

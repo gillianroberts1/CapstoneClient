@@ -16,7 +16,9 @@
   width: 100%;
 }
 .navbar-nav {
-  padding:70px 0px 0px 180px
+
+  padding: 70px 0px 0px 110px;
+
 }
 
 nav.navbar {
@@ -67,7 +69,6 @@ nav.navbar .navbar-nav .nav-link.navbar-link:hover {
 nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
   opacity: 1;
-  
 }
 
 /* toggle */
@@ -137,14 +138,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .navbar-link .account-info img {
-  width: 70px; 
-  height: 70px ;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .navbar-link .account-info span {
-  font-size: 10px; 
+  font-size: 10px;
   margin-right: 5px;
 }
 
@@ -168,5 +169,3 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     max-width: 960px;
   }
 }
-
-

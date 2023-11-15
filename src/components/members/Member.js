@@ -24,8 +24,10 @@ const Member = ({ user }) => {
         <p>
       {isUserInFavorites() ? <FaHeart /> : <FaRegHeart />}
       </p>
+
       <img src={user.photoURL} alt="user" className="member-image" />
       <p className="member-name">
+
         {user.firstName} {user.lastName}
       </p>
     </div>

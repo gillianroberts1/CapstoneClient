@@ -12,11 +12,10 @@ const Home = () => {
       <div className="home-container">
         <div className="home-wrapper">
           <div className="details">
-            <p className="welcome">
-              Welcome to </p>
-              <p className="wiggle">Wiggle Waggy Walks!</p>
-              {/* {currentUser && `${currentUser.firstName}`} */}
-          
+            <p className="welcome">Welcome to </p>
+            <p className="wiggle">Wiggle Waggy Walks!</p>
+            {/* {currentUser && `${currentUser.firstName}`} */}
+
             {/* {currentUser && <img src={currentUser.photoURL} alt='' style={{ height: '200px', width: '200px', objectFit: 'cover', borderRadius: '50%'}}/>}<br></br>
              */}
           </div>
