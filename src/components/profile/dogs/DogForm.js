@@ -128,8 +128,8 @@ const DogForm = ({ onCreate }) => {
       </div>
       <div className="dogform-card">
 
-      <h2>Add your dog's details:</h2>
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <h2 className="df-title">Add your dog's details:</h2>
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="df-form">
         <label className="label">
           {" "}
           Dog Name:
@@ -251,7 +251,7 @@ const DogForm = ({ onCreate }) => {
           id="file"
           onChange={handleFileChange}
         />
-        <button type="submit">Save</button>
+        <button type="submit" className="df-button"><p className="df-button-info">Save</p></button>
       </form>
     </div>
     <div className="dogimg2-card" >

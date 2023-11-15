@@ -4,6 +4,8 @@ import { auth, storage, db } from "../firebase.js";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
+import logoSmall from "./images/small_logo.png";
+
 
 const Register = ( {onCreate} ) => {
   const [err, setErr] = useState(false);
@@ -85,7 +87,7 @@ const Register = ( {onCreate} ) => {
   return (
     <div className="formContainer">
       <div className="formWrapper">
-        <span className="logo">SJG Chat</span>
+      <img src={logoSmall} className="small-logo"/>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit} id="register">
           <input type="text" placeholder="first name" name="firstName" onChange={handleInputChange}/>

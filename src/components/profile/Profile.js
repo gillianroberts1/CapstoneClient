@@ -18,15 +18,15 @@ const Profile = ( {users, onCreateWalkie, onDeleteNotification} ) => {
         </div>
 
         <div className="notifications">
-          <button onClick={() => setSelectedOption("notifications")}>
-            Notifications
+          <button onClick={() => setSelectedOption("notifications")} className="notif-button">
+            <p className="notif-button-info">Notifications</p>
           </button>
         </div>
 
         <div className="detail">
           <Detail selectedOption={selectedOption} users={users} onCreateWalkie={onCreateWalkie} onDeleteNotification={onDeleteNotification}/>
-          <button className="logout" onClick={() => signOut(auth)}>
-            Logout
+          <button className="logout-button" onClick={() => signOut(auth)}>
+            <p className="logout-button-info">Logout</p>
           </button>
         </div>
         <div className="dashboard">

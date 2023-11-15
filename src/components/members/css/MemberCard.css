@@ -1,6 +1,6 @@
 .member-card-container {
   margin-top: 30px;
-  min-height: 90vh;
+  min-height: 93vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,13 +14,14 @@
 
 .member-card-wrapper {
   display: flex;
-  flex-direction: column;
-  margin: 0px auto;
+  flex-direction: row;
+  margin: 0px 0px;
   text-align: center;
-  padding: 3%;
-  height: 80%;
+  padding: 2% 3%;
+  height: auto;
   width: 90%;
-  max-width: 500px;
+  max-width: 60vh;
+  max-height: 60vh;
   border-radius: 10px;
   box-shadow: -7px 7px 100px #e6e6e6, 7px -7px 100px #ffffff;
 }
@@ -28,14 +29,29 @@
   flex: 1;
   padding-top: 10px;
 }
+.dog-details {
+  flex: 2 right;
+  text-align: left !important;
+  justify-content: left;
+  text-decoration: none;
+  color: black;
+  justify-content: center;
+  height:auto;
+  margin: 0px 50px 0px 0px;
+}
+
+.dogs-list{
+  padding-bottom: 40px;
+  list-style: none;
+}
 
 .card-details {
   padding-top: 10px;
   font-size: 18px;
 }
-.image {
-  height: auto;
-  width: 100%;
+.mc-image {
+  height: 500px;
+  width: auto;
   max-width: 60%;
 }
 
@@ -45,11 +61,44 @@
   font-size: 24px;
 }
 
-.dogs {
-  text-decoration: none;
-  list-style: none;
+
+.mc-button{
+  /* background-color: #9ccac5; */
+  background-color: white;
+  align-items: center;
+  margin-top: 10px;
+  width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: -5px 5px 30px #ffffff, 5px -5px 100px #9ccac5;
+  cursor: pointer;
 }
 
+.mc-button:hover{
+  background-color: #9ccac5;
+}
+.mc-button-info{
+  color: #9ccac5;
+  text-decoration: none;
+  font-size: 15px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.mc-button-info:hover{
+  color: white;
+}
+
+.heart-button{
+  cursor: pointer;
+  padding-bottom: 3%;
+}
+
+.heart-image{
+  font-size:25px;
+}
+.heart-image:hover{
+  font-size:27px;
+}
 /* .button-container{
   display: flex;
   justify-content: center;
@@ -80,13 +129,7 @@
 
 
 
-.dog-details {
-  flex: 2 right;
-  text-align: start !important;
-  text-decoration: none;
-  color: black;
-  justify-content: center;
-}
+
 
 .dog-link {
   text-decoration: none;
@@ -107,6 +150,9 @@
   margin-bottom: 10px; 
   /* padding: 20px;
   justify-content: center; */
+
+
+/* }  */
 
 /* .dog-img-sm {
   height: 50px;

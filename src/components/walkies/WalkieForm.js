@@ -54,7 +54,7 @@ const WalkieForm = () => {
       <div className='walkieform-card'>
     <form onSubmit={handleSubmit}>
       <label>
-        <h2>Invite on a walk:</h2>
+        <h2 className='wf-title'>Invite on a walk:</h2>
         <input type='text' value={location} placeholder='location' onChange={e => setLocation(e.target.value)} />
       </label>
       <label>
@@ -64,7 +64,7 @@ const WalkieForm = () => {
         Message:
         <input type="textarea" value={message} onChange={e => setMessage(e.target.value)} />
       </label>
-      <button type="submit">Send Notification</button>
+      <button type="submit" className='wf-button'><p className='wf-button-info'>Send Notification</p></button>
     </form>
     </div>
     <div className='dog2-card'>

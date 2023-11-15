@@ -1,5 +1,5 @@
 .walkieform-container {
-    height: 90vh;
+    height: 93vh;
     display: flex;
     align-items: center;
     /* text-align: center; */
@@ -51,3 +51,33 @@
     display: block;
   }
   
+  .wf-button{
+    background-color: #9ccac5;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20%;
+    width: 60%;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: -7px 7px 30px #9ccac5, 7px -7px 100px #ffffff;
+    cursor: pointer;
+  }
+
+  .wf-button:hover{
+    background-color: white;
+  }
+  .wf-button-info{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-variant: small-caps;
+    font-weight: bold;
+  }
+  .wf-button-info:hover{
+    color: #9ccac5;
+
+  }
+
+  .wf-title{
+    padding-bottom: 10px;
+  }

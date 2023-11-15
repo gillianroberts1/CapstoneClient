@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./css/GroupWalkieForm.css"
-import dog from "../images/assets/dog2.png"
+import dog from "../images/assets/dog7.png"
 import { storage } from '../../firebase';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 

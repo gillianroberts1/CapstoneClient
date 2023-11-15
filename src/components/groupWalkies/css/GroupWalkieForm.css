@@ -1,5 +1,5 @@
 .gw-form-container {
-    height: 90vh;
+    height: 93vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,9 +53,23 @@
   }
   
   .gw-button{
-    background-color:rgba(123, 184, 177, 1);
-    color: white;
-    border: none;
-    padding: 6px;
-    border-radius: 3px;
+      background-color: #9ccac5;
+      align-items: center;
+      margin-top: 10px;
+      width: 150px;
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: -7px 7px 30px #9ccac5, 7px -7px 100px #ffffff;
+      border: none;
+      color: white;
+      font-variant: small-caps;
+      font-size: 15px;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 30%;
+  }
+  .gw-button:hover{
+    background-color: white;
+    color: #9ccac5;
   }

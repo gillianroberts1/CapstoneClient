@@ -3,14 +3,30 @@
   width: 150px;
   display: inline-grid;
   gap: 30px;
+  margin-top: 10%;
   
 }
 
 
-.side-button {
+.sb-button {
   border-radius: 10px;
-  background: #d4e5de;;
-  box-shadow: inset -11px 11px 22px #bababa, inset 11px -11px 22px #ffffff;
+  background: #ffffff;
+  /* box-shadow: inset -11px 11px 22px #bababa, inset 11px -11px 22px #ffffff; */
   border: none;
-  
+  cursor: pointer;
+  box-shadow: -5px 5px 30px #9ccac5, 5px -5px 100px #ffffff;
+}
+.sb-button:hover{
+  background-color: #9ccac5;
+}
+.sb-button-info{
+  color: #9ccac5;
+  text-decoration: none;
+  font-size: 25px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.sb-button-info:hover{
+  color: #ffffff;
+
 }
