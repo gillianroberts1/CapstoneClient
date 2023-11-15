@@ -44,6 +44,7 @@ height: 530px;
 .button {
   text-align: center;
   /* background-color: rgb(205, 218, 205); */
+
   /* height: 36vh; */
   /* padding-top: 20px; */
   padding: 10px;
@@ -56,6 +57,7 @@ height: 530px;
   border-radius: 30px;
   background-color: white;
   border: none;
+  transition: all 0.3s ease;
 }
 .enter:hover {
   background-color: #9ccac5;
@@ -74,7 +76,6 @@ height: 530px;
 p {
   text-decoration: none;
 }
-
 
 .details {
   flex: 1;

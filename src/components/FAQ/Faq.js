@@ -7,16 +7,12 @@ const Paragraph = styled.p `
 
 `
 
-
-
-
-
 const Faq = () => {
   return (
     <div className='block-faqpage'>
       <div className="faq-container">
 
-        <h2>FAQ</h2>
+        <h2>FAQ</h2><br></br>
         <Collapse className ="collapse" accordion defaultActiveKey={['1']}>
             <Panel className='headerFAQ' header= "How can I join the meetup group?" key="1">
                 <Paragraph > The meetup is designed to bring together dog

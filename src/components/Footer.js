@@ -19,6 +19,7 @@ const Paragraph = styled.p`
 `;
 
 const Footer = () => {
+
   return (
     <Paragraph>
       Wiggle Waggle Walks™ is a trademark of Wiggle Waggle Walks International

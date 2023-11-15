@@ -47,20 +47,27 @@
 
 /* .button-container{
   display: flex;
-  flex-wrap: wrap;
-  align-items: normal;
 
-} */
+  justify-content: center;
+  align-items: center;
+}
+
 .mem-btn {
   width: 160px;
-  height: auto;
-  margin: 2%;
-  padding: 5px;
-  border: 1px solid black;
+  height: 35px;
+  margin: 4%;
+  padding: 2px;
+  border: 2px solid black;
   border-radius: 10px;
   font-size: 16px;
   color: #253649;
+  transition: background-color 0.3s ease;
 }
+
+.mem-btn:hover {
+  background-color: rgb(140, 186, 140);
+  color: white;
+
 
 .mem-btn a {
   font-size: 16px;
@@ -86,16 +93,18 @@
 }
 
 .dog-container {
+  /* border: 1px solid black; */
   /* display: flex;
-  flex-direction: column; */
-  border: 1px solid black;
-  border-radius: 10px;
-  height: auto;
-  max-height: 150px;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0; */
+  /* border-radius: 10px;
+  height: 150px;
+
   margin: 5px;
-  margin-bottom: 10px;
-  padding: 20px;
-  justify-content: center;
+  margin-bottom: 10px; */
+  /* padding: 20px;
+  justify-content: center; */
 }
 /* .dog-img-sm {
   height: 50px;

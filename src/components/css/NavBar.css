@@ -6,8 +6,7 @@
 .navbar > .container-xl,
 .navbar > .container-xxl {
   align-items: center;
-  height: 102px;
-
+  height: 70px;
   justify-content: space-between;
   width: 100%;
   display: -webkit-inline-box;
@@ -17,7 +16,9 @@
   width: 100%;
 }
 .navbar-nav {
+
   padding: 70px 0px 0px 110px;
+
 }
 
 nav.navbar {

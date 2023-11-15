@@ -108,8 +108,7 @@ function NavBar() {
               >
                 {currentUser && (
                   <div className="account-info">
-                    <span>{currentUser.firstName}'s profile</span>
-
+                    {/* <span>{currentUser.firstName}'s profile</span> */}
                     <img src={currentUser.photoURL} alt="User" />
                   </div>
                 )}

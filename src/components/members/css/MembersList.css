@@ -1,10 +1,12 @@
 .members-list-container{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 60px;
     justify-content: center;
-    padding: 60px;
-    margin-bottom: 30px;
+    padding: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+
 }
 
 @media (max-width: 768px) {
