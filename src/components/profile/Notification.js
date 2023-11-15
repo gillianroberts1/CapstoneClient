@@ -43,7 +43,7 @@ const Notification = ({users, onDeleteNotification, onCreateWalkie}) => {
             <p>Location: <b>{notification.entries.Location}</b></p>
             <p>Date: <b>{new Date(notification.entries.Date).toLocaleDateString()}</b></p>
             <p>Time: <b>{new Date(notification.entries.Date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</b></p>            <p>Message: <b>{notification.entries.Message}</b></p>
-            <button className='mc-button' onClick={() => handleAccept(notification)}>Accept</button><br></br>
+            <button className='mc-button' onClick={() => handleAccept(notification)}>Accept</button>
             <button className='mc-button' onClick={() => handleDeleteNotification(notification.id)}>Reject</button>
           </div>
         )
