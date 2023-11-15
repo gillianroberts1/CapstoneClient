@@ -1,5 +1,5 @@
 .dogform-container {
-  height: 90vh;
+  height: 93vh;
   display: flex;
   align-items: center;
   /* text-align: center; */
@@ -53,4 +53,66 @@ input {
 }
 .label {
   display: block;
+}
+
+.df-button{
+  background-color: #9ccac5;
+  margin-left: 33%;
+  margin-top: 5%;
+  width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: -7px 7px 30px #9ccac5, 7px -7px 100px #ffffff;
+  cursor: pointer;
+}
+
+.df-button:hover{
+  background-color: white;
+}
+.df-button-info{
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.df-button-info:hover{
+  color: #9ccac5;
+}
+
+
+@media (max-width: 768px) {
+  .dogform-container {
+    flex-direction: column;
+    margin-top: 6%;
+  }
+
+  .dogimg1,
+.dogimg2 {
+  height: 300px;
+  width: auto;
+}
+
+.dogimg1-card,
+.dogimg2-card{
+  width: 100%;
+  flex: 0 0 10%;
+}
+
+.dogform-card{
+  padding: 10px;
+  margin: 0px 10px;
+  width: 90%;
+}
+
+input{
+  width: 80%;
+}
+
+.df-form{
+  font-size: 12px;
+}
+.df-title{
+  font-size: 15px;
+}
 }

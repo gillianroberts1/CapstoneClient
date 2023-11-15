@@ -39,11 +39,7 @@ const GroupCard = ({ groupWalkies, onAddUser, onRemoveUser }) => {
         </div>
 
         <div className="attendees">
-        {isCurrentUserInGroup ? (
-          <button className="join-btn" onClick={removeCurrentUser} >Withdraw</button>
-        ) : (
-          <button className="join-btn" onClick={addCurrentUser}>Join</button>
-          )}
+        
 
           {selectedWalk.users.map((user) => (
             <li className="users" key={user.id}>
@@ -52,6 +48,11 @@ const GroupCard = ({ groupWalkies, onAddUser, onRemoveUser }) => {
               </Link>
             </li>
           ))}
+          {isCurrentUserInGroup ? (
+          <button className="gc-button" onClick={removeCurrentUser} ><p className="gc-button-info">Withdraw</p></button>
+        ) : (
+          <button className="gc-button" onClick={addCurrentUser}><p className="gc-button-info">Join</p></button>
+          )}
         </div>
       </div>
     </div>

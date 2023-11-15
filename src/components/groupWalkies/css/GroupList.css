@@ -9,12 +9,12 @@
     justify-content: center;
     text-align: center;
     align-content: center;
-    padding: 40px 300px;
+    padding: 60px 300px;
 
     list-style: none;
-    margin-left: 15%;
+    /* margin-left: 15%;
     margin-right: 15%;
-    margin-top: 12%;
+    margin-top: 12%; */
 }
 
 h2{

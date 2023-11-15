@@ -25,7 +25,7 @@ const CurrentUserDetail = () => {
           <p>Gender: {currentUser.gender}</p>
 
           <Link to="/updateprofile">
-        <button>Update Profile</button>
+        <button className="cud-button"><p className="cud-button-info">Update Profile</p></button>
       </Link>
         </div>
       </div>

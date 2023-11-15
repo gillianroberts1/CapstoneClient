@@ -104,9 +104,10 @@ const MemberCard = ({ users }) => {
     <div className="member-card-container">
       <div className="member-card-wrapper">
         <div className="member-card-details">
-        <button onClick={handleButtonClick}>
-            {isUserInFavourites() ? <FaHeart size={25}/> : <FaRegHeart size={25}/>}
+        <button onClick={handleButtonClick} className="heart-button">
+            {isUserInFavourites() ? <FaHeart className="heart-image" /> : <FaRegHeart className="heart-image" />}
           </button>
+          <br/>
           <img src={selectedUser.photoURL} alt="user" className="image" />
           <p className="name">
             {selectedUser.firstName} {selectedUser.lastName}
@@ -122,8 +123,8 @@ const MemberCard = ({ users }) => {
             <br />
 
             <div className="button-container">
-              <button className="mem-btn">
-                <Link to="walkiesForm">Send Invitation</Link>
+              <button className="mc-button">
+                <Link to="walkiesForm"><p className="mc-button-info">Send Invitation</p></Link>
                 </button>
             </div>
 
