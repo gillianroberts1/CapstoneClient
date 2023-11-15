@@ -73,6 +73,7 @@
 
 .heart-button{
   cursor: pointer;
+  padding-bottom: 3%;
 }
 
 .heart-image{
