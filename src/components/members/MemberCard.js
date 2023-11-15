@@ -104,8 +104,8 @@ const MemberCard = ({ users }) => {
     <div className="member-card-container">
       <div className="member-card-wrapper">
         <div className="member-card-details">
-        <button onClick={handleButtonClick}>
-            {isUserInFavourites() ? <FaHeart size={25}/> : <FaRegHeart size={25}/>}
+        <button onClick={handleButtonClick} className="heart-button">
+            {isUserInFavourites() ? <FaHeart className="heart-image" /> : <FaRegHeart className="heart-image" />}
           </button>
           <img src={selectedUser.photoURL} alt="user" className="image" />
           <p className="name">
