@@ -23,7 +23,7 @@ const Dashboard = () => {
             </div>
             <div className="walkies">
               <p className="title">Total walkies attended</p>
-              <p className="data">
+              <p className="data"> 2
 
               </p>
             </div>
