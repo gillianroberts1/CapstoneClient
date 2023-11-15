@@ -27,36 +27,35 @@ h2 {
 }
 
 .attendees {
-  flex: 2 right;
+  /* flex: 2 right; */
   width: 35%;
   text-align: start !important;
-  overflow: scroll;
   color: #253649;
+  height: 80%;
 }
 
 .users {
   color: #253649;
 }
 
-button {
-  border: 1px solid black;
-  width: 80%;
-  margin-bottom: 10px;
-  color: #253649;
-  /* box-shadow: inset 8px 8px 16px #828282, inset -8px -8px 16px #ffffff; */
-}
 
 .gc-button{
   /* background-color: #9ccac5; */
   background-color: white;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 5%;
   margin-left: 20%;
   width: 40%;
   padding: 5px;
   border-radius: 20px;
   box-shadow: -7px 7px 30px #ffffff, 7px -7px 100px #9ccac5;
   cursor: pointer;
+
+}
+.button-container{
+  /* justify-content: end; */
+  text-align: end;
+  margin-top: 100%;
 }
 
 .gc-button:hover{
