@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./css/DogCard.css";
 import { AuthContext } from "../../../firebase/context/AuthContext";
 
 const DogCard = ({ onDelete }) => {
   const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const { id } = useParams();
   const [dog, setDog] = useState(null);
 
@@ -30,9 +31,10 @@ const DogCard = ({ onDelete }) => {
       <div className="dog-card-wrapper">
         <img className="dog-img" src={dog.photoURL} alt="image of dog"></img>
         <div className="dog-card-details">
-          <p>Name: {name}</p>
-          <p>Breed: {breed}</p>
-          <p>Gender: {capitalizedGender}</p>
+          <p>Name: <b>{name}</b></p>
+          <br/>
+          <p>Breed: <b>{breed}</b></p>
+          <p>Gender: <b>{capitalizedGender}</b></p>
           <p>Need Leash: {getSymbol(leash)}</p>
           <p>Neutered: {getSymbol(neutered)}</p>
           <p>Vaccinated: {getSymbol(vaccinated)}</p>
@@ -40,9 +42,14 @@ const DogCard = ({ onDelete }) => {
             Playfulness Rating:{" "}
             {rating > 0 ? "🐶 ".repeat(rating) : "not rated yet"}
           </p>
+          <button className="dg-back-button" onClick={()=> navigate(-1)} >
+          <p className="gd-back-button-info">Go Back</p>
+          </button>
+
           <div className="mem-btn">
             {currentUser.id === dog.user.id && (
-              <button onClick={() => onDelete(dog.id)}>Remove dog</button>
+              <button onClick={() => onDelete(dog.id)} className="dg-back-button">
+                <p className="gd-back-button-info">Remove dog</p></button>
             )}
           </div>
         </div>

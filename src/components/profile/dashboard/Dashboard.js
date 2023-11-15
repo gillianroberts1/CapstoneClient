@@ -15,15 +15,16 @@ const Dashboard = () => {
             <div className="distance">
               <p className="title">Total distance walked</p>
               <p className="data">
-                {/* {currentUser.totalDistance} miles */}
+
+                {/* {currentUser.totalDistance}  */}
                 12.3 miles
-                </p>
+              </p>
+
             </div>
             <div className="walkies">
               <p className="title">Total walkies attended</p>
               <p className="data">
-                {/* {currentUser.walkies ? currentUser.walkies.length : 0} */}
-                2
+
               </p>
             </div>
             <div className="group-walkies">
@@ -34,7 +35,7 @@ const Dashboard = () => {
               </p>
             </div>
             <div className="favourites">
-              <p className="title">Favourited members</p>
+              <p className="title">My friends</p>
 
               {currentUser.favourites && currentUser.favourites.length > 0 ? (
                 <ul className="fav-members">
@@ -54,11 +55,7 @@ const Dashboard = () => {
                   ))}
                 </ul>
               ) : (
-                <p>
-                  <Link to="/members" className="add-fav">
-                    Add member
-                  </Link>
-                </p>
+                <p className="data">0</p>
               )}
             </div>
           </>
