@@ -106,29 +106,38 @@ const GroupWalkieForm = ({ onCreate }) => {
         <div className="gw-form-container">
       <div className="gw-form-card">
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='gw-form'>
+                <h2>Create a new group walk:</h2>
+                <br/>
                 <label htmlFor="name">{" "}Walk Name
+                <br/>
                 <input type="text" 
                 name='name' 
                 placeholder='Enter walk name...' 
                  onChange={handleChange} 
+                 className='gw-input'
                  />
                 </label>
 
-
+<br/>
                 <label htmlFor="date">
                 {" "} Date and Time
+                <br/>
                 <input type="datetime-local" 
                     name="date" 
                     onChange={handleChange} 
+                    className='gw-input'
                 />
                 </label>
+                <br/>
 
                 <label htmlFor="location">{" "} Location
+                <br/>
                 <select name="location"
                  id="location" 
                  value={stateGroupWalkies.location} 
                   onChange={handleLocation}
+                  className='gw-input'
                   >
                    <option value="select-location">
                       Select a Location
@@ -140,10 +149,12 @@ const GroupWalkieForm = ({ onCreate }) => {
 <br/>
                 <label htmlFor="difficulty">{" "} 
                 Difficulty
+                <br/>
                 <select name="difficulty"
                  id="difficulty" 
                  value={stateGroupWalkies.difficulty}  
-                 onChange={handleChange}>
+                 onChange={handleChange}
+                 className='gw-input'>
                    
                    <option value="select-difficulty">
                       Select a Location
@@ -154,24 +165,28 @@ const GroupWalkieForm = ({ onCreate }) => {
                
 <br/>
                 <label htmlFor="distance">{" "}Distance (miles)
+                <br/>
                 <input type="number"
                  min="1" max="60" 
                  name="distance" 
                  value={stateGroupWalkies.distance} 
-                 onChange={handleChange} />
+                 onChange={handleChange} 
+                 className='gw-input'/>
                 </label>
-
+                <br/>
                 <label htmlFor="duration">{" "}Duration (mins)
+                <br/>
                 <input type="number" 
                 min="1" max="60" 
                 name="duration"
                  value={stateGroupWalkies.duration} 
-                 onChange={handleChange} />
+                 onChange={handleChange} 
+                 className='gw-input'/>
                 </label>
 
-                <input type='file' id='file' onChange={handleFileChange}></input>
+                <input type='file' id='file' onChange={handleFileChange} ></input>
 
-                <input type="submit" value="Create New Meet" />
+                <input type="submit" value="Create New Meet" className='gw-button'/>
             </form>
             </div>
             <div className='gw-image-card'>

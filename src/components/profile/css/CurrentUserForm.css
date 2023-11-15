@@ -14,14 +14,19 @@
 
 .dog-card {
   flex: 1;
+
 }
 .dog-image {
   height: 600px;
 }
+.extra{
+  flex:3;
+}
 .userform-card {
   flex: 2;
+  flex: 0 0 30%;
   background-color: #fff;
-  padding: 20px 60px;
+  padding: 30px 60px;
   border-radius: 10px;
   margin: 150px;
   width: auto;

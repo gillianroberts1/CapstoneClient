@@ -4,6 +4,8 @@ import { AuthContext } from "../../../firebase/context/AuthContext"
 import { storage } from "../../../firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import "./css/DogForm.css"
+import dog1 from "../../images/assets/dog6.png"
+import dog2 from "../../images/assets/dog5.png"
 
 const DogForm = ({ onCreate }) => {
   const { currentUser } = useContext(AuthContext);
@@ -120,11 +122,15 @@ const DogForm = ({ onCreate }) => {
 
   return (
 
-    <div className="dog-form">
+    <div className="dogform-container">
+      <div className="dogimg1-card">
+        <img src={dog2} alt="dog" className="dogimg1"/>
+      </div>
+      <div className="dogform-card">
 
-      Add New Dog
+      <h2>Add your dog's details:</h2>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <label>
+        <label className="label">
           {" "}
           Dog Name:
           <input
@@ -134,8 +140,8 @@ const DogForm = ({ onCreate }) => {
             onChange={handleInputChange}
           />
         </label>
-
-        <label>
+<br/>
+        <label className="label">
           {" "}
           Breed:
           <select
@@ -150,7 +156,9 @@ const DogForm = ({ onCreate }) => {
             {breedOptions}
           </select>
         </label>
-        <label>
+<br/>
+
+        <label className="label">
           Gender:
           <select
             name="gender"
@@ -165,8 +173,9 @@ const DogForm = ({ onCreate }) => {
             <option value="female">Female</option>
           </select>
         </label>
+        <br/>
 
-        <label>
+        <label className="label">
           Requires Leash:
           <select
             name="leash"
@@ -181,7 +190,9 @@ const DogForm = ({ onCreate }) => {
             <option value="false"><span>&#10008;</span></option>
           </select>
         </label>
-        <label>
+<br/>
+
+        <label className="label">
           Neutered:
           <select
             name="neutered"
@@ -196,7 +207,9 @@ const DogForm = ({ onCreate }) => {
             <option value="false"><span>&#10008;</span></option>
           </select>
         </label>
-        <label>
+<br/>
+
+        <label className="label">
           Vaccinated:
           <select
             name="vaccinated"
@@ -211,7 +224,9 @@ const DogForm = ({ onCreate }) => {
             <option value="false"><span>&#10008;</span></option>
           </select>
         </label>
-        <label>
+<br/>
+
+        <label className="label">
           Playfulness Rating:
           <select
             name="rating"
@@ -229,6 +244,8 @@ const DogForm = ({ onCreate }) => {
             <option value="5">5</option>
           </select>
         </label>
+<br/>
+
         <input
           type="file"
           id="file"
@@ -236,6 +253,11 @@ const DogForm = ({ onCreate }) => {
         />
         <button type="submit">Save</button>
       </form>
+    </div>
+    <div className="dogimg2-card" >
+    <img src={dog1} alt="dog" className="dogimg2" />
+
+    </div>
     </div>
   
   );

@@ -21,9 +21,11 @@ const GroupList = ({ groupWalkies, users }) => {
   });
   return (
     <>
+    <div className="main-container">
+    <button className="gwl-button"><Link to={{pathname: "/creategroupwalk"}}><p className="button-info">Create</p></Link></button>
       <div className="group-list-container">
       {groupNodes}
-      <button className="group-btn"><Link to={{pathname: "/creategroupwalk"}}>Create Group Walk</Link></button>
+      </div>
       </div>
     </>
   );
