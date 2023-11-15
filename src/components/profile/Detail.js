@@ -5,7 +5,7 @@ import CurrentUserDetail from "./currentUser/CurrentUserDetail";
 import { AuthContext } from "../../firebase/context/AuthContext";
 import Notification from "./Notification";
 
-const Detail = ({ selectedOption }) => {
+const Detail = ({ selectedOption, users, onCreateWalkie, onDeleteNotification }) => {
   const { currentUser } = useContext(AuthContext);
   const [user, setUser] = useState();
 
@@ -20,11 +20,11 @@ const Detail = ({ selectedOption }) => {
   return (
     <>
       <div>
-        {selectedOption === "user" ? <CurrentUserDetail user={user} /> : null}
+        {selectedOption === "user" ? <CurrentUserDetail user={user} onCreateWalkie={onCreateWalkie}/> : null}
         {selectedOption === "dog" ? (
           <DogDetail dogs={user ? user.dogs : []} />
         ) : null}
-        {selectedOption === "notifications" ? <Notification /> : null}
+        {selectedOption === "notifications" ? <Notification users={users} onDeleteNotification={onDeleteNotification} onCreateWalkie={onCreateWalkie}/> : null}
       </div>
     </>
   );

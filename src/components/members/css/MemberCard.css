@@ -61,6 +61,7 @@
   font-size: 24px;
 }
 
+
 .mc-button{
   /* background-color: #9ccac5; */
   background-color: white;
@@ -100,7 +101,6 @@
 }
 /* .button-container{
   display: flex;
-
   justify-content: center;
   align-items: center;
 }
@@ -127,10 +127,7 @@
   color: #253649;
 }
 
-.dogs {
-  text-decoration: none;
-  list-style: none;
-}
+
 
 
 
@@ -148,10 +145,12 @@
   /* border-radius: 10px;
   height: 150px;
 
+  
   margin: 5px;
-  margin-bottom: 10px; */
+  margin-bottom: 10px; 
   /* padding: 20px;
   justify-content: center; */
+
 
 /* }  */
 

@@ -7,8 +7,9 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import Dashboard from "./dashboard/Dashboard.js";
 
-const Profile = () => {
+const Profile = ( {users, onCreateWalkie, onDeleteNotification} ) => {
   const [selectedOption, setSelectedOption] = useState("user");
+
   return (
     <>
       <div className="profile-container">
@@ -23,7 +24,7 @@ const Profile = () => {
         </div>
 
         <div className="detail">
-          <Detail selectedOption={selectedOption} />
+          <Detail selectedOption={selectedOption} users={users} onCreateWalkie={onCreateWalkie} onDeleteNotification={onDeleteNotification}/>
           <button className="logout-button" onClick={() => signOut(auth)}>
             <p className="logout-button-info">Logout</p>
           </button>
