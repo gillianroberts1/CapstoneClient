@@ -30,9 +30,10 @@ const DogCard = ({ onDelete }) => {
       <div className="dog-card-wrapper">
         <img className="dog-img" src={dog.photoURL} alt="image of dog"></img>
         <div className="dog-card-details">
-          <p>Name: {name}</p>
-          <p>Breed: {breed}</p>
-          <p>Gender: {capitalizedGender}</p>
+          <p>Name: <b>{name}</b></p>
+          <br/>
+          <p>Breed: <b>{breed}</b></p>
+          <p>Gender: <b>{capitalizedGender}</b></p>
           <p>Need Leash: {getSymbol(leash)}</p>
           <p>Neutered: {getSymbol(neutered)}</p>
           <p>Vaccinated: {getSymbol(vaccinated)}</p>
