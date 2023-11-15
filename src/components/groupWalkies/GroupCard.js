@@ -24,6 +24,7 @@ const GroupCard = ({ groupWalkies, onAddUser, onRemoveUser }) => {
     <div className="group-card-container">
       <div className="group-card-wrapper">
         <div className="group-card-details">
+        <img src={selectedWalk.photoURL} className="gw-card-image"/>
           <h2>{selectedWalk.name}</h2>
           <p>
             Date: {selectedWalk.date} <br />
