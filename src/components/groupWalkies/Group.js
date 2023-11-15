@@ -9,7 +9,8 @@ const Group = ({ groupWalk }) => {
         <div className="gw-info">
         <h2>{groupWalk.name}</h2>
         
-          {groupWalk.date}{" "}&#9900;{" "}
+          {/* {groupWalk.date}{" "}&#9900;{" "} */}
+          {new Date(groupWalk.date).toLocaleDateString()}{"  "}&#9900;{"  "}
           {groupWalk.location}
           </div>
       </div>
