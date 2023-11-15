@@ -1,7 +1,7 @@
 .home-container {
-min-height: 100vh;
-  margin-top: 100px;
-  padding-top: 250px;
+min-height: 78vh;
+  /* margin-top: 100px; */
+  /* padding-top: 250px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,8 +36,10 @@ min-height: 100vh;
 }
 .dogs {
   background: transparent;
-  height: 500px;
+  height: 510px;
   width: auto;
+  margin-top: 105px;
+  margin-left: 30px;
   /* padding-bottom: 102px; */
 }
 
