@@ -38,6 +38,11 @@ h2 {
   color: #253649;
 }
 
+.gw-card-image{
+  height: 70%;
+  width: auto;
+}
+
 
 .gc-button{
   /* background-color: #9ccac5; */

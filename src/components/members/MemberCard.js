@@ -108,7 +108,7 @@ const MemberCard = ({ users }) => {
             {isUserInFavourites() ? <FaHeart className="heart-image" /> : <FaRegHeart className="heart-image" />}
           </button>
           <br/>
-          <img src={selectedUser.photoURL} alt="user" className="image" />
+          <img src={selectedUser.photoURL} alt="user" className="mc-image" />
           <p className="name">
             {selectedUser.firstName} {selectedUser.lastName}
           </p>
@@ -122,19 +122,17 @@ const MemberCard = ({ users }) => {
             Distance walked: {selectedUser.distance} miles
             <br />
 
-            <div className="button-container">
               <button className="mc-button">
                 <Link to="walkiesForm"><p className="mc-button-info">Send Invitation</p></Link>
                 </button>
-            </div>
 
 
           </div>
         </div>
         <div className="dog-details">
           {selectedUser.dogs.map((dog) => (
-            <div key={dog.id} className="dog-container">
-              <li className="dogs" key={dog.id}>
+            <ul key={dog.id} className="dog-container">
+              <li className="dogs-list" key={dog.id}>
                 <Link to={`/dogs/${dog.id}`} className="dog-link">
                   {dog.photoURL && <img src={dog.photoURL} alt={dog.name} />}<br></br>
                   <b>{dog.name}</b>
@@ -156,7 +154,7 @@ const MemberCard = ({ users }) => {
                   <br />
                 </Link>
               </li>
-            </div>
+            </ul>
           ))}
         </div>
       </div>

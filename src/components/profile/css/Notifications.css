@@ -5,4 +5,5 @@
   background: #d4e5de;
   box-shadow: inset -11px 11px 22px #bababa, inset 11px -11px 22px #ffffff;
   border: none;
+  cursor: pointer;
 }

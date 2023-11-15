@@ -17,8 +17,8 @@ const Profile = () => {
         </div>
 
         <div className="notifications">
-          <button onClick={() => setSelectedOption("notifications")}>
-            Notifications
+          <button onClick={() => setSelectedOption("notifications")} className="notif-button">
+            <p className="notif-button-info">Notifications</p>
           </button>
         </div>
 

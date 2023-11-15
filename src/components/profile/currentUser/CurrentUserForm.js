@@ -87,8 +87,8 @@ const CurrentUserForm = ({ onUpdateUser }) => {
           </label>
           <br />
           <br />
-          <button type="submit" className="userform-button">
-            Update User
+          <button type="submit" className="cuf-button">
+            <p className="cuf-button-info">Update User</p>
           </button>
         </form>
       </div>

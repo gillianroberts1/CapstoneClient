@@ -6,9 +6,9 @@ const Sidebar = ({setSelectedOption}) => {
   return (
     <>    
     <div className='sidebar-container'>
-    <button className="side-button" onClick={()=> setSelectedOption("user")}> My Info</button>
+    <button className="sb-button" onClick={()=> setSelectedOption("user")}> <p className='sb-button-info'>My Info</p></button>
 
-    <button className="side-button" onClick={()=> setSelectedOption("dog")}> My Dogs</button>
+    <button className="sb-button" onClick={()=> setSelectedOption("dog")}> <p className='sb-button-info'>My Dogs</p></button>
     </div>
     </>
   )

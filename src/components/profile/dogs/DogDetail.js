@@ -16,9 +16,11 @@ const DogDetail = ({ dogs }) => {
       <div className="dog-detail-header">My Dogs</div>
       <ul className="dog-list">{dogNodes}</ul>
 
-      <Link to="/newDog" className="mem-btn">
+<button className="dd-button">
+      <Link to="/newDog" className="dd-button-info">
         Add Dog
       </Link>
+      </button>
     </>
   );
 };

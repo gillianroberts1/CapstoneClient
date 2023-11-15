@@ -39,6 +39,17 @@
   padding-left: 465px;
 }
 
+.notif-button-info{
+  font-variant: small-caps;
+  font-size: 20px;
+  color: #9ccac5;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+
 .logout-button{
   /* background-color: #9ccac5; */
   background-color: white;
