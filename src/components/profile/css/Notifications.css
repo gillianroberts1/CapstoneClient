@@ -9,3 +9,23 @@
   border: none;
   cursor: pointer;
 }
+
+.mc-button{
+  /* background-color: #9ccac5; */
+  background-color: white;
+  align-items: center;
+  margin-top: 10px;
+  width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: -5px 5px 30px #ffffff, 5px -5px 100px #9ccac5;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.notification{
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
