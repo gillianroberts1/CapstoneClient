@@ -15,7 +15,9 @@
 }
 
 .formContainer {
-  background-color: #a7bcff;
+  // background-color: #a7bcff;
+  background: white;
+
   height: 100vh;
   display: flex;
   align-items: center;
@@ -29,16 +31,22 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    box-shadow: -7px 7px 100px #9ccac5, 7px -7px 100px #ffffff;
 
     .logo {
-      color: #5d5b8d;
+      color: #364f6b;
       font-weight: bold;
       font-size: 24px;
     }
 
+    .small-logo{
+      width: 118px;
+      height: auto;
+    }
+
     .title {
-      color: #5d5b8d;
-      font-size: 12px;
+      color: #253649;
+      font-size: 16px;
     }
 
     form {
@@ -50,23 +58,42 @@
         padding: 15px;
         border: none;
         width: 250px;
-        border-bottom: 1px solid #a7bcff;
+        border-bottom: 1px solid #9ccac5;
         &::placeholder {
           color: rgb(175, 175, 175);
         }
       }
 
       button {
-        background-color: #7b96ec;
-        color: white;
+        background-color: #9ccac5;
+        align-items: center;
+        margin-top: 0px;
+        margin-left: 27%;
+        width: 126px;
         padding: 10px;
-        font-weight: bold;
-        border: none;
-        cursor: pointer;
+        border-radius: 20px;
+        box-shadow: -7px 7px 30px #9ccac5, 7px -7px 100px #ffffff;
       }
     }
+    button:hover {
+      background-color: white;
+    }
+
+    .button-inform {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      font-variant: small-caps;
+      font-weight: bold;
+    }
+
+    .button-inform:hover {
+      color: #9ccac5;
+    }
+
+    a,
     p {
-      color: #5d5b8d;
+      color: #364f6b;
       font-size: 12px;
       margin-top: 10px;
     }

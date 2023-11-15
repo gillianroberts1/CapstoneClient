@@ -28,7 +28,7 @@ const CurrentUserForm = ({ onUpdateUser }) => {
     console.log("Submitting user data:", user);
     onUpdateUser(user)
       .then(() => {
-        navigate("/profile");
+        window.location="/profile";
       })
       .catch((error) => {
         console.error("Error updating user:", error);
