@@ -15,3 +15,29 @@
   font-size: 20px;
   font-weight: 700;
 }
+
+.dd-button{
+  /* background-color: #9ccac5; */
+  background-color: white;
+  align-items: center;
+  margin-top: 10px;
+  width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: -7px 7px 30px #ffffff, 7px -7px 100px #9ccac5;
+  cursor: pointer;
+}
+
+.dd-button:hover{
+  background-color: #9ccac5;
+}
+.dd-button-info{
+  color: #9ccac5;
+  text-decoration: none;
+  font-size: 18px;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+.dd-button-info:hover{
+  color: white;
+}
