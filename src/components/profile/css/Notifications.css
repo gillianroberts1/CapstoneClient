@@ -2,8 +2,10 @@
   padding: 20px;
   display: inline-grid;
   border-radius: 10px;
-  background: #d4e5de;
-  box-shadow: inset -11px 11px 22px #bababa, inset 11px -11px 22px #ffffff;
+  background: white;
+  /* box-shadow: inset -11px 11px 22px #bababa, inset 11px -11px 22px #ffffff; */
+  box-shadow: inset -2px 2px 10px #bababa, inset 11px -11px 22px #ffffff;
+
   border: none;
   cursor: pointer;
 }
