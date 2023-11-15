@@ -1,8 +1,7 @@
 .member-card-container {
-  margin-top: 30px;
+  margin-top: 50px;
   min-height: 93vh;
   display: flex;
-  align-items: center;
   justify-content: center;
   background: linear-gradient(
     270deg,
@@ -19,15 +18,19 @@
   text-align: center;
   padding: 2% 3%;
   height: auto;
-  width: 90%;
-  max-width: 60vh;
-  max-height: 60vh;
+  width: 100%;
+  max-width: 70vh;
+  max-height: 68vh;
   border-radius: 10px;
   box-shadow: -7px 7px 100px #e6e6e6, 7px -7px 100px #ffffff;
+
 }
 .member-card-details {
   flex: 1;
-  padding-top: 10px;
+}
+.mc-dog-image{
+  width: 80px;
+  height: auto;
 }
 .dog-details {
   flex: 2 right;
@@ -37,7 +40,9 @@
   color: black;
   justify-content: center;
   height:auto;
-  margin: 0px 50px 0px 0px;
+  margin: 40px 50px 0px 0px;
+  font-size: 13px;
+
 }
 
 .dogs-list{
@@ -47,11 +52,11 @@
 
 .card-details {
   padding-top: 10px;
-  font-size: 18px;
+  font-size: 15px;
 }
 .mc-image {
-  height: 500px;
-  width: auto;
+  height: auto;
+  width: 220px;
   max-width: 60%;
 }
 
@@ -59,6 +64,10 @@
   font-weight: bold;
   padding-top: 10px;
   font-size: 24px;
+}
+.dog-link{
+  color: black;
+
 }
 
 

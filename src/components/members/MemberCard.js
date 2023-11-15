@@ -134,7 +134,7 @@ const MemberCard = ({ users }) => {
             <ul key={dog.id} className="dog-container">
               <li className="dogs-list" key={dog.id}>
                 <Link to={`/dogs/${dog.id}`} className="dog-link">
-                  {dog.photoURL && <img src={dog.photoURL} alt={dog.name} />}<br></br>
+                  {dog.photoURL && <img src={dog.photoURL} alt={dog.name} className="mc-dog-image"/>}<br></br>
                   <b>{dog.name}</b>
                   <br />
                   {dog.breed}
