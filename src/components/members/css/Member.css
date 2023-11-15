@@ -6,7 +6,7 @@
     text-decoration: none;
     /* border: 1px solid black; */
     padding: 10px;
-    height: 200px;
+    height: 238px;
     width: auto;
     border-radius: 10px;
     background: linear-gradient(
@@ -16,11 +16,14 @@
   );
 }
 .member-image{
-    height: 100px;
-    width: auto;
+    height: auto;
+    width: 100px;
+    max-width: 100%;
 
 }
 .member-wrapper p {
     padding-top: 10px;
     color: #253649;
 }
+
+
