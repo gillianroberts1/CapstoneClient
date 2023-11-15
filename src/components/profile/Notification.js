@@ -5,7 +5,7 @@ import "./css/Notifications.css"
 import { useNavigate } from 'react-router-dom'
 
 const Notification = ({users, onDeleteNotification, onCreateWalkie}) => {
-
+  const navigate = useNavigate
   const { currentUser } = useContext(AuthContext);
 
   const handleAccept = (notification) => {
@@ -16,12 +16,15 @@ const Notification = ({users, onDeleteNotification, onCreateWalkie}) => {
   };
   
   const handleDeleteNotification = (id) => {
-    const request = new Request();
-    request.delete(`/api/notifications/${id}`).then(() => {
-      // window.location = '/notifications'
-      // useNavigate
+    fetch(`/api/notifications/${id}`, {
+      method: 'DELETE',
+    })
+    .then(() => {
+      navigate('/notifications');
+    })
+    .catch((error) => {
+      console.error('Error:', error);
     });
-    // onDeleteNotification(id);
   }
   
   return (
@@ -35,13 +38,13 @@ const Notification = ({users, onDeleteNotification, onCreateWalkie}) => {
     
       if (foundUser) {
         return (
-          <div key={index}>
+          <div className='notification' key={index}>
             <h4>From: {foundUser.firstName} {foundUser.lastName}</h4>
-            <p>Location: {notification.entries.Location}</p>
-            <p>Date: {notification.entries.Date}</p>
-            <p>Message: {notification.entries.Message}</p>
-            <button onClick={() => handleAccept(notification)}>Accept</button>
-            <button onClick={() => handleDeleteNotification(notification)}>Reject</button>
+            <p>Location: <b>{notification.entries.Location}</b></p>
+            <p>Date: <b>{new Date(notification.entries.Date).toLocaleDateString()}</b></p>
+            <p>Time: <b>{new Date(notification.entries.Date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</b></p>            <p>Message: <b>{notification.entries.Message}</b></p>
+            <button className='mc-button' onClick={() => handleAccept(notification)}>Accept</button><br></br>
+            <button className='mc-button' onClick={() => handleDeleteNotification(notification.id)}>Reject</button>
           </div>
         )
       }
