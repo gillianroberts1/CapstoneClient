@@ -71,6 +71,11 @@ button {
     padding: 0 150px;
   }
 }
+@media (max-width: 768px){
+.page-content {
+    padding: 30px;
+}
+}
 
 .headerFAQ{
   font-weight:bold;
