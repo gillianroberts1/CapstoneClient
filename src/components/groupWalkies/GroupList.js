@@ -24,7 +24,6 @@ const GroupList = ({ groupWalkies, users }) => {
     <div className="main-container">
     <button className="gwl-button"><Link to={{pathname: "/creategroupwalk"}}><p className="button-info">Create</p></Link></button>
       <div className="group-list-container">
-      
       {groupNodes}
       </div>
       </div>

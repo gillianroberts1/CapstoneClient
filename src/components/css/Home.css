@@ -1,4 +1,5 @@
 .home-container {
+height: 530px;
   margin-top: 100px;
   padding-top: 250px;
   display: flex;
@@ -17,6 +18,7 @@
 }
 
 .home-wrapper {
+  /* position: fixed; */
   padding: 0 20px;
   justify-content: center;
   display: flex;
@@ -36,14 +38,16 @@
   background: transparent;
   height: 500px;
   width: auto;
-  padding-bottom: 70px;
+  padding-bottom: 102px;
 }
 
 .button {
   text-align: center;
   /* background-color: rgb(205, 218, 205); */
-  height: 36vh;
-  padding-top: 10px;
+
+  /* height: 36vh; */
+  /* padding-top: 20px; */
+  padding: 10px;
 }
 
 .enter  {
@@ -53,6 +57,7 @@
   border-radius: 30px;
   background-color: white;
   border: none;
+  transition: all 0.3s ease;
 }
 .enter:hover {
   background-color: #9ccac5;
@@ -72,7 +77,6 @@ p {
   text-decoration: none;
 }
 
-
 .details {
   flex: 1;
   font-size: 40px;
@@ -89,4 +93,36 @@ p {
 .wiggle {
   font-weight: 700;
 }
+
+
+
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .home-container {
+    margin-top: 50px;
+    padding-top: 150px;
+  }
+
+  .home-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .home-image {
+    flex: 1;
+    width: 100%;
+  }
+
+  .dogs {
+    height: auto;
+    width: 100%;
+  }
+
+  .details {
+    padding-left: 20px;
+    font-size: 30px;
+  }
+}
+
 

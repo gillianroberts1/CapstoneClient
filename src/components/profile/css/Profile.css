@@ -1,5 +1,5 @@
 .profile-container {
-  padding: 30px;
+  padding: 20px;
   margin: 150px 50px;
   /* border: 2px solid black; */
   border-radius: 10px;
@@ -41,4 +41,29 @@
 
 .notifications a {
   color: #253649;
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    margin: 20px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "dashboard"
+      "notifications"
+      "sidebar"
+      "detail";
+  }
+  
+  .sidebar,
+  .notifications,
+  .logout {
+    padding-left: 10px;
+  }
+  .notifications{
+    height: 100px;
+  }
+  .sidebar{
+    display: flex;
+    flex-direction: row;
+  }
 }

@@ -1,7 +1,25 @@
 .members-list-container{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 60px;
     justify-content: center;
-    padding: 60px;
+    padding: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+
 }
+
+@media (max-width: 768px) {
+    .members-list-container {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+  
+      
+    }
+  
+    .member-image {
+      width: 80px; 
+      padding-left:50%;
+    }
+  }
