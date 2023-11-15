@@ -57,6 +57,7 @@
 .mc-image {
   height: auto;
   width: 220px;
+  max-height: 340px;
   max-width: 60%;
 }
 
