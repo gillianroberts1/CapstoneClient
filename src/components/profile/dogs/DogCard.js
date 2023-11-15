@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./css/DogCard.css";
+import { AuthContext } from "../../../firebase/context/AuthContext";
 
 const DogCard = ({ onDelete }) => {
+  const { currentUser } = useContext(AuthContext);
   const { id } = useParams();
   const [dog, setDog] = useState(null);
 
@@ -14,7 +16,7 @@ const DogCard = ({ onDelete }) => {
   }, [id]);
 
   if (!dog) {
-    return <div>No dog data available at the moment!</div>;
+    return <div>You don't have any dogs</div>;
   }
 
   const { name, breed, gender, leash, neutered, rating, vaccinated } = dog;
@@ -39,7 +41,9 @@ const DogCard = ({ onDelete }) => {
             {rating > 0 ? "🐶 ".repeat(rating) : "not rated yet"}
           </p>
           <div className="mem-btn">
-            <button onClick={() => onDelete(dog.id)}>Remove dog</button>
+            {currentUser.id === dog.user.id && (
+              <button onClick={() => onDelete(dog.id)}>Remove dog</button>
+            )}
           </div>
         </div>
       </div>

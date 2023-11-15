@@ -66,10 +66,8 @@ const MainContainer = () => {
     console.log("Posting user:", user);
     const request = new Request();
     request.post("/api/users", user).then(() => {
-      // window.location = '/'
     });
   };
-
 
   const handleAddDog = (dog) => {
     console.log("Updating Dogs:", dog);
@@ -77,12 +75,11 @@ const MainContainer = () => {
     request.post("/api/dogs", dog).then(() => {});
   };
 
-
-
   const handleGroupWalk = (groupWalk) => {
     const request = new Request();
     request.post("/api/groupwalkies", groupWalk).then(() =>{})
   }
+
   const handleUpdateUser = async (user) => {
     try {
       const response = await fetch(`/api/users/${user.id}`, {
@@ -101,8 +98,6 @@ const MainContainer = () => {
       console.error('Error updating user:', error.message);
     }
   };
-
-  
 
   const handleDeleteDog = (id) => {
     const request = new Request();
@@ -140,11 +135,15 @@ const MainContainer = () => {
       });
   };
 
-  
-
   const handleCreateWalkie = (walkie) => {
     const request = new Request();
     request.post("/api/walkies", walkie).then(() => {});
+  };
+
+  const handleDeleteNotification = (id) => {
+    const request = new Request();
+    request.delete(`/api/notifications/${id}`).then(() => {
+    });
   };
 
   const { currentUser } = useContext(AuthContext);
@@ -181,7 +180,7 @@ const MainContainer = () => {
           path="/profile"
           element={
             <ProtectedRoute>
-              <Profile />
+              <Profile users={users} onCreateWalkie={handleCreateWalkie} onDeleteNotification={handleDeleteNotification}/>
             </ProtectedRoute>
           }
         />
@@ -242,7 +241,7 @@ const MainContainer = () => {
           path="/dogs"
           element={
             <ProtectedRoute>
-              <DogDetail />
+              <DogDetail users={users} />
             </ProtectedRoute>
           }
         />
